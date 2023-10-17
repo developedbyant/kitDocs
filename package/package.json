@@ -1,0 +1,28 @@
+{
+    "name": "kitdocs",
+    "version": "0.0.6",
+    "type": "module",
+    "main": "./main.js",
+    "bin": "./main.js",
+    "files": [
+        "./kitDocs",
+        "./main.js",
+        "./app.json"
+    ],
+    "repository": {
+        "url": "https://github.com/developedbyant/kitdocs"
+    },
+    "homepage": "https://sveltecms.dev",
+    "description": "svelteCMS, all in one cms for your svelte kit projects.",
+    "keywords": [
+        "svelte",
+        "sveltekit",
+        "cms"
+    ],
+    "author": "DevelopedByAnt",
+    "license": "ISC",
+    "dependencies": {
+        "fs-extra": "^11.1.1",
+        "inquirer": "^9.1.5"
+    }
+}

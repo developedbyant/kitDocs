@@ -1,0 +1,39 @@
+{
+    "navLinks": [
+        {
+            "text": "Home",
+            "href": "/",
+            "external": false
+        },
+        {
+            "text": "Documentation",
+            "href": "/docs",
+            "external": false
+        }
+    ],
+    "socialMedias": {
+        "twitter": "https://twitter.com/svelteCMS",
+        "github": "https://github.com/svelteCMS"
+    },
+    "kitDocs": {
+        "Introduction": [
+            {
+                "title": "KitDocs",
+                "href": "/docs"
+            },
+            {
+                "title": "Installation",
+                "href": "/docs/installation"
+            },
+            {
+                "title": "Pages",
+                "href": "/docs/pages"
+            },
+            {
+                "title": "Custom style",
+                "href": "/docs/custom-style"
+            }
+        ]
+    },
+    "version": "0.0.6"
+}
