@@ -4,15 +4,19 @@
     import appData from "../../app.json"
     let modalDiv:HTMLDivElement
     let value:string = ""
-    let result:{title:string,href:string}[] = []
-    $: docLinks = Object.values(appData.kitDocs).flatMap(data => data.map(item => ({ title: item.title, href: item.href }))).slice(0,10)
+    let result:{title:string,href:string,description:string}[] = []
+    $: docLinks = Object.values(appData.kitDocs).flatMap(data => data.map(item => ({ title: item.title, href: item.href }))).slice(0,4)
     /** search generated docs */
     function search(e:KeyboardEvent){
-        const links = Object.values(appData.kitDocs).flatMap(data => data.map(item => ({ title: item.title, href: item.href })))
-        const searchResult = links.filter(data=>data.href.match(new RegExp(value,"ig")))
+        const links = Object.values(appData.kitDocs).flatMap(data => data.map(item => ({ title: item.title, href: item.href, description: item.description })))
+        const searchResult = links.filter(data=>data.href.match(new RegExp(value,"ig"))||data.title.match(new RegExp(value,"ig"))||data.description.match(new RegExp(value,"ig")))
         if(searchResult){
             result = searchResult.map(data=>{
-                return { title:data.title.replace(new RegExp(value, 'gi'), '<span style="color:var(--main-color)">$&</span>'),href:data.href }
+                return {
+                    title:data.title.replace(new RegExp(value, 'gi'), '<span style="color:var(--main-color)">$&</span>'),
+                    description:data.description.replace(new RegExp(value, 'gi'), '<span style="color:var(--main-color)">$&</span>'),
+                    href:data.href
+                }
             })
         }else result = []
     }
@@ -39,7 +43,10 @@
             {#if result.length>0}
                 <ul class="links">
                     {#each result as link (link.href)}
-                        <a href={link.href} class="link" on:click={resetAll}>{@html link.title}</a>  
+                        <a href={link.href} class="link" on:click={resetAll}>
+                            <p class="title">{@html link.title}</p>
+                            <p class="desc">{@html link.description}</p>
+                        </a>
                     {/each}
                 </ul>
             {:else if result.length===0 && value.trim()===""}
@@ -111,6 +118,10 @@
     }
     .link:hover{
         background-color: var(--app-bg);
+    }
+    .desc{
+        font-size: 13px;
+        font-weight: 200;
     }
     .noResult{
         display: flex;

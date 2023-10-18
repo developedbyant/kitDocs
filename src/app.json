@@ -19,21 +19,42 @@
         "Introduction": [
             {
                 "title": "KitDocs",
-                "href": "/docs"
+                "href": "/docs",
+                "description": "Build documentation site using svelteKit and kitDocs."
             },
             {
                 "title": "Installation",
-                "href": "/docs/installation"
+                "href": "/docs/installation",
+                "description": "How to install kitDocs."
             },
             {
                 "title": "Pages",
-                "href": "/docs/pages"
+                "href": "/docs/pages",
+                "description": "How to install kitDocs step by step."
             },
             {
                 "title": "Custom style",
-                "href": "/docs/custom-style"
+                "href": "/docs/custom-style",
+                "description": "Create custom style for kitDocs."
+            }
+        ],
+        "Special tags": [
+            {
+                "title": "ALL",
+                "href": "/docs/all",
+                "description": "Show highlighted code and add code to the page."
+            },
+            {
+                "title": "CODE",
+                "href": "/docs/code",
+                "description": "Add custom js code to script tag."
+            },
+            {
+                "title": "CSS",
+                "href": "/docs/style",
+                "description": "Adding custom style to page."
             }
         ]
     },
-    "version": "0.0.6"
+    "version": "0.0.7"
 }

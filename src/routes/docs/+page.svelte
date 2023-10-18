@@ -17,3 +17,18 @@
 <Header type="h2" text="How kitDocs work ?" />
 <Text>KitDocs uses <Link href="https://www.npmjs.com/package/globby">globby</Link> to read files,<Link href="https://www.npmjs.com/package/marked">marked</Link> to read markdown files and <Link href="https://www.npmjs.com/package/shiki">shiki</Link> for code highlighting<br />
 After that we covert your markdown files to svelte routes using our custom components from <InlineCode code="kitDocs/components"/>.<br /></Text>
+<Space />
+<div class="card">
+    HELLO
+</div>
+
+<style>
+    .card{
+        display:flex;
+        padding:10px;
+        border:1.5px solid var(--border-color);
+        background-color:var(--app-bg);
+        border-radius: 15px;
+        background-color: var(--app-fb);
+    }
+</style>

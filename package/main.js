@@ -23,14 +23,18 @@ if(process.argv.find(data=>data.includes("--dev"))) normalLog(PACKAGE_PATH)
 
 // confirm folder overwritten
 !newInstall ? okLog("Updating kitDocs") : okLog("Installing kitDocs")
-const cofirmed = (await inquirer.prompt({ type:"confirm",name:"data",message:"overWrite src/kitDocs ?"})).data
-if(!cofirmed) process.exit(1)
+const confirmed = (await inquirer.prompt({ type:"confirm",name:"data",message:"overWrite src/kitDocs ?"})).data
+if(!confirmed) process.exit(1)
 
 const createPagesDir = ()=>{
     const pagesExists = fs.existsSync(PAGES_PATH)
     if(!pagesExists){ fs.mkdirSync(PAGES_PATH) ; fs.writeFileSync(`${PAGES_PATH}/index.md`,defaultMd) }
 }
-const copyKitDocs = ()=> fs.copySync(`${PACKAGE_PATH}/kitDocs`,`${PROJECT_SRC}/kitDocs`)
+const copyKitDocs = async()=>{
+    fs.removeSync(`${PROJECT_SRC}/kitDocs`)
+    await new Promise(r=>setTimeout(r,1000))
+    fs.copySync(`${PACKAGE_PATH}/kitDocs`,`${PROJECT_SRC}/kitDocs`)
+}
 const copyAppJson = ()=> fs.copySync(`${PACKAGE_PATH}/app.json`,`${PROJECT_SRC}/app.json`)
 
 // run new installation
@@ -38,7 +42,7 @@ if(newInstall){
     // create pages dir and create default md page
     createPagesDir()
     // copy lasted version of kitDocs
-    copyKitDocs()
+    await copyKitDocs()
     // copy app.json file to project src
     copyAppJson()
     // log messages
@@ -47,8 +51,8 @@ if(newInstall){
     okLog(`visit https://kitdocs.dev/docs to get started`)
 }else{
     // copy lasted version of kitDocs
-    copyKitDocs()
+    await copyKitDocs()
     // log message
     okLog(`kitDocs was updated version:${kitDocsVersion}`)
-    normalLog(`Install dependencies:\n    run npm install ${DEPENDENCIES.join(" ")}\n    pnpm add ${DEPENDENCIES.join(" ")}`)
+    normalLog(`Install dependencies:\n    npm install ${DEPENDENCIES.join(" ")}\n    pnpm add ${DEPENDENCIES.join(" ")}`)
 }

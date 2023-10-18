@@ -7,7 +7,7 @@ import type { Token } from "marked"
 
 const highlighter = await getHighlighter({ theme:"css-variables" })
 type MetaData = { [key:string]:string }
-type AppData = { kitDocs:{[key:string]:{href:string,title:string}[]} }
+type AppData = { kitDocs:{[key:string]:{href:string,title:string,description:string}[]} }
 
 export default class MdToSvelte{
 
@@ -29,6 +29,7 @@ export default class MdToSvelte{
             const tokens = marked.lexer(fs.readFileSync(md).toString())
             let metaData:MetaData = {}
             let pageCode:string = "" // svelte page code
+            let pageStyle:string = "" // page style
             let jsCode:string = "" // code to be added after component imports
             let components:string[] = [] // components needed for page to work
             // loop md tokens
@@ -40,14 +41,17 @@ export default class MdToSvelte{
                 if(Object.keys(tokenRes.metaData).length>0) metaData=tokenRes.metaData
                 // add page code
                 pageCode+=tokenRes.pageCode
+                // add page style
+                pageStyle+=tokenRes.pageStyle
                 // add js code
                 jsCode+=tokenRes.jsCode
             }  
             // skip page if not metadata were found
-            if(!metaData["layout"]  || !metaData["title"]) continue
+            if(!metaData["layout"]  || !metaData["title"] || !metaData["description"]) continue
             // make page
             const scriptCode = this.scriptTag(metaData,components,jsCode)
             pageCode = `${scriptCode}\n\n${pageCode.trim()}`
+            if(pageStyle.trim()) pageCode+=`\n\n${this.styleTag(pageStyle)}`
             const { name:mdPageName } = path.parse(cleanMd.slice(5).trim())
             const routeMdDir = this.outPutDir+(mdPageName==="index"?"":`${mdPageName}/`)
             const routeMdPath = routeMdDir+"+page.svelte"
@@ -55,7 +59,7 @@ export default class MdToSvelte{
             // add data to app.json
             const layoutName = this.capitalize(metaData.layout)
             if(!appData['kitDocs'][layoutName]) appData['kitDocs'][layoutName] = []
-            appData['kitDocs'][layoutName].push({ title:metaData.title,href:mdHref })
+            appData['kitDocs'][layoutName].push({ title:metaData.title,href:mdHref,description:metaData.description })
             // Ensure the directory exists, then write the file
             fs.mkdirSync(routeMdDir, { recursive: true });
             fs.writeFileSync(routeMdPath,pageCode)
@@ -70,6 +74,7 @@ export default class MdToSvelte{
     /** Handle md token and return metadata and code */
     private handleToken(token:Token,components:string[]){
         let pageCode:string = ""
+        let pageStyle:string = ""
         let jsCode:string = ""
         const metaData:MetaData = {}
         // meta data
@@ -121,6 +126,10 @@ export default class MdToSvelte{
             else if((lang==="js [code]"||lang==="ts [code]"||lang==="javascript [code]"||lang==="typescript [code]")){
                 jsCode=token.text
             }
+            // add style
+            else if(lang==="css [code]"){
+                pageStyle+= `${token.text}\n`
+            }
             // add svelte code to page
             else if(lang==="svelte [add]"){
                 pageCode+= `${token.text}\n`
@@ -142,7 +151,7 @@ export default class MdToSvelte{
             pageCode+= marked.parse(token.raw)
         }
         // RETURN RESPONSE
-        return { metaData,pageCode,components,jsCode }
+        return { metaData,pageCode,components,jsCode,pageStyle }
     }
 
     /** Create page script tag */
@@ -156,6 +165,9 @@ export default class MdToSvelte{
         jsCode = `    // custom code\n${jsCode}`
         return`<script lang="ts">\n${meta}${comps}\n${jsCode}\n</script>`
     }
+
+    /** Create page style tag */
+    private styleTag(style:string){ return `<style>\n${style}</style>`}
 
     /** reverse string */
     private reverseString = (data:string)=>data.split('').reverse().join('')
