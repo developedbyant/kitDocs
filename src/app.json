@@ -53,6 +53,11 @@
                 "title": "CSS",
                 "href": "/docs/style",
                 "description": "Adding custom style to page."
+            },
+            {
+                "title": "Warning",
+                "href": "/docs/warning",
+                "description": "Display a warning message."
             }
         ]
     },

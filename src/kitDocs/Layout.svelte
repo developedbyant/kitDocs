@@ -29,7 +29,6 @@
         const newTheme:"dark"|"light" = e.detail
         appStore.update(data=>{ data['theme']=newTheme ; return data })
     }
-    $: console.log(data,"src/kitDocs/layout/Layout.svelte")
     // set mete tags
     $: url = $page.url.href
     $: appName = $metaTagsStore.appName

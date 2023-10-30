@@ -81,8 +81,8 @@
     }
  
     .subLink{
-        font-size: 15px;
-        font-weight: 400;
+        font-size: 14px;
+        font-weight: 600;
     }
     .subLink.active{
         color: var(--main-color);

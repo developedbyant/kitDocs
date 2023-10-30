@@ -22,12 +22,12 @@
         color: var(--header-color);
     }
     h1{
-        font-size: 30px;
-        font-weight: 400;
+        font-size: 35px;
+        font-weight: 900;
     }
     h2{
         font-size: 25px;
-        font-weight: 400;
+        font-weight: 800;
     }
     h3{
         font-size: 20px;

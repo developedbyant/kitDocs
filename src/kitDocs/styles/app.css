@@ -1,45 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-html{
-    scroll-behavior: smooth;
-}
-.shiki{
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: 300;
-    overflow-x: scroll;
-    & code{
-        display: flex;
-        flex-direction: column;
-        padding: 5px 0;
-    }
-}
-.shiki::-webkit-scrollbar {
-    height: 10px;
-}
-.shiki::-webkit-scrollbar-thumb {
-    background: var(--border-color); 
-    border: 1.5px solid var(--app-bg);
-    border-radius: 10px;
-}
-.shiki .line{
-    padding: 1px 10px;
-}
-.shiki .line.added{
-    background-color: var(--code-line-added-bg);
-}
-.shiki .line.removed{
-    background-color: var(--code-line-removed-bg);
-}
-
 /* dark mode */
 .kitDocs{
-    transition: background-color ease 0.3s,color ease 0.3s;
     /* app */
     --app-bg:#18181A;
     --app-fb:#27282D;
@@ -77,18 +37,6 @@ html{
     --code-text-color:var(--text-color);
     --code-line-added-bg:#4d8aac40;
     --code-line-removed-bg:#917a7a52;
-
-    --shiki-color-text: #b8cdd9;
-    --shiki-color-background: var(--app-fb);
-    --shiki-token-constant: #4EC9B0;
-    --shiki-token-string: #B58672;
-    --shiki-token-comment: #538b46;
-    --shiki-token-keyword: #B97FB4;
-    --shiki-token-parameter: #38bdf8;
-    --shiki-token-function: #dbdba6;
-    --shiki-token-string-expression: #CC9077;
-    --shiki-token-punctuation: #b8cdd9;
-    --shiki-token-link: #b8cdd9;
 }
 /* light mode */
 .kitDocs.light{
@@ -126,15 +74,4 @@ html{
     /* code */
     --code-bg:#f2f7fd;
     --code-text-color:#383838;
-    --shiki-color-text: #b8cdd9;
-    --shiki-color-background: #292929;
-    --shiki-token-constant: #4EC9B0;
-    --shiki-token-string: #B58672;
-    --shiki-token-comment: #538b46;
-    --shiki-token-keyword: #B97FB4;
-    --shiki-token-parameter: #38bdf8;
-    --shiki-token-function: #dbdba6;
-    --shiki-token-string-expression: #CC9077;
-    --shiki-token-punctuation: #b8cdd9;
-    --shiki-token-link: #b8cdd9;
 }
