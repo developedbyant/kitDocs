@@ -1,6 +1,6 @@
 {
     "name": "kitdocs",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "type": "module",
     "main": "./main.js",
     "bin": "./main.js",

@@ -9,7 +9,7 @@
 		"test": "vite build && vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"publish": "node package/build.js && cd ./package && npm publish && cd .."
+		"package": "node package/build.js && cd ./package && npm publish && cd .."
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-node": "^1.3.1",
