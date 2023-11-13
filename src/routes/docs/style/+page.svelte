@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { metaTagsStore } from "kitDocs/stores";
+    import { metaTagsStore } from "kitDocs/lib/stores";
     // set meta data
     metaTagsStore.update(data=>{ data.title="CSS";data.description="Adding custom style to page."; return data })
     import Header from 'kitDocs/components/Header.svelte';
@@ -10,8 +10,10 @@
 
 </script>
 
-<Header type="h1" text="Adding style" />
-<Text>To add style to the style tag, use the <InlineCode code="css [CODE]"/> tag after metadata code on top of your .md file.</Text>
+<Header type="h1" id="adding-style">
+    Adding style
+</Header>
+<Text>To add style to the style tag, use the <InlineCode code="css [CODE]" /> tag after metadata code on top of your .md file.</Text>
 <Code><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-string)">    ```css [CODE]</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">        </span><span style="color: var(--shiki-token-function)">.card</span><span style="color: var(--shiki-color-text)">&#123;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">            </span><span style="color: var(--shiki-token-constant)">display</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-constant)">flex</span><span style="color: var(--shiki-color-text)">;</span></span>

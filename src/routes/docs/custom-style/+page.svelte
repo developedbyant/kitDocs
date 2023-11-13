@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { metaTagsStore } from "kitDocs/stores";
+    import { metaTagsStore } from "kitDocs/lib/stores";
     // set meta data
     metaTagsStore.update(data=>{ data.title="Custom style";data.description="Create custom style for kitDocs."; return data })
     import Header from 'kitDocs/components/Header.svelte';
@@ -9,7 +9,9 @@
 
 </script>
 
-<Header type="h1" text="Creating your own style" />
+<Header type="h1" id="creating-your-own-style">
+    Creating your own style
+</Header>
 <Text>Instead of using the default style from kitDocs, you can create your own.<br>
 Here is a necessary css variables used by kitDocs, just replaced them with your own colors and info.</Text>
 <Code><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-keyword)">@import</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">url</span><span style="color: var(--shiki-color-text)">(</span><span style="color: var(--shiki-token-string-expression)">&quot;https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&amp;display=swap&quot;</span><span style="color: var(--shiki-color-text)">);</span></span>

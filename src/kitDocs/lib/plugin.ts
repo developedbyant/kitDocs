@@ -6,10 +6,11 @@ import { getHighlighter } from "shiki"
 import type { Token } from "marked"
 
 const highlighter = await getHighlighter({ theme:"css-variables" })
+type PageLinksData = { id:string,text:string }
 type MetaData = { [key:string]:string }
-type AppData = { kitDocs:{[key:string]:{href:string,title:string,description:string}[]} }
+type AppData = { kitDocs:{[key:string]:{href:string,title:string,description:string,new:boolean,pageLinks?:PageLinksData[]}[]} }
 
-export default class MdToSvelte{
+class Markdown{
 
     constructor(private markdownsDir:string,private outPutDir:string){
         this.outPutDir = markdownsDir.endsWith("/") ? markdownsDir : markdownsDir+"/"
@@ -31,10 +32,11 @@ export default class MdToSvelte{
             let pageCode:string = "" // svelte page code
             let pageStyle:string = "" // page style
             let jsCode:string = "" // code to be added after component imports
+            let pageLinks:PageLinksData[] = []
             let components:string[] = [] // components needed for page to work
             // loop md tokens
             for(const token of tokens){
-                const tokenRes = this.handleToken(token,components)
+                const tokenRes = this.handleToken(token,components,pageLinks)
                 // update components
                 components = tokenRes.components
                 // add mete data for markdown
@@ -45,6 +47,8 @@ export default class MdToSvelte{
                 pageStyle+=tokenRes.pageStyle
                 // add js code
                 jsCode+=tokenRes.jsCode
+                // add js code
+                pageLinks = tokenRes.pageLinks
             }  
             // skip page if not metadata were found
             if(!metaData["layout"]  || !metaData["title"] || !metaData["description"]) continue
@@ -59,20 +63,24 @@ export default class MdToSvelte{
             // add data to app.json
             const layoutName = this.capitalize(metaData.layout)
             if(!appData['kitDocs'][layoutName]) appData['kitDocs'][layoutName] = []
-            appData['kitDocs'][layoutName].push({ title:metaData.title,href:mdHref,description:metaData.description })
+            appData['kitDocs'][layoutName].push({
+                title:metaData.title,href:mdHref,description:metaData.description,
+                new:metaData.new && metaData.new==="true" ? true : false,
+                pageLinks
+            })
             // Ensure the directory exists, then write the file
             fs.mkdirSync(routeMdDir, { recursive: true });
             fs.writeFileSync(routeMdPath,pageCode)
         }
         // update app.json
-        const appDataPath = "src/app.json"
+        const appDataPath = "src/kitDocs/app.json"
         const currentAppData = JSON.parse(fs.readFileSync(appDataPath).toString())
         currentAppData['kitDocs'] = appData.kitDocs
-        fs.writeFileSync("src/app.json",JSON.stringify(currentAppData,null,4))
+        fs.writeFileSync(appDataPath,JSON.stringify(currentAppData,null,4))
     }
 
     /** Handle md token and return metadata and code */
-    private handleToken(token:Token,components:string[]){
+    private handleToken(token:Token,components:string[],pageLinks:PageLinksData[]){
         let pageCode:string = ""
         let pageStyle:string = ""
         let jsCode:string = ""
@@ -91,17 +99,23 @@ export default class MdToSvelte{
                 for(const inToken of token.tokens){
                     // handle link in text
                     if(inToken.type==="link"){
-                        if(!components.includes("Link")) components.push("Link") // add Comp needed
-                        code = code.replaceAll(inToken.raw,`<Link href="${inToken.href}">${inToken.text}</Link>`)
+                        // add needed comp
+                        if(!components.includes("Link")) components.push("Link")
+                        // add code
+                        pageCode+= `<Link href="${inToken.href}" id="${this.slug(inToken.text)}"></Link>`
                     }
                     // handle code in text
                     else if(inToken.type==="codespan"){
-                        if(!components.includes("InlineCode")) components.push("InlineCode") // add Comp needed
-                        code = code.replaceAll(inToken.raw,`<InlineCode code="${inToken.text}"/>`)
+                        // add needed comp
+                        if(!components.includes("InlineCode")) components.push("InlineCode")
+                        // add code
+                        code = code.replaceAll(inToken.raw,`<InlineCode code="${inToken.text}" />`)
                     }
                 }
             }
-            if(!components.includes("Text")) components.push("Text") // add Comp needed
+            // add needed comp
+            if(!components.includes("Text")) components.push("Text")
+            // add code
             pageCode+= `<Text>${code}</Text>\n`
         }
         // space
@@ -110,9 +124,13 @@ export default class MdToSvelte{
             pageCode+= `<Space />\n`
         }
         // header
-        else if(token.type==="heading"){      
-            if(!components.includes("Header")) components.push("Header") // add Comp needed
-            pageCode+= `<Header type="h${token.depth}" text="${token.text}" />\n`
+        else if(token.type==="heading"){
+            const id = this.slug(token.text)
+            if(!pageLinks.find(data=>data.id===id)) pageLinks.push({ id,text:token.text })
+            // add Comp needed
+            if(!components.includes("Header")) components.push("Header")
+            // add code
+            pageCode+= `<Header type="h${token.depth}" id="${id}">\n    ${token.text}\n</Header>\n`
         }
         // handle code
         else if(token.type==="code"){
@@ -151,13 +169,13 @@ export default class MdToSvelte{
             pageCode+= marked.parse(token.raw)
         }
         // RETURN RESPONSE
-        return { metaData,pageCode,components,jsCode,pageStyle }
+        return { metaData,pageCode,components,jsCode,pageStyle,pageLinks }
     }
 
     /** Create page script tag */
     private scriptTag(metaData:MetaData,components:string[],jsCode:string){
         // set page metaData
-        let meta = '    import { metaTagsStore } from "kitDocs/stores";\n    // set meta data\n'
+        let meta = '    import { metaTagsStore } from "kitDocs/lib/stores";\n    // set meta data\n'
         meta+=`    metaTagsStore.update(data=>{ data.title="${metaData.title}";data.description="${metaData.description}"; return data })\n`
         // create page components imports
         const comps = components.map(component=>`    import ${component} from 'kitDocs/components/${component}.svelte';`).join("\n")
@@ -208,16 +226,25 @@ export default class MdToSvelte{
         return data.replaceAll("`","\\`").replace(/<script/ig,"<\\script")
     }
 
+    /** Convert string to url slug */
+    private slug(data:string){
+        // replace multiple spaces to a single space
+        data = data.replace(/\s+/g, ' ')
+        // remove any character or number from text, make text lower case and trim it
+        data = data.replace(/[^\w\s]/g, '').toLowerCase().trim().replace(/\s+/g, '-')
+        return data
+    }
+
     /** Capitalize string */
     private capitalize = (data:string) => data.charAt(0).toUpperCase()+data.slice(1)
 
 }
 
-export async function mdToSveltePlugin() {
+export default async function(mdDir:`${string}/`="pages/",outPutDir:`src/routes/${string}`="src/routes/docs") {
 	return {
-		name: 'mdToSvelte',
+		name: 'markdown',
 		handleHotUpdate(data:{ file:string,server:any }) {
-			if(data.file.endsWith(".md") && data.server.config.mode==="development") new MdToSvelte("pages","src/routes/docs").run()
+			if(( data.file.endsWith(".md") || data.file.endsWith(".mjs")) && data.server.config.mode==="development") new Markdown(mdDir,outPutDir).run()
 		},
 	}
 }

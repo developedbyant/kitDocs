@@ -2,6 +2,6 @@
 
 <style>
     .space{
-        margin-bottom: 15px;
+        margin-bottom: 30px;
     }
 </style>

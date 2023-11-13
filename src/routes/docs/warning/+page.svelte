@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { metaTagsStore } from "kitDocs/stores";
+    import { metaTagsStore } from "kitDocs/lib/stores";
     // set meta data
     metaTagsStore.update(data=>{ data.title="Warning";data.description="Display a warning message."; return data })
     import Header from 'kitDocs/components/Header.svelte';
@@ -12,8 +12,10 @@
 
 </script>
 
-<Header type="h1" text="Warning" />
-<Text>To add an warning message, just add the <InlineCode code="[WARNING]"/> to a code tag.<br></Text>
+<Header type="h1" id="warning">
+    Warning
+</Header>
+<Text>To add an warning message, just add the <InlineCode code="[WARNING]" /> to a code tag.<br></Text>
 <Space />
 <Text>Preview</Text>
 <Warning>This is a warning message</Warning>

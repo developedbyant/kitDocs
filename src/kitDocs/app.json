@@ -1,0 +1,141 @@
+{
+    "navLinks": [
+        {
+            "text": "Home",
+            "href": "/",
+            "external": false
+        },
+        {
+            "text": "Documentation",
+            "href": "/docs",
+            "external": false
+        }
+    ],
+    "socialMedias": {
+        "twitter": "https://twitter.com/svelteCMS",
+        "github": "https://github.com/svelteCMS"
+    },
+    "kitDocs": {
+        "Introduction": [
+            {
+                "title": "KitDocs",
+                "href": "/docs",
+                "description": "Build documentation site using svelteKit and kitDocs.",
+                "new": false,
+                "pageLinks": [
+                    {
+                        "id": "what-is-kitdocs",
+                        "text": "What is kitDocs ?"
+                    },
+                    {
+                        "id": "how-kitdocs-work",
+                        "text": "How kitDocs work ?"
+                    }
+                ]
+            },
+            {
+                "title": "Installation",
+                "href": "/docs/installation",
+                "description": "How to install kitDocs.",
+                "new": false,
+                "pageLinks": [
+                    {
+                        "id": "installation",
+                        "text": "Installation"
+                    },
+                    {
+                        "id": "plugin",
+                        "text": "Plugin"
+                    },
+                    {
+                        "id": "alias",
+                        "text": "Alias"
+                    },
+                    {
+                        "id": "layout-and-style",
+                        "text": "Layout and style"
+                    },
+                    {
+                        "id": "nav-links",
+                        "text": "Nav links"
+                    }
+                ]
+            },
+            {
+                "title": "Pages",
+                "href": "/docs/pages",
+                "description": "How to install kitDocs step by step.",
+                "new": false,
+                "pageLinks": [
+                    {
+                        "id": "markdown-page",
+                        "text": "Markdown page"
+                    }
+                ]
+            },
+            {
+                "title": "Custom style",
+                "href": "/docs/custom-style",
+                "description": "Create custom style for kitDocs.",
+                "new": false,
+                "pageLinks": [
+                    {
+                        "id": "creating-your-own-style",
+                        "text": "Creating your own style"
+                    }
+                ]
+            }
+        ],
+        "Special tags": [
+            {
+                "title": "ALL",
+                "href": "/docs/all",
+                "description": "Show highlighted code and add code to the page.",
+                "new": false,
+                "pageLinks": [
+                    {
+                        "id": "highlight-code-and-show",
+                        "text": "Highlight code and show"
+                    }
+                ]
+            },
+            {
+                "title": "CODE",
+                "href": "/docs/code",
+                "description": "Add custom js code to script tag.",
+                "new": false,
+                "pageLinks": [
+                    {
+                        "id": "adding-style",
+                        "text": "Adding style"
+                    }
+                ]
+            },
+            {
+                "title": "CSS",
+                "href": "/docs/style",
+                "description": "Adding custom style to page.",
+                "new": false,
+                "pageLinks": [
+                    {
+                        "id": "adding-style",
+                        "text": "Adding style"
+                    }
+                ]
+            },
+            {
+                "title": "Warning",
+                "href": "/docs/warning",
+                "description": "Display a warning message.",
+                "new": false,
+                "pageLinks": [
+                    {
+                        "id": "warning",
+                        "text": "Warning"
+                    }
+                ]
+            }
+        ]
+    },
+    "version": "0.0.8"
+}

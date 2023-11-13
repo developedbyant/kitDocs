@@ -29,9 +29,9 @@
         cursor: pointer;
         background-color: var(--code-bg);
         color: var(--code-text-color);
-        font-size: inherit;
-        font-weight: 100;
-        padding: 1px 6px;
+        font-size: 13px;
+        font-weight: 400;
+        padding: 3px 6px;
         border-radius: 5px;
     }
     button{

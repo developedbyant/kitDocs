@@ -1,6 +1,6 @@
 <script lang="ts">
     import { page } from "$app/stores";
-    import appData from "../../app.json"
+    import appData from "kitDocs/app.json"
     import ArrowLeftIcon from "kitDocs/icons/ArrowLeft.svelte";
     import ArrowRightIcon from "kitDocs/icons/ArrowRight.svelte";
     $: links = Object.values(appData.kitDocs).flatMap(data => data.map(item => ({ title: item.title, href: item.href })))
@@ -59,7 +59,7 @@
         align-items: center;
         gap: 5px;
         color: var(--header-color);
-        background-color: var(--app-fb);
+        background-color: var(--foreground);
         padding: 5px 10px;
         border-radius: 5px;
         border: 1.5px solid var(--border-color);

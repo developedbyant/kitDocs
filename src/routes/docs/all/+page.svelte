@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { metaTagsStore } from "kitDocs/stores";
+    import { metaTagsStore } from "kitDocs/lib/stores";
     // set meta data
     metaTagsStore.update(data=>{ data.title="ALL";data.description="Show highlighted code and add code to the page."; return data })
     import Header from 'kitDocs/components/Header.svelte';
@@ -10,8 +10,10 @@
 
 </script>
 
-<Header type="h1" text="Highlight code and show" />
-<Text>The <InlineCode code="svelte [ALL]"/> tag let you highlight code and add code to the page at the same time.</Text>
+<Header type="h1" id="highlight-code-and-show">
+    Highlight code and show
+</Header>
+<Text>The <InlineCode code="svelte [ALL]" /> tag let you highlight code and add code to the page at the same time.</Text>
 <Code><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-string)">    ```svelte [all]</span></span>
 <span class="line"><span style="color: var(--shiki-token-string)">    &lt;div class=&quot;card&quot;&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-token-string)">        HELLO</span></span>

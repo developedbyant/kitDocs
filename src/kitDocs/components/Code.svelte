@@ -24,11 +24,13 @@
     .code{
         position: relative;
         margin: 5px 0;
+        background: var(--code-bg);
+        border-radius: 5px;
     }
     button{
         all: unset;
         cursor: pointer;
-        background-color: var(--app-bg);
+        background-color: var(--code-fg);
         padding: 5px 4px;
         border: 1px solid var(--border-color);
         border-radius: 3px;

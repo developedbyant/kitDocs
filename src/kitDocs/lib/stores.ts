@@ -6,6 +6,7 @@ export const appStore = writable({
     navIsOpen:false,
     sideNavIsOpen:false,
     searchIsOpen:false,
+    scrollY:0
 })
 /** set meta tags */
 export const metaTagsStore:Writable<{
@@ -16,4 +17,4 @@ export const metaTagsStore:Writable<{
     description?:string
     image?:string
     ogType?:"website"|"article"
-}> = writable({ appName:"svelteCMS" })
+}> = writable({ appName:"KitDocs" })

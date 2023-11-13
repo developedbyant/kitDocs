@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+.app{
+    scroll-behavior: smooth
+}
 .shiki{
     border-radius: 5px;
     font-size: 14px;
@@ -14,7 +24,7 @@
 }
 .shiki::-webkit-scrollbar-thumb {
     background: var(--border-color); 
-    border: 1.5px solid var(--app-bg);
+    border: 1.5px solid var(--background);
     border-radius: 10px;
 }
 .shiki .line{
@@ -26,22 +36,10 @@
 .shiki .line.removed{
     background-color: var(--code-line-removed-bg);
 }
-.shiki{
+
+:root{
     --shiki-color-text: #b8cdd9;
-    --shiki-color-background: var(--app-fb);
-    --shiki-token-constant: #4EC9B0;
-    --shiki-token-string: #B58672;
-    --shiki-token-comment: #538b46;
-    --shiki-token-keyword: #B97FB4;
-    --shiki-token-parameter: #38bdf8;
-    --shiki-token-function: #dbdba6;
-    --shiki-token-string-expression: #CC9077;
-    --shiki-token-punctuation: #b8cdd9;
-    --shiki-token-link: #b8cdd9;
-}
-.light .shiki{
-    --shiki-color-text: #b8cdd9;
-    --shiki-color-background: #292929;
+    --shiki-color-background: var(--code-bg);
     --shiki-token-constant: #4EC9B0;
     --shiki-token-string: #B58672;
     --shiki-token-comment: #538b46;

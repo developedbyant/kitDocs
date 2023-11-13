@@ -13,7 +13,7 @@
         font-size: 16px;
         font-weight: 300;
         border: 1.5px solid var(--border-color);
-        color: var(--error-color);
+        color: var(--card-color);
         background-color: var(--card-bg);
         display: flex;
         align-items: center;

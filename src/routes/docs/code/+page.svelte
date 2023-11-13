@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { metaTagsStore } from "kitDocs/stores";
+    import { metaTagsStore } from "kitDocs/lib/stores";
     // set meta data
     metaTagsStore.update(data=>{ data.title="CODE";data.description="Add custom js code to script tag."; return data })
     import Header from 'kitDocs/components/Header.svelte';
@@ -10,8 +10,10 @@
     let isDarkMode:boolean = false
 </script>
 
-<Header type="h1" text="Adding style" />
-<Text>To add custom code to a route, use the <InlineCode code="js [CODE]"/> or <InlineCode code="ts [CODE]"/> tag after metadata code on top of your .md file.</Text>
+<Header type="h1" id="adding-style">
+    Adding style
+</Header>
+<Text>To add custom code to a route, use the <InlineCode code="js [CODE]" /> or <InlineCode code="ts [CODE]" /> tag after metadata code on top of your .md file.</Text>
 <Code><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-string)">    ```js [CODE]</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">        </span><span style="color: var(--shiki-token-keyword)">let</span><span style="color: var(--shiki-color-text)"> isDarkMode</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-constant)">boolean</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">false</span></span>
 <span class="line"><span style="color: var(--shiki-token-string)">    ```</span></span></code></pre></Code>

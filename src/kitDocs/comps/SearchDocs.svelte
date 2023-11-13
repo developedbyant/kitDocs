@@ -1,7 +1,9 @@
 <script lang="ts">
-    import { appStore } from "kitDocs/stores";
+    import { appStore } from "kitDocs/lib/stores";
     import Modal from "./Modal.svelte";
-    import appData from "../../app.json"
+    import appData from "../app.json"
+    import SearchIcon from "kitDocs/icons/Search.svelte";
+    import WarningIcon from "kitDocs/icons/Warning.svelte";
     let modalDiv:HTMLDivElement
     let value:string = ""
     let result:{title:string,href:string,description:string}[] = []
@@ -33,9 +35,9 @@
 <Modal bind:modalDiv bind:open={$appStore.searchIsOpen} on:close={resetAll}>
     <div class="searchWrap">
         <div class="search">
-            <svg class="searchSvg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"  viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-            </svg>
+            <div class="icon">
+                <SearchIcon />
+            </div>
             <!-- svelte-ignore a11y-autofocus -->
             <input bind:value type="text" autofocus placeholder="search..." on:keyup={search}>
         </div>
@@ -57,10 +59,9 @@
                 </ul>
             {:else}
                 <div class="noResult">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16">
-                        <path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"/>
-                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
-                    </svg>
+                    <div class="icon">
+                        <WarningIcon />
+                    </div>
                     <p>No results found, try another input</p>
                 </div>
             {/if}
@@ -70,7 +71,7 @@
 
 <style>
     .searchWrap{
-        background-color: var(--app-fb);
+        background-color: var(--background);
         border: 2px solid var(--border-color);
         border-radius: 10px;
     }
@@ -81,10 +82,12 @@
         border-bottom: 2px solid var(--border-color);
         padding: 10px;
     }
-    .searchSvg{
+    .icon{
         width: 20px;
         height: 20px;
-        fill: var(--icon-color);
+        display: flex;
+        align-items: center;
+        stroke: var(--icon-color);
     }
     .search input{
         border: none;
@@ -132,10 +135,5 @@
         padding: 10px;
         font-size: 15px;
         font-weight: 300;
-    }
-    .noResult svg{
-        fill: var(--icon-color);
-        width: 20px;
-        height: 20px;
     }
 </style>
