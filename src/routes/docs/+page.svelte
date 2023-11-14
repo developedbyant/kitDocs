@@ -14,12 +14,20 @@
 <Header type="h2" id="what-is-kitdocs">
     What is kitDocs ?
 </Header>
-<Link href="/docs/quick-start" id="get-started"></Link><Text>KitDocs let you create documentation website for your project using svelteKit, learn how to create one [Get started](/docs/quick-start).</Text>
+<Text>KitDocs let you create documentation website for your project using svelteKit, learn how to create one <Link href="/docs/quick-start">
+    Get started
+</Link>.</Text>
 <Space />
 <Header type="h2" id="how-kitdocs-work">
     How kitDocs work ?
 </Header>
-<Link href="https://www.npmjs.com/package/globby" id="globby"></Link><Link href="https://www.npmjs.com/package/marked" id="marked"></Link><Link href="https://www.npmjs.com/package/shiki" id="shiki"></Link><Text>KitDocs uses [globby](https://www.npmjs.com/package/globby) to read files,[marked](https://www.npmjs.com/package/marked) to read markdown files and [shiki](https://www.npmjs.com/package/shiki) for code highlighting<br />
+<Text>KitDocs uses <Link href="https://www.npmjs.com/package/globby">
+    globby
+</Link> to read files,<Link href="https://www.npmjs.com/package/marked">
+    marked
+</Link> to read markdown files and <Link href="https://www.npmjs.com/package/shiki">
+    shiki
+</Link> for code highlighting<br />
 After that we covert your markdown files to svelte routes using our custom components from <InlineCode code="kitDocs/components" />.<br /></Text>
 <Space />
 <div class="card">

@@ -56,7 +56,9 @@ To get started from your svelte kit root project run <InlineCode code="npx kitdo
 <Header type="h2" id="layout-and-style">
     Layout and style
 </Header>
-<Link href="/docs/custom-style" id="create-custom-style"></Link><Text>Start by adding importing kitDocs style or create your own [Create custom style](/docs/custom-style) from <InlineCode code="kitDocs/style.css" /> and Layout from <InlineCode code="kitDocs/Layout.svelte" /> to your project layout <InlineCode code="src/routes/+layout.svelte" />.<br></Text>
+<Text>Start by adding importing kitDocs style or create your own <Link href="/docs/custom-style">
+    Create custom style
+</Link> from <InlineCode code="kitDocs/style.css" /> and Layout from <InlineCode code="kitDocs/Layout.svelte" /> to your project layout <InlineCode code="src/routes/+layout.svelte" />.<br></Text>
 <Code><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">script</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">lang</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;ts&quot;</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line added"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-keyword)">import</span><span style="color: var(--shiki-token-string-expression)">&quot;kitDocs/style.css&quot;</span><span style="color: var(--shiki-token-comment)"></span></span>
 <span class="line added"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-keyword)">import</span><span style="color: var(--shiki-color-text)"> Layout </span><span style="color: var(--shiki-token-keyword)">from</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&quot;kitDocs/Layout.svelte&quot;</span><span style="color: var(--shiki-color-text)">; </span><span style="color: var(--shiki-token-comment)"></span></span>
@@ -94,4 +96,6 @@ To get started from your svelte kit root project run <InlineCode code="npx kitdo
 <span class="line added"><span style="color: var(--shiki-color-text)">        }</span><span style="color: var(--shiki-token-comment)"></span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    ]</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">}</span></span></code></pre></Code>
-<Link href="/docs/files/app-json" id="appjson"></Link><Text>Learn more about [app.json](/docs/files/app-json)</Text>
+<Text>Learn more about <Link href="/docs/files/app-json">
+    app.json
+</Link></Text>

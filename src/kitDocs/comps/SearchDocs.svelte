@@ -71,7 +71,7 @@
 
 <style>
     .searchWrap{
-        background-color: var(--background);
+        background: var(--background);
         border: 2px solid var(--border-color);
         border-radius: 10px;
     }

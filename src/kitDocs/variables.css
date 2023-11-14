@@ -1,7 +1,6 @@
 :root{
     /* app */
     --background:#f9fafb;
-    --background:linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(26 20 34) 70.2%);
     --foreground:#ffffff;
     --blur-bg: rgba(0,0,0,3%);
     --header-color:#444444;

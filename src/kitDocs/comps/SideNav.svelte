@@ -75,7 +75,7 @@
     }
     .sideNavLink{
         font-size: 15px;
-        font-weight: 200;
+        font-weight: 500;
         display: flex;
         align-items: center;
         gap: 2px;
@@ -93,7 +93,6 @@
         border-radius: 50px;
     }
     .sideNavLink .active,.sideNavLink:hover > a{
-        font-weight: 500;
         color: var(--nav-active-link-color);
     }
 

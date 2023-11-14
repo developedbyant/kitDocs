@@ -102,7 +102,7 @@ class Markdown{
                         // add needed comp
                         if(!components.includes("Link")) components.push("Link")
                         // add code
-                        pageCode+= `<Link href="${inToken.href}" id="${this.slug(inToken.text)}"></Link>`
+                        code = code.replace(inToken.raw,`<Link href="${inToken.href}">\n    ${inToken.text}\n</Link>`)
                     }
                     // handle code in text
                     else if(inToken.type==="codespan"){

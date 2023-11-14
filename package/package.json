@@ -1,13 +1,13 @@
 {
     "name": "kitdocs",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "type": "module",
-    "main": "./main.js",
-    "bin": "./main.js",
+    "main": "./cli.js",
+    "bin": "./cli.js",
     "files": [
         "./kitDocs",
-        "./main.js",
-        "./app.json"
+        "./cli.js",
+        "./utils.js"
     ],
     "repository": {
         "url": "https://github.com/developedbyant/kitdocs"
@@ -22,7 +22,7 @@
     "author": "DevelopedByAnt",
     "license": "ISC",
     "dependencies": {
-        "fs-extra": "^11.1.1",
-        "inquirer": "^9.1.5"
+        "@clack/prompts": "^0.7.0",
+        "fs-extra": "^11.1.1"
     }
 }
