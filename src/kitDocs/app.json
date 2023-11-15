@@ -20,16 +20,20 @@
             {
                 "title": "KitDocs",
                 "href": "/docs",
-                "description": "Build documentation site using svelteKit and kitDocs.",
+                "description": "Build documentation site using SvelteKit and kitDocs.",
                 "new": false,
                 "pageLinks": [
                     {
                         "id": "what-is-kitdocs",
-                        "text": "What is kitDocs ?"
+                        "text": "What is kitDocs?"
                     },
                     {
-                        "id": "how-kitdocs-work",
-                        "text": "How kitDocs work ?"
+                        "id": "getting-started",
+                        "text": "Getting Started"
+                    },
+                    {
+                        "id": "updating-kitdocs",
+                        "text": "Updating kitDocs"
                     }
                 ]
             },
@@ -44,44 +48,28 @@
                         "text": "Installation"
                     },
                     {
-                        "id": "plugin",
-                        "text": "Plugin"
+                        "id": "add-alias",
+                        "text": "Add Alias"
                     },
                     {
-                        "id": "alias",
-                        "text": "Alias"
+                        "id": "add-plugin",
+                        "text": "Add Plugin"
                     },
                     {
-                        "id": "layout-and-style",
-                        "text": "Layout and style"
+                        "id": "handle-layout",
+                        "text": "Handle Layout"
                     },
                     {
-                        "id": "nav-links",
-                        "text": "Nav links"
-                    }
-                ]
-            },
-            {
-                "title": "Pages",
-                "href": "/docs/pages",
-                "description": "How to install kitDocs step by step.",
-                "new": false,
-                "pageLinks": [
+                        "id": "metadata",
+                        "text": "Metadata"
+                    },
                     {
-                        "id": "markdown-page",
-                        "text": "Markdown page"
-                    }
-                ]
-            },
-            {
-                "title": "Custom style",
-                "href": "/docs/custom-style",
-                "description": "Create custom style for kitDocs.",
-                "new": false,
-                "pageLinks": [
+                        "id": "adding-nav-links",
+                        "text": "Adding nav links"
+                    },
                     {
-                        "id": "creating-your-own-style",
-                        "text": "Creating your own style"
+                        "id": "creating-pages",
+                        "text": "Creating pages"
                     }
                 ]
             }
@@ -94,8 +82,8 @@
                 "new": false,
                 "pageLinks": [
                     {
-                        "id": "highlight-code-and-show",
-                        "text": "Highlight code and show"
+                        "id": "highlight-and-show-code",
+                        "text": "Highlight and show code"
                     }
                 ]
             },
@@ -112,6 +100,18 @@
                 ]
             },
             {
+                "title": "//H",
+                "href": "/docs/h",
+                "description": "Highlight code sections.",
+                "new": false,
+                "pageLinks": [
+                    {
+                        "id": "highlight-code",
+                        "text": "Highlight code"
+                    }
+                ]
+            },
+            {
                 "title": "CSS",
                 "href": "/docs/style",
                 "description": "Adding custom style to page.",
@@ -124,7 +124,7 @@
                 ]
             },
             {
-                "title": "Warning",
+                "title": "WARNING",
                 "href": "/docs/warning",
                 "description": "Display a warning message.",
                 "new": false,
@@ -137,5 +137,5 @@
             }
         ]
     },
-    "version": "0.0.12"
+    "version": "0.0.13"
 }

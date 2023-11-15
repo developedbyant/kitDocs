@@ -14,8 +14,9 @@ description: Adding custom style to page.
     }
 ```
 # Adding style
-To add style to the style tag, use the `css [CODE]` tag after metadata code on top of your .md file.
-```markdown
+To add style to the style tag, use the `css [CODE]` tag after metadata code on top of your .md file.<br>
+Markdown code
+```md
     ```css [CODE]
         .card{
             display:flex;
@@ -26,16 +27,16 @@ To add style to the style tag, use the `css [CODE]` tag after metadata code on t
             background-color: var(--app-fb);
         }
     ```
+    ```svelte
+    <div class="card">
+        Custom css
+    </div>
+    ```
 ```
-Card code
-```svelte
+
+Preview
+```svelte [ADD]
 <div class="card">
-    HELLO
-</div>
-```
-Card preview with style
-```svelte [add]
-<div class="card">
-    HELLO
+    Custom css
 </div>
 ```

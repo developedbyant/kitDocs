@@ -1,9 +1,8 @@
 <script lang="ts">
-    export let data:PageData
+    export let data
     import { page } from "$app/stores";
     import { metaTagsStore } from "kitDocs/lib/stores";
     import Layout from "kitDocs/Layout.svelte";
-    import type { PageData } from "./$types";
     $: hide = $page.url.pathname === "/"
     $: theme = data.theme
     // set mete tags
@@ -11,8 +10,8 @@
     $: appName = $metaTagsStore.appName
     $: favicon = $metaTagsStore.favicon ? $metaTagsStore.favicon : "/favicon.png"
     $: ogType = $metaTagsStore.ogType ? $metaTagsStore.ogType:"website" 
-    $: title = $metaTagsStore.title ? `${$metaTagsStore.title} | ${appName}`:`${appName} | All in one svelte cms` 
-    $: description = $metaTagsStore.description ? $metaTagsStore.description:"All in one cms for your svelte and sveltekit projects." 
+    $: title = $metaTagsStore.title ? `${$metaTagsStore.title} | ${appName}`:`${appName} | svelteKit docs builder`
+    $: description = $metaTagsStore.description ? $metaTagsStore.description:"Create documentation websites rapidly using SvelteKit." 
     $: image = $metaTagsStore.image ? $metaTagsStore.image: "/favicon.png"
 </script>
 

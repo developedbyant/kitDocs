@@ -77,7 +77,9 @@ async function update(){
 async function install(){
     // make sure app.html body display is content
     const appHtml = fs.readFileSync(`${PROJECT_SRC}/app.html`).toString()
-    if(!appHtml.includes('style="display: contents;"')) appHtml.replace("<body",'<body style="display: contents;" ')
+    if(!appHtml.includes('style="display: contents;"')){
+        fs.writeFileSync(`${PROJECT_SRC}/app.html`,appHtml.replace("<body",'<body style="display: contents;" '))
+    }
     // copy kitDocs folder
     fs.copySync(`${PACKAGE_PATH}/kitDocs`,`${PROJECT_SRC}/kitDocs`)
     // create pages folder

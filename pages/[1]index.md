@@ -1,27 +1,24 @@
 ---
 layout: Introduction
 title: KitDocs
-description: Build documentation site using svelteKit and kitDocs.
+description: Build documentation site using SvelteKit and kitDocs.
 ---
-```css [CODE]
-    .card{
-        display:flex;
-        padding:10px;
-        border:1.5px solid var(--border-color);
-        background-color:var(--app-bg);
-        border-radius: 15px;
-        background-color: var(--app-fb);
-    }
-```
-## What is kitDocs ?
-KitDocs let you create documentation website for your project using svelteKit, learn how to create one [Get started](/docs/quick-start).
 
-## How kitDocs work ?
-KitDocs uses [globby](https://www.npmjs.com/package/globby) to read files,[marked](https://www.npmjs.com/package/marked) to read markdown files and [shiki](https://www.npmjs.com/package/shiki) for code highlighting<br />
-After that we covert your markdown files to svelte routes using our custom components from `kitDocs/components`.<br />
+# What is kitDocs?
+KitDocs is a powerful tool that enables you to create documentation websites rapidly using SvelteKit.
 
-```svelte [ADD]
-<div class="card">
-    HELLO
-</div>
+
+## Getting Started
+To install kitDocs, simply run the following command in your terminal and follow the prompts:
+```bash
+npx kitdocs@latest
 ```
+For a more detailed installation guide, refer to the [installation](/docs/installation) guide.
+
+
+## Updating kitDocs
+Updating kitDocs is as easy as installing it. Run the following command to ensure you have the latest version:
+```bash
+npx kitdocs@latest
+```
+The update script will automatically detect your existing kitDocs installation, save specific files, and replace others with the latest versions from kitDocs. Your custom files will remain unchanged during the update process.

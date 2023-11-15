@@ -13,7 +13,7 @@ description: Show highlighted code and add code to the page.
         background-color: var(--app-fb);
     }
 ```
-# Highlight code and show
+# Highlight and show code
 The `svelte [ALL]` tag let you highlight code and add code to the page at the same time.
 ```markdown
     ```svelte [all]
@@ -22,6 +22,7 @@ The `svelte [ALL]` tag let you highlight code and add code to the page at the sa
     </div>
     ```
 ```
+
 Code will be Highlighted and added to the page.
 ```svelte [all]
 <div class="card">
