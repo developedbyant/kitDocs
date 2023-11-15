@@ -54,7 +54,7 @@
     .app{
         display: flex;
         flex-direction: column;
-        background-color: var(--background);
+        background: var(--background);
         color: var(--text-color);
         height: 100vh;
         overflow-y: auto;

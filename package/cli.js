@@ -7,7 +7,7 @@ import utils from "./utils.js"
 
 const CWD = process.cwd()
 const DEPENDENCIES = [ "globby","shiki","marked" ]
-const PROJECT_SRC = `${CWD}/test`
+const PROJECT_SRC = `${CWD}/src`
 const PACKAGE_PATH = path.dirname(new URL(import.meta.url).pathname)
 const NEW_INSTALL = fs.existsSync(`${PROJECT_SRC}/kitDocs/app.json`)===false
 const SCRIPT = { packageManager:"" }
@@ -52,7 +52,7 @@ async function confirmOverwritten(){
 
 /** Update kitDocs */
 async function update(){
-    const tempFolderPath = `${CWD}/test/kitDocsTemp`
+    const tempFolderPath = `${PROJECT_SRC}/kitDocsTemp`
     // make a copy of app.json,variables.css,globals.css and Logo.svelte
     if(!fs.existsSync(tempFolderPath)) fs.mkdirSync(tempFolderPath)
     fs.copyFileSync(`${PROJECT_SRC}/kitDocs/app.json`,`${tempFolderPath}/app.json`)
@@ -75,16 +75,25 @@ async function update(){
 
 /** Install kitDocs */
 async function install(){
+    // make sure app.html body display is content
+    const appHtml = fs.readFileSync(`${PROJECT_SRC}/app.html`).toString()
+    if(!appHtml.includes('style="display: contents;"')) appHtml.replace("<body",'<body style="display: contents;" ')
     // copy kitDocs folder
     fs.copySync(`${PACKAGE_PATH}/kitDocs`,`${PROJECT_SRC}/kitDocs`)
     // create pages folder
-    fs.mkdirSync(`${CWD}/pages`)
-    clack.log.success("Created ./pages directory")
-    fs.writeFileSync(`${CWD}/pages/[1]index.md`,utils.defaults.indexPage)
-    clack.log.success("Created ./pages/[1]index.md file")
+    if(!fs.existsSync(`${CWD}/pages`)){
+        fs.mkdirSync(`${CWD}/pages`)
+        clack.log.success("Created ./pages directory")
+        fs.writeFileSync(`${CWD}/pages/[1]index.md`,utils.defaults.indexPage)
+        clack.log.success("Created ./pages/[1]index.md file")
+    }
     // create api to set theme
-    fs.writeFileSync(`${PROJECT_SRC}/routes/api/setTheme/+server.ts`,utils.defaults.apiSetTheme)
-    clack.log.success("Created ./src/routes/api/setTheme/+server.ts file")
+    if(!fs.existsSync(`${PROJECT_SRC}/routes/api/setTheme`)){
+        console.log("HI")
+        fs.mkdirSync(`${PROJECT_SRC}/routes/api/setTheme`,{ recursive: true })
+        fs.writeFileSync(`${PROJECT_SRC}/routes/api/setTheme/+server.ts`,utils.defaults.apiSetTheme)
+        clack.log.success("Created ./src/routes/api/setTheme/+server.ts file")
+    }
 }
 
 await selectPackageManager()
@@ -105,7 +114,12 @@ if(!NEW_INSTALL){
 // install
 else{
     loader.start("Installing KitDocs")
-    install()
+    await install()
     loader.stop("KitDocs was installed")
+    // install dependencies
+    const command = `${SCRIPT.packageManager} install ${DEPENDENCIES.join(" ")}`
+    loader.start(`Running ${command}`)
+    execSync(command)
+    loader.stop("Dependencies installed")
     clack.log.info("Follow installing at https://kitdocs.dev")
 }
