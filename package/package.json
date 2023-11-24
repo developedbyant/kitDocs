@@ -1,28 +1,31 @@
 {
-    "name": "kitdocs",
-    "version": "0.0.13",
+    "name": "create-kitdocs-app",
+    "version": "0.0.14",
     "type": "module",
     "main": "./cli.js",
     "bin": "./cli.js",
     "files": [
-        "./kitDocs",
+        "./assets",
         "./cli.js",
         "./utils.js"
     ],
     "repository": {
         "url": "https://github.com/developedbyant/kitdocs"
     },
-    "homepage": "https://sveltecms.dev",
-    "description": "svelteCMS, all in one cms for your svelte kit projects.",
+    "homepage": "https://kitdocs.dev",
+    "description": "KitDocs is a powerful tool that enables you to create documentation websites rapidly using SvelteKit.",
     "keywords": [
+        "kitdocs",
         "svelte",
         "sveltekit",
-        "cms"
+        "docs",
+        "documentation"
     ],
     "author": "DevelopedByAnt",
     "license": "ISC",
     "dependencies": {
         "@clack/prompts": "^0.7.0",
-        "fs-extra": "^11.1.1"
+        "fs-extra": "^11.1.1",
+        "create-svelte": "^5.3.2"
     }
 }

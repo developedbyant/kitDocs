@@ -5,8 +5,8 @@
     import Header from 'kitDocs/components/Header.svelte';
     import InlineCode from 'kitDocs/components/InlineCode.svelte';
     import Text from 'kitDocs/components/Text.svelte';
-    import Space from 'kitDocs/components/Space.svelte';
     import Code from 'kitDocs/components/Code.svelte';
+    import Space from 'kitDocs/components/Space.svelte';
     // custom code
 
 </script>
@@ -14,18 +14,12 @@
 <Header type="h1" id="installation">
     Installation
 </Header>
-<Text>To install kitDocs, run the following command in your terminal <InlineCode code="npx kitdocs@latest" />, Follow the prompts during the installation process. Once the script is completed, proceed with the following steps:</Text>
-<ul>
-<li><strong>Add Plugin:</strong>
- Add the kitDocs plugin to your project.</li>
-<li><strong>Add Alias:</strong>
- Set up any necessary aliases as per your project requirements.</li>
-<li><strong>Handle Layout:</strong>
- Customize and handle the layout according to your documentation needs.</li>
-<li><strong>Add nav link:</strong>
- Add additional nav links.</li>
-</ul>
+<Text>To install kitDocs, run the following command in your terminal <InlineCode code="npx create-kitdocs-app@latest" />, Follow the prompts during the installation process.</Text>
+<Code><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-function)">npx</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">create-kitdocs-app@latest</span></span></code></pre></Code>
 <Space />
+<Header type="h2" id="manual-installation">
+    Manual installation
+</Header>
 <Header type="h2" id="add-alias">
     Add Alias
 </Header>

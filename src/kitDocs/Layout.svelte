@@ -2,8 +2,6 @@
     export let theme:string = "light"
     /** remove all layout only keeping the top nav */
     export let hide:boolean = false
-    import "kitDocs/globals.css"
-    import "kitDocs/variables.css"
     import { appStore } from "kitDocs/lib/stores";
     import apiRequest from "kitDocs/lib/api";
     import SearchDocs from "./comps/SearchDocs.svelte";
@@ -18,7 +16,7 @@
         // update app store
         appStore.update(data=>{ data['theme']=data['theme']==="dark"?"light":"dark" ; return data }) 
         // send api request to update theme cookie
-        const apiRes = await apiRequest("/api/setTheme",null)
+        const apiRes = await apiRequest("/docs/api/setTheme",null)
         // update theme
         theme = apiRes.data.theme
     }

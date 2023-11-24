@@ -5,15 +5,12 @@ description: How to install kitDocs.
 ---
 
 # Installation
-To install kitDocs, run the following command in your terminal `npx kitdocs@latest`, Follow the prompts during the installation process. Once the script is completed, proceed with the following steps:
-- **Add Plugin:**
-   Add the kitDocs plugin to your project.
-- **Add Alias:**
-   Set up any necessary aliases as per your project requirements.
-- **Handle Layout:**
-   Customize and handle the layout according to your documentation needs.
-- **Add nav link:**
-   Add additional nav links.
+To install kitDocs, run the following command in your terminal `npx create-kitdocs-app@latest`, Follow the prompts during the installation process.
+```bash
+npx create-kitdocs-app@latest
+```
+
+## Manual installation
 
 ## Add Alias
 Step one, add the kitDocs alias to your `svelte.config.js` file.

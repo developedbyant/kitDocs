@@ -32,11 +32,10 @@
         cursor: pointer;
         background-color: var(--code-fg);
         padding: 5px 4px;
-        border: 1px solid var(--border-color);
-        border-radius: 3px;
+        border-radius: 4px;
         position: absolute;
-        top: 0;
-        right: 0;
+        top: 5px;
+        right: 5px;
         display: flex;
         align-items: center;
         justify-content: center;
