@@ -1,5 +1,5 @@
 export type Apis = {
-    "/api/setTheme": ApiData<null, { theme: "dark" | "light" }>;
+    "/docs/api/setTheme": ApiData<null, { theme: "dark" | "light" }>;
 };
 
 /** Make api request */

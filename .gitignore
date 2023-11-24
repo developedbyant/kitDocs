@@ -2,7 +2,7 @@
 node_modules
 /build
 /.svelte-kit
-/package/kitDocs
+/package/assets
 .env
 .env.*
 !.env.example

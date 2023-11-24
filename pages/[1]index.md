@@ -11,6 +11,10 @@ KitDocs is a powerful tool that enables you to create documentation websites rap
 ## Getting Started
 To install kitDocs, simply run the following command in your terminal and follow the prompts:
 ```bash
+npx create-kitdocs-app@latest
+```
+Or
+```bash
 npx kitdocs@latest
 ```
 For a more detailed installation guide, refer to the [installation](/docs/installation) guide.

@@ -12,8 +12,8 @@
         }
     ],
     "socialMedias": {
-        "twitter": "https://twitter.com/svelteCMS",
-        "github": "https://github.com/svelteCMS"
+        "twitter": "https://twitter.com/developedbyant",
+        "github": "https://github.com/developedbyant/kitdocs"
     },
     "kitDocs": {
         "Introduction": [
@@ -46,6 +46,10 @@
                     {
                         "id": "installation",
                         "text": "Installation"
+                    },
+                    {
+                        "id": "manual-installation",
+                        "text": "Manual installation"
                     },
                     {
                         "id": "add-alias",
@@ -137,5 +141,5 @@
             }
         ]
     },
-    "version": "0.0.13"
+    "version": "0.0.14"
 }

@@ -1,23 +1,30 @@
 #! /usr/bin/env node
 import fs from "fs-extra"
 import path from "path"
-import { execSync } from "child_process"
+import { exec } from "child_process"
 import * as clack from "@clack/prompts"
+import { create } from 'create-svelte';
 import utils from "./utils.js"
 
-const CWD = process.cwd()
-const DEPENDENCIES = [ "globby","shiki","marked" ]
-const PROJECT_SRC = `${CWD}/src`
-const PACKAGE_PATH = path.dirname(new URL(import.meta.url).pathname)
-const NEW_INSTALL = fs.existsSync(`${PROJECT_SRC}/kitDocs/app.json`)===false
-const SCRIPT = { packageManager:"" }
+// Scrip info
+const SCRIPT = {
+    isNewInstall: fs.existsSync(`${process.cwd()}/src/kitDocs`)===false,
+    packageManager:"",
+    projectName: "",
+    dependencies:[ "globby","shiki","marked" ],
+    paths:{
+        project: process.cwd(),
+        package: path.dirname(new URL(import.meta.url).pathname),
+    }
+}
 
 // show package path
-if(process.argv.find(data=>data.includes("--dev"))) clack.log.info(PACKAGE_PATH)
+if(process.argv.find(data=>data.includes("--dev"))) clack.log.info(SCRIPT.paths.package)
 
 // Welcome
-clack.intro("Welcome to iconsX")
+clack.intro("Welcome")
 const loader = clack.spinner()
+
 
 /** Cancel script @param { any } action @param { boolean } force */
 function isCancel(action,force=false){
@@ -27,14 +34,25 @@ function isCancel(action,force=false){
     }
 }
 
+/** Select project name */
+async function askProjectName(){
+    const action = await clack.text({ message:"What is your project name? Example: testApp"})
+    isCancel(action, !action)
+    // @ts-ignore set project name and path
+    SCRIPT.projectName = action
+    SCRIPT['paths']['project'] = `${SCRIPT.paths.project}/${SCRIPT.projectName}`
+    // check if it's new install
+    SCRIPT['isNewInstall'] = ! fs.existsSync(SCRIPT.paths.project)
+}
+
 /** Select node package manager */
 async function selectPackageManager(){
     const action = await clack.select({
-        message:"What package manager are you using ?",
+        message:"What package manager are you using?",
         options: [
-            { label: "Pnpm",value:"pnpm" },
-            { label: "Npm",value:"npm" },
-            { label: "Bun",value:"bun" },
+            { label: "PNPM",value:"pnpm" },
+            { label: "NPM",value:"npm" },
+            { label: "BUN",value:"bun" },
         ]
     })
     // If user cancel script
@@ -45,83 +63,157 @@ async function selectPackageManager(){
 
 /** Make sure user confirm kitDocs folder will be overwritten */
 async function confirmOverwritten(){
-    const action = await clack.confirm({ message:"Folder src/kitDocs will be overwritten, continue ?" })
+    clack.log.warning("These folders will be overwritten:\n  src/kitDocs\n  src/routes/(app)/(docs)/")
+    const action = await clack.confirm({ message:"Continue?" })
     // If user cancel script
     isCancel(action,action===false)
 }
 
-/** Update kitDocs */
-async function update(){
-    const tempFolderPath = `${PROJECT_SRC}/kitDocsTemp`
-    // make a copy of app.json,variables.css,globals.css and Logo.svelte
+/** Handle temp folder and files @param {boolean} stepTwo delete temp folder only*/
+async function handleTempFiles(stepTwo=false){
+    const tempFolderPath = `${SCRIPT.paths.project}/kitDocsTemp/`
+    const projectStylePath = `${SCRIPT.paths.project}/src/kitDocs/style.css`
+    const projectAppJsonPath = `${SCRIPT.paths.project}/src/kitDocs/app.json`
+    const projectLogoPath = `${SCRIPT.paths.project}/src/kitDocs/Logo.svelte`
+    // delete temp folder only and stop function
+    if(stepTwo){
+        // copy copies back
+        fs.copyFileSync(`${tempFolderPath}/style.css`,projectStylePath)
+        fs.copyFileSync(`${tempFolderPath}/app.json`,projectAppJsonPath)
+        fs.copyFileSync(`${tempFolderPath}/Logo.svelte`,projectLogoPath)
+        // delete temp folder
+        if(fs.existsSync(tempFolderPath)) fs.rmSync(tempFolderPath,{ recursive: true })
+        return
+    }
+    // make temp folder
     if(!fs.existsSync(tempFolderPath)) fs.mkdirSync(tempFolderPath)
-    fs.copyFileSync(`${PROJECT_SRC}/kitDocs/app.json`,`${tempFolderPath}/app.json`)
-    fs.copyFileSync(`${PROJECT_SRC}/kitDocs/variables.css`,`${tempFolderPath}/variables.css`)
-    fs.copyFileSync(`${PROJECT_SRC}/kitDocs/globals.css`,`${tempFolderPath}/globals.css`)
-    fs.copyFileSync(`${PROJECT_SRC}/kitDocs/Logo.svelte`,`${tempFolderPath}/Logo.svelte`)
-    // remove old kitDocs and copy a new copy
-    fs.rmSync(`${PROJECT_SRC}/kitDocs`,{ recursive:true })
-    await new Promise(r=>setTimeout(r,500))
-    fs.copySync(`${PACKAGE_PATH}/kitDocs`,`${PROJECT_SRC}/kitDocs`)
-    // copy copies app.json,variables.css,globals.css and Logo.svelte
-    fs.copyFileSync(`${tempFolderPath}/app.json`,`${PROJECT_SRC}/kitDocs/app.json`)
-    fs.copyFileSync(`${tempFolderPath}/variables.css`,`${PROJECT_SRC}/kitDocs/variables.css`)
-    fs.copyFileSync(`${tempFolderPath}/globals.css`,`${PROJECT_SRC}/kitDocs/globals.css`)
-    fs.copyFileSync(`${tempFolderPath}/Logo.svelte`,`${PROJECT_SRC}/kitDocs/Logo.svelte`)
-    await new Promise(r=>setTimeout(r,500))
-    // remove temp folder
-    fs.rmSync(tempFolderPath,{ recursive:true })
+    // make copies
+    fs.copyFileSync(projectStylePath,`${tempFolderPath}/style.css`)
+    fs.copyFileSync(projectAppJsonPath,`${tempFolderPath}/app.json`)
+    fs.copyFileSync(projectLogoPath,`${tempFolderPath}/Logo.svelte`)
 }
 
-/** Install kitDocs */
-async function install(){
-    // make sure app.html body display is content
-    const appHtml = fs.readFileSync(`${PROJECT_SRC}/app.html`).toString()
-    if(!appHtml.includes('style="display: contents;"')){
-        fs.writeFileSync(`${PROJECT_SRC}/app.html`,appHtml.replace("<body",'<body style="display: contents;" '))
+/** Delete and make a new copy of kitDocs */
+async function handleKitDocsFolder(){
+    const projectKitDocsPath = `${SCRIPT.paths.project}/src/kitDocs`
+    const packageKitDocsPath = `${SCRIPT.paths.package}/assets/kitDocs`
+    // delete old kitDocs (src/kitDocs) folder and copy a new one
+    if(fs.existsSync(projectKitDocsPath)) fs.rmSync(projectKitDocsPath,{ recursive: true })
+    fs.copySync(packageKitDocsPath,projectKitDocsPath)
+}
+
+/** Handle routes folder */
+async function handleRoutesFolder(){
+    const projectRoutesPath = `${SCRIPT.paths.project}/src/routes`
+    const packageRoutesPath = `${SCRIPT.paths.package}/assets/routes`
+    const projectDocsPath = `${SCRIPT.paths.project}/src/routes/(app)/(docs)`
+    const packageDocsPath = `${SCRIPT.paths.package}/assets/routes/(app)/(docs)`
+    // delete routes folder and copy routes folder from assets
+    if(SCRIPT.isNewInstall) {
+        if(fs.existsSync(projectRoutesPath)) fs.rmSync(projectRoutesPath,{ recursive: true })
+        fs.copySync(packageRoutesPath,projectRoutesPath)
     }
-    // copy kitDocs folder
-    fs.copySync(`${PACKAGE_PATH}/kitDocs`,`${PROJECT_SRC}/kitDocs`)
-    // create pages folder
-    if(!fs.existsSync(`${CWD}/pages`)){
-        fs.mkdirSync(`${CWD}/pages`)
-        clack.log.success("Created ./pages directory")
-        fs.writeFileSync(`${CWD}/pages/[1]index.md`,utils.defaults.indexPage)
-        clack.log.success("Created ./pages/[1]index.md file")
-    }
-    // create api to set theme
-    if(!fs.existsSync(`${PROJECT_SRC}/routes/api/setTheme`)){
-        console.log("HI")
-        fs.mkdirSync(`${PROJECT_SRC}/routes/api/setTheme`,{ recursive: true })
-        fs.writeFileSync(`${PROJECT_SRC}/routes/api/setTheme/+server.ts`,utils.defaults.apiSetTheme)
-        clack.log.success("Created ./src/routes/api/setTheme/+server.ts file")
+    // else just remove src/routes/(app)/(docs) and copy a new copy
+    else{
+        if(fs.existsSync(projectDocsPath)) fs.rmSync(projectDocsPath,{ recursive: true })
+        fs.copySync(packageDocsPath,projectDocsPath)
     }
 }
 
+/** Install needed dependencies */
+async function handleDependencies(){
+    const command = `${SCRIPT.packageManager} ${SCRIPT.packageManager==="pnpm" ? "add" : "install"} ${SCRIPT.dependencies.join(" ")}`
+    // run command
+    loader.start("Installing dependencies")
+    return new Promise(resolve=>{
+        exec(`cd ${SCRIPT.paths.project} && ${command}`).addListener("close",()=>{
+            loader.stop("Dependencies installed")
+            resolve(true)
+            // bye message
+            if(SCRIPT.isNewInstall){
+                clack.log.success("KitDocs installed")
+                clack.log.info(`cd ${SCRIPT.paths.project}`)
+                clack.log.info("Follow the installing guide at: https://kitdocs.dev/docs/installation")
+            }else{
+                clack.log.success("KitDocs updated")
+            }
+        })
+    })
+}
+
+/** Create default folder and files */
+async function createDefaults(){
+    const pagesPath = `${SCRIPT.paths.project}/pages`
+    // create pages folder and index.md file
+    if(!fs.existsSync(pagesPath)){
+        fs.mkdirSync(pagesPath)
+        fs.writeFileSync(`${pagesPath}/[1]index.md`,utils.defaults.indexPage)
+    }
+}
+
+/** Update vite and svelte config files */
+async function updateConfigFiles(){
+    const SVELTE_CONFIG_PATH = `${SCRIPT.paths.project}/svelte.config.js`
+    const VITE_CONFIG_PATH = `${SCRIPT.paths.project}/vite.config.ts`
+    let svelteConfigData = fs.readFileSync(SVELTE_CONFIG_PATH).toString()
+    let viteConfigData = fs.readFileSync(VITE_CONFIG_PATH).toString()
+    // update files
+    svelteConfigData = svelteConfigData.replace('adapter()','adapter(),\n		alias:{ kitDocs:"src/kitDocs/*" }')
+    viteConfigData = "import MdPlugin from './src/kitDocs/lib/plugin';\n"+viteConfigData.replace('[sveltekit()]','[sveltekit(),MdPlugin()]')
+    // save files
+    fs.writeFileSync(SVELTE_CONFIG_PATH,svelteConfigData)
+    fs.writeFileSync(VITE_CONFIG_PATH,viteConfigData)
+}
+
+// RUN =======================================
+if(SCRIPT.isNewInstall===false){
+    clack.log.warn("Looks like you already have kitDocs installed")
+    const action = await clack.confirm({ message:"Run update?"})
+    isCancel(action)
+    // if user picked no, ask for project name
+    if(!action) await askProjectName()
+}
+else await askProjectName()
 await selectPackageManager()
-// Update
-if(!NEW_INSTALL){
-    await confirmOverwritten()
-    // update kitdocs
-    loader.start("Updating KitDocs")
-    await update()
-    loader.stop("KitDocs was updated")
-    // install dependencies
-    const command = `${SCRIPT.packageManager} install ${DEPENDENCIES.join(" ")}`
-    loader.start(`Running ${command}`)
-    execSync(command)
-    await new Promise(r=>setTimeout(r,500))
-    loader.stop("Dependencies installed")
+
+
+// new install
+if(SCRIPT.isNewInstall){
+    clack.intro("Installing")
+    // create svelte kit project
+    await create(SCRIPT.paths.project, {
+        name: SCRIPT.projectName,
+        template: 'skeleton',
+        types: 'typescript',
+        prettier: false,
+        eslint: false,
+        playwright: false,
+        vitest: false
+    });
+    // update config files
+    await updateConfigFiles()
+    // copy kitDocs folder
+    await handleKitDocsFolder()
+    // copy routes folder
+    await handleRoutesFolder()
+    // create default pages folder
+    await createDefaults()
+    // handle dependencies
+    await handleDependencies()
 }
-// install
+
+// update
 else{
-    loader.start("Installing KitDocs")
-    await install()
-    loader.stop("KitDocs was installed")
-    // install dependencies
-    const command = `${SCRIPT.packageManager} install ${DEPENDENCIES.join(" ")}`
-    loader.start(`Running ${command}`)
-    execSync(command)
-    loader.stop("Dependencies installed")
-    clack.log.info("Follow installing at https://kitdocs.dev")
+    clack.intro("Updating")
+    await confirmOverwritten()
+    // make temp folder and copies
+    await handleTempFiles()
+    // copy kitDocs folder
+    await handleKitDocsFolder()
+    // remove temp folder and copies
+    await handleTempFiles(true)
+    // copy routes folder
+    await handleRoutesFolder()
+    // handle dependencies
+    await handleDependencies()
 }

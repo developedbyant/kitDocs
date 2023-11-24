@@ -20,6 +20,8 @@
     Getting Started
 </Header>
 <Text>To install kitDocs, simply run the following command in your terminal and follow the prompts:</Text>
+<Code><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-function)">npx</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">create-kitdocs-app@latest</span></span></code></pre></Code>
+<Text>Or</Text>
 <Code><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-function)">npx</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">kitdocs@latest</span></span></code></pre></Code>
 <Text>For a more detailed installation guide, refer to the <Link href="/docs/installation">
     installation

@@ -1,9 +1,9 @@
 <script lang="ts">
     export let data
+    import "kitDocs/style.css"
     import { page } from "$app/stores";
     import { metaTagsStore } from "kitDocs/lib/stores";
     import Layout from "kitDocs/Layout.svelte";
-    $: hide = $page.url.pathname === "/"
     $: theme = data.theme
     // set mete tags
     $: url = $page.url.href
@@ -35,6 +35,6 @@
     <meta property="twitter:image" content={image} />
 </svelte:head>
 
-<Layout {hide} {theme}>
+<Layout hide {theme}>
     <slot />
 </Layout>
