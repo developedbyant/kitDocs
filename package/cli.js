@@ -63,7 +63,7 @@ async function selectPackageManager(){
 
 /** Make sure user confirm kitDocs folder will be overwritten */
 async function confirmOverwritten(){
-    clack.log.warning("These folders will be overwritten:\n  src/kitDocs\n  src/routes/(app)/(docs)/")
+    clack.log.warning("These folders will be overwritten:\n  src/kitDocs\n  src/routes/(docs)/")
     const action = await clack.confirm({ message:"Continue?" })
     // If user cancel script
     isCancel(action,action===false)
@@ -106,17 +106,22 @@ async function handleKitDocsFolder(){
 async function handleRoutesFolder(){
     const projectRoutesPath = `${SCRIPT.paths.project}/src/routes`
     const packageRoutesPath = `${SCRIPT.paths.package}/assets/routes`
-    const projectDocsPath = `${SCRIPT.paths.project}/src/routes/(app)/(docs)`
-    const packageDocsPath = `${SCRIPT.paths.package}/assets/routes/(app)/(docs)`
+    const projectDocsPath = `${SCRIPT.paths.project}/src/routes/(docs)`
+    const packageDocsPath = `${SCRIPT.paths.package}/assets/routes/(docs)`
     // delete routes folder and copy routes folder from assets
     if(SCRIPT.isNewInstall) {
         if(fs.existsSync(projectRoutesPath)) fs.rmSync(projectRoutesPath,{ recursive: true })
         fs.copySync(packageRoutesPath,projectRoutesPath)
     }
-    // else just remove src/routes/(app)/(docs) and copy a new copy
+    // else just remove src/routes/(docs) and copy a new copy
     else{
-        if(fs.existsSync(projectDocsPath)) fs.rmSync(projectDocsPath,{ recursive: true })
-        fs.copySync(packageDocsPath,projectDocsPath)
+        if(fs.existsSync(`${projectDocsPath}/+layout.server.ts`)) fs.removeSync(`${projectDocsPath}/+layout.server.ts`)
+        if(fs.existsSync(`${projectDocsPath}/+layout@.svelte`)) fs.removeSync(`${projectDocsPath}/+layout@.svelte`)
+        if(fs.existsSync(`${projectDocsPath}/docs/api/`)) fs.rmSync(`${projectDocsPath}/docs/api/`,{ recursive: true })
+        // copy new ones
+        fs.copyFileSync(`${packageDocsPath}/+layout.server.ts`,`${projectDocsPath}/+layout.server.ts`)
+        fs.copyFileSync(`${packageDocsPath}/+layout@.svelte`,`${projectDocsPath}/+layout@.svelte`)
+        fs.copySync(`${packageDocsPath}/docs/api/`,`${projectDocsPath}/docs/api/`)
     }
 }
 
@@ -175,7 +180,7 @@ if(SCRIPT.isNewInstall===false){
 }
 else await askProjectName()
 await selectPackageManager()
-
+// console.log(SCRIPT)
 
 // new install
 if(SCRIPT.isNewInstall){

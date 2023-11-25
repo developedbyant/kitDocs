@@ -16,10 +16,10 @@ function copyRoutes(){
     if(fs.existsSync(`${PACKAGE_PATH}/assets/routes`)) fs.removeSync(`${PACKAGE_PATH}/assets/routes`) // delete routes
     fs.copySync(`${CWD}/src/routes`,`${PACKAGE_PATH}/assets/routes`) // copy routes
     // clean docs folder
-    const docsPath = `${PACKAGE_PATH}/assets/routes/(app)/(docs)/docs`
+    const docsPath = `${PACKAGE_PATH}/assets/routes/(docs)/docs`
     const routesFolders = fs.readdirSync(docsPath)
     for(let path of routesFolders){
-        path = `${PACKAGE_PATH}/assets/routes/(app)/(docs)/docs/${path}`
+        path = `${PACKAGE_PATH}/assets/routes/(docs)/docs/${path}`
         // delete all folders, only keep api folder
         if(!path.endsWith("/api")) fs.rmSync(path,{ recursive:true })
     }
