@@ -59,7 +59,7 @@ class Markdown{
             const { name:mdPageName } = path.parse(cleanMd.slice(5).trim())
             const routeMdDir = this.outPutDir+(mdPageName==="index"?"":`${mdPageName}/`)
             const routeMdPath = routeMdDir+"+page.svelte"
-            const mdHref = routeMdPath.replace("src/routes/","").replace("/+page.svelte","").replace('(app)/(docs)','')
+            const mdHref = routeMdPath.replace("src/routes/","").replace("/+page.svelte","").replace('(docs)/','')
             // add data to app.json
             const layoutName = this.capitalize(metaData.layout)
             if(!appData['kitDocs'][layoutName]) appData['kitDocs'][layoutName] = []
@@ -240,7 +240,7 @@ class Markdown{
 
 }
 
-export default async function(mdDir:`${string}/`="pages/",outPutDir:`src/routes/${string}`="src/routes/(app)/(docs)/docs") {
+export default async function(mdDir:`${string}/`="pages/",outPutDir:`src/routes/${string}`="src/routes/(docs)/docs") {
 	return {
 		name: 'markdown',
 		handleHotUpdate(data:{ file:string,server:any }) {
