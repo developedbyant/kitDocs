@@ -7,8 +7,6 @@
     import Space from 'kitDocs/components/Space.svelte';
     import Code from 'kitDocs/components/Code.svelte';
     import Link from 'kitDocs/components/Link.svelte';
-    // custom code
-
 </script>
 
 <Header type="h1" id="what-is-kitdocs">

@@ -17,7 +17,7 @@
     & code{
         display: flex;
         flex-direction: column;
-        padding: 10px 5px;
+        padding: 10px 0;
     }
 }
 .shiki::-webkit-scrollbar {

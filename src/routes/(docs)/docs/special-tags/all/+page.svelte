@@ -7,8 +7,6 @@
     import Text from 'kitDocs/components/Text.svelte';
     import Code from 'kitDocs/components/Code.svelte';
     import Space from 'kitDocs/components/Space.svelte';
-    // custom code
-
 </script>
 
 <Header type="h1" id="highlight-and-show-code">

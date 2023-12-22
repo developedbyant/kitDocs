@@ -8,11 +8,13 @@ import utils from "./utils.js"
 
 // Scrip info
 const SCRIPT = {
+    // isNewInstall: fs.existsSync(`${process.cwd()}/test/testApp/src/kitDocs`)===false,
     isNewInstall: fs.existsSync(`${process.cwd()}/src/kitDocs`)===false,
     packageManager:"",
     projectName: "",
     dependencies:[ "globby","shiki","marked" ],
     paths:{
+        // project: process.cwd()+"/test",
         project: process.cwd(),
         package: path.dirname(new URL(import.meta.url).pathname),
     }

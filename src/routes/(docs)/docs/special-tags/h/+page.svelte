@@ -6,8 +6,6 @@
     import InlineCode from 'kitDocs/components/InlineCode.svelte';
     import Text from 'kitDocs/components/Text.svelte';
     import Code from 'kitDocs/components/Code.svelte';
-    // custom code
-
 </script>
 
 <Header type="h1" id="highlight-code">

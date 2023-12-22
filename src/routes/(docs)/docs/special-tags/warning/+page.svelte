@@ -8,8 +8,6 @@
     import Code from 'kitDocs/components/Code.svelte';
     import Space from 'kitDocs/components/Space.svelte';
     import Warning from 'kitDocs/components/Warning.svelte';
-    // custom code
-
 </script>
 
 <Header type="h1" id="warning">
