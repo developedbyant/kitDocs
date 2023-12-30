@@ -16,7 +16,7 @@
         // update app store
         appStore.update(data=>{ data['theme']=data['theme']==="dark"?"light":"dark" ; return data }) 
         // send api request to update theme cookie
-        const apiRes = await apiRequest("/docs/api/setTheme",null)
+        const apiRes = await apiRequest("/api/docs/setTheme",null)
         // update theme
         theme = apiRes.data.theme
     }
@@ -37,7 +37,7 @@
         </main>
     {:else}
         <div class="content">
-            <SideNav />
+            <SideNav on:click={handleScroll}/>
             <main>
                 <slot />
                 <PageNav />

@@ -5,7 +5,10 @@
     const sideNavLinks = Object.entries(docs.kitDocs)
     $: open = $appStore.sideNavIsOpen
     /** Close side nav when click link */
-    const closeNav = ()=> appStore.update(data=>{ data['sideNavIsOpen']=false ; return data })
+    const handleLinkClick = ()=>{
+        // close nav
+        appStore.update(data=>{ data['sideNavIsOpen']=false ; return data })
+    }
 </script>
 
 <aside class="sideNav" class:open>
@@ -20,7 +23,7 @@
             <ul class="sideNavLinks">
                 {#each links as link}
                 {@const active = link.href===$page.url.pathname}
-                    <li class="sideNavLink" on:click={closeNav} role="none">
+                    <li class="sideNavLink" on:click={handleLinkClick} on:click role="none">
                         <a class:active href={link.href}>{ link.title }</a>
                         {#if link.new}
                             <div class="badge">New</div>

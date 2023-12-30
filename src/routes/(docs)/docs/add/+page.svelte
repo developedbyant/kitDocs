@@ -1,22 +1,17 @@
 <script lang="ts">
     import { metaTagsStore } from "kitDocs/lib/stores";
     // set meta data
-    metaTagsStore.update(data=>{ data.title="KitDocs";data.description="Build documentation site using SvelteKit and kitDocs."; return data })
+    metaTagsStore.update(data=>{ data.title="Add to project";data.description="How to install kitDocs."; return data })
     import Header from 'kitDocs/components/Header.svelte';
     import Text from 'kitDocs/components/Text.svelte';
-    import Space from 'kitDocs/components/Space.svelte';
     import Code from 'kitDocs/components/Code.svelte';
-    import Link from 'kitDocs/components/Link.svelte';
+    import Space from 'kitDocs/components/Space.svelte';
     import InlineCode from 'kitDocs/components/InlineCode.svelte';
+    import Link from 'kitDocs/components/Link.svelte';
 </script>
 
-<Header type="h1" id="what-is-kitdocs">
-    What is kitDocs?
-</Header>
-<Text>KitDocs is a powerful tool that enables you to create documentation websites rapidly using SvelteKit.</Text>
-<Space />
-<Header type="h2" id="getting-started">
-    Getting Started
+<Header type="h1" id="installation">
+    Installation
 </Header>
 <Text>To install,update or add kitDocs, simply run the following command in your terminal and follow the prompts:</Text>
 <Code><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-function)">npx</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">kitdocs@latest</span></span></code></pre></Code>
@@ -28,9 +23,6 @@
 <span class="line"><span style="color: var(--shiki-token-function)">│</span><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-string)">○</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">Add</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">to</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">project</span></span>
 <span class="line"><span style="color: var(--shiki-token-function)">│</span><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-string)">○</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">Update</span></span>
 <span class="line"><span style="color: var(--shiki-token-function)">└</span></span></code></pre></Code>
-<Text>For a more detailed installation guide, refer to the <Link href="/docs/installation">
-    installation
-</Link> guide.</Text>
 <Space />
 <Header type="h2" id="updating-kitdocs">
     Updating kitDocs

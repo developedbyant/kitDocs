@@ -1,13 +1,16 @@
 {
-    "name": "create-kitdocs-app",
-    "version": "0.0.17",
+    "name": "kitdocs",
+    "version": "0.0.18",
     "type": "module",
     "main": "./cli.js",
     "bin": "./cli.js",
     "files": [
         "./assets",
         "./cli.js",
-        "./utils.js"
+        "./core.js",
+        "./defaults.js",
+        "./runners.js",
+        "./types.d.ts"
     ],
     "repository": {
         "url": "https://github.com/developedbyant/kitdocs"
@@ -25,7 +28,7 @@
     "license": "ISC",
     "dependencies": {
         "@clack/prompts": "^0.7.0",
-        "fs-extra": "^11.1.1",
-        "create-svelte": "^5.3.2"
+        "create-svelte": "^5.3.4",
+        "fs-extra": "^11.2.0"
     }
 }

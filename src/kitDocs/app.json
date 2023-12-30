@@ -1,5 +1,7 @@
 {
-    "version": "0.0.17",
+    "version": "0.0.18",
+    "projectName": "kitDocs",
+    "packageManager": "pnpm",
     "navLinks": [
         {
             "text": "Home",
@@ -12,6 +14,25 @@
             "external": false
         }
     ],
+    "footer": {
+        "links": [
+            {
+                "title": "Resources",
+                "links": [
+                    {
+                        "text": "Home",
+                        "href": "/",
+                        "external": false
+                    },
+                    {
+                        "text": "Svelte",
+                        "href": "https://svelte.dev/",
+                        "external": true
+                    }
+                ]
+            }
+        ]
+    },
     "socialMedias": {
         "twitter": "https://twitter.com/developedbyant",
         "github": "https://github.com/developedbyant/kitdocs"
@@ -35,6 +56,10 @@
                     {
                         "id": "updating-kitdocs",
                         "text": "Updating kitDocs"
+                    },
+                    {
+                        "id": "add-to-project",
+                        "text": "Add to project"
                     }
                 ]
             },
@@ -49,37 +74,155 @@
                         "text": "Installation"
                     },
                     {
-                        "id": "manual-installation",
-                        "text": "Manual installation"
+                        "id": "updating-kitdocs",
+                        "text": "Updating kitDocs"
                     },
                     {
-                        "id": "add-alias",
-                        "text": "Add Alias"
+                        "id": "add-to-project",
+                        "text": "Add to project"
+                    }
+                ]
+            },
+            {
+                "title": "Add to project",
+                "href": "/docs/add",
+                "description": "How to install kitDocs.",
+                "new": false,
+                "pageLinks": [
+                    {
+                        "id": "installation",
+                        "text": "Installation"
                     },
                     {
-                        "id": "add-plugin",
-                        "text": "Add Plugin"
+                        "id": "updating-kitdocs",
+                        "text": "Updating kitDocs"
                     },
                     {
-                        "id": "handle-layout",
-                        "text": "Handle Layout"
+                        "id": "add-to-project",
+                        "text": "Add to project"
+                    }
+                ]
+            },
+            {
+                "title": "Getting start",
+                "href": "/docs/get-started",
+                "description": "Getting started after creating kitDocs project.",
+                "new": false,
+                "pageLinks": [
+                    {
+                        "id": "getting-started",
+                        "text": "Getting started"
                     },
                     {
-                        "id": "metadata",
-                        "text": "Metadata"
+                        "id": "key-notes",
+                        "text": "Key notes"
                     },
                     {
-                        "id": "adding-nav-links",
-                        "text": "Adding nav links"
+                        "id": "project-structure",
+                        "text": "Project structure"
                     },
                     {
-                        "id": "creating-pages",
-                        "text": "Creating pages"
+                        "id": "create-route",
+                        "text": "Create route"
+                    },
+                    {
+                        "id": "first-page",
+                        "text": "First page"
+                    }
+                ]
+            }
+        ],
+        "Core files": [
+            {
+                "title": "Files",
+                "href": "/docs/core",
+                "description": "The most important files that makes kitDocs function.",
+                "new": false,
+                "pageLinks": [
+                    {
+                        "id": "core-files",
+                        "text": "Core files"
+                    }
+                ]
+            },
+            {
+                "title": "AppJson",
+                "href": "/docs/core/app-json",
+                "description": "A json file that keeps track of important information about your app.",
+                "new": false,
+                "pageLinks": [
+                    {
+                        "id": "what-is-the-appjson",
+                        "text": "What is the appJson?"
+                    },
+                    {
+                        "id": "default-data",
+                        "text": "Default data"
+                    },
+                    {
+                        "id": "packagemanager",
+                        "text": "PackageManager"
+                    },
+                    {
+                        "id": "projectname",
+                        "text": "ProjectName"
+                    },
+                    {
+                        "id": "navlinks",
+                        "text": "NavLinks"
+                    },
+                    {
+                        "id": "socialmedias",
+                        "text": "SocialMedias"
+                    },
+                    {
+                        "id": "footer",
+                        "text": "Footer"
+                    },
+                    {
+                        "id": "kitdocs",
+                        "text": "KitDocs"
+                    }
+                ]
+            },
+            {
+                "title": "Logo",
+                "href": "/docs/core/logo",
+                "description": "A svelte component that render your logo into the top navigation.",
+                "new": false,
+                "pageLinks": [
+                    {
+                        "id": "logo",
+                        "text": "Logo"
+                    }
+                ]
+            },
+            {
+                "title": "Style",
+                "href": "/docs/core/style",
+                "description": "KitDocs style file.",
+                "new": false,
+                "pageLinks": [
+                    {
+                        "id": "style",
+                        "text": "Style"
                     }
                 ]
             }
         ],
         "Special tags": [
+            {
+                "title": "Tags",
+                "href": "/docs/special-tags",
+                "description": "A list of super key you can use inside your markdowns.",
+                "new": false,
+                "pageLinks": [
+                    {
+                        "id": "special-tags",
+                        "text": "Special tags"
+                    }
+                ]
+            },
             {
                 "title": "ALL",
                 "href": "/docs/special-tags/all",

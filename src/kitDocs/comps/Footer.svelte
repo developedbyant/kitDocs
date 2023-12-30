@@ -1,10 +1,27 @@
 <script>
-    const copyRightText = `© ${new Date().getFullYear()}`
+    import appData from "kitDocs/app.json"
+    import Logo from "kitDocs/Logo.svelte";
 </script>
 
 <footer>
     <div class="content">
-        <p class="copyRight">{copyRightText}</p>
+        <div class="footerNav">
+            <div class="navLinks">
+                {#each appData.footer.links as linkBlock }
+                    <div class="navLink">
+                        <span class="title">{linkBlock.title}</span>
+                        <ul class="links">
+                            {#each linkBlock.links as link }
+                                <a class="link" href={link.href}>
+                                    {link.text}
+                                </a>
+                            {/each}
+                        </ul>
+                    </div>
+                {/each}
+            </div>         
+        </div>
+        <Logo />
     </div>
 </footer>
 
@@ -16,13 +33,37 @@
     }
     .content{
         display: flex;
-        align-items: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
         justify-content: space-between;
         padding: 20px;
     }
-    .copyRight{
-        font-size: 15px;
+    .navLinks{
+        display: flex;
+        gap: 40px;
+    }
+    .navLink{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    } 
+    .title{
+        font-size: 18px;
         font-weight: 400;
-        color: var(--footer-text-color);
+        color: var(--header-color);
+    }
+    .links{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .link{
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--header-color);
+    }
+    .link:hover{
+        color: var(--nav-link-hover-color);
     }
 </style>

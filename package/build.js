@@ -1,6 +1,6 @@
 /** Build npm package */
 import fs from "fs-extra"
-import utils from "./utils.js"
+import defaults from "./defaults.js"
 const CWD = process.cwd()
 const PACKAGE_PATH = `${CWD}/package`
 const APP_DATA = fs.readJsonSync(`${CWD}/src/kitDocs/app.json`)
@@ -37,7 +37,7 @@ function updatePackageJson(){
 
 /** Create default app.json file */
 function createAppJson(){
-    fs.writeFile(`${PACKAGE_PATH}/assets/kitDocs/app.json`,JSON.stringify(utils.defaults.appData,null,4))
+    fs.writeFile(`${PACKAGE_PATH}/assets/kitDocs/app.json`,JSON.stringify(defaults.appData,null,4))
 }
 
 copyKitDocs()

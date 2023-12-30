@@ -1,0 +1,148 @@
+---
+layout: Core files
+title: Style
+description: KitDocs style file.
+---
+
+# Style
+The style.css file found at `/kitDocs/style.css` contains all css style for your app, it can be edited and
+this file will stay like that even after running the update command.
+```css
+/* GLOBAL CSS ====================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+.app{
+    scroll-behavior: smooth
+}
+.shiki{
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 300;
+    overflow-x: auto;
+    & code{
+        display: flex;
+        flex-direction: column;
+        padding: 10px 0;
+    }
+}
+.shiki::-webkit-scrollbar {
+    height: 10px;
+}
+.shiki::-webkit-scrollbar-thumb {
+    background: var(--border-color); 
+    border: 1.5px solid var(--background);
+    border-radius: 10px;
+}
+.shiki .line{
+    padding: 1px 10px;
+}
+.shiki .line.added{
+    background-color: var(--code-line-added-bg);
+}
+.shiki .line.removed{
+    background-color: var(--code-line-removed-bg);
+}
+
+:root{
+    --shiki-color-text: #b8cdd9;
+    --shiki-color-background: var(--code-bg);
+    --shiki-token-constant: #4EC9B0;
+    --shiki-token-string: #B58672;
+    --shiki-token-comment: #538b46;
+    --shiki-token-keyword: #B97FB4;
+    --shiki-token-parameter: #38bdf8;
+    --shiki-token-function: #dbdba6;
+    --shiki-token-string-expression: #CC9077;
+    --shiki-token-punctuation: #b8cdd9;
+    --shiki-token-link: #b8cdd9;
+}
+
+/* VARIABLES ====================== */
+:root{
+    /* app */
+    --background:#f9fafb;
+    --foreground:#ffffff;
+    --blur-bg: rgba(0,0,0,3%);
+    --header-color:#444444;
+    --text-color:#6B7280;
+    --border-color:#eeeeee;
+    --second-border-color:#3a72a31c;
+    --icon-color: #aeaeae;
+    --max-width:1400px;
+    --shadow:rgba(0,0,0,5%);
+    --main-color:#8e5bbf;
+    --second-color:#7eb2df;
+    --error-bg: #cc7d7d;
+    --error-color: #fff;
+    /* form */
+    --form-bg:transparent;
+    --form-fb:var(--app-bg);
+    --form-text-color: #767676;
+    --form-placeholder-color:#6b728079;
+    --form-header-color:var(--header-color);
+    /* footer */
+    --footer-bg:#f0f0f0;
+    --footer-text-color:#444444;
+    /* search */
+    --search-bg:var(--foreground);
+    --search-icon-color:#888888;
+    --search-text-color:#767676;
+    --search-placeholder-color:#6b728079;
+    /* nav */
+    --nav-height:60px;
+    --nav-bg:#ffffffab;
+    --nav-header-color:#6b7280;
+    --nav-icon-color:#6d6d6d;
+    --nav-link-color:#7a7a7a;
+    --nav-active-link-color:#272728;
+    --nav-active-link-bg:#0000000f;
+    --nav-active-icon-color:#7a7a7a;
+    /* card */
+    --card-bg: #ffffff;
+    --card-fg: #f9fafb;
+    --card-header-color: #444444;
+    --card-text-color: #6B7280;
+    /* data label */
+    --data-label-bg:#383838;
+    --data-label-color:#cfcfcf;
+    /* button */
+    --button-bg: #3a72a3;
+    --button-color:#fff;
+    /* code */
+    --code-bg: rgb(39, 40, 45);
+    --code-fg: rgb(79 79 90);
+    --code-text-color: #dbdbdb;
+    --code-line-added-bg:#4d8aac40;
+    --code-line-removed-bg:#917a7a52;
+}
+
+.dark{
+    /* app */
+    --background: radial-gradient(circle at 24.1% 68.8%, rgb(30 23 37) 0%, rgb(0, 0, 0) 99.4%);
+    --foreground: rgb(39, 40, 45);
+    --border-color:rgb(46, 48, 53);
+    --header-color:#e9e9e9;
+    --text-color:#a4a6a9;
+    /* nav */
+    --nav-bg: rgb(39 40 45 / 30%);
+    --nav-link-color: #ffff;
+    --nav-icon-color:#dadada;
+    --nav-header-color:#d5d5d5;
+    --nav-active-link-color:#7d6793;
+    /* search */
+    --search-bg: #27282D;
+    --search-color: #b3b3b3;
+    /* card */
+    --card-bg: rgb(39, 40, 45);
+    /* code */
+    --code-text-color:var(--text-color);
+    /* footer */
+    --footer-bg:#27282D;
+    --footer-text-color:#ededed;
+}
+```

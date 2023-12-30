@@ -1,14 +1,10 @@
 ---
 layout: Introduction
-title: KitDocs
-description: Build documentation site using SvelteKit and kitDocs.
+title: Add to project
+description: How to install kitDocs.
 ---
 
-# What is kitDocs?
-KitDocs is a powerful tool that enables you to create documentation websites rapidly using SvelteKit.
-
-
-## Getting Started
+# Installation
 To install,update or add kitDocs, simply run the following command in your terminal and follow the prompts:
 ```bash
 npx kitdocs@latest
@@ -23,8 +19,6 @@ You will see something like this from your terminal
 │  ○ Update
 └
 ```
-For a more detailed installation guide, refer to the [installation](/docs/installation) guide.
-
 
 ## Updating kitDocs
 Updating kitDocs is as easy as installing it. Run the following command to ensure you have the latest version:
