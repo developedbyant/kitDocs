@@ -24,7 +24,7 @@
     "license": "ISC",
     "dependencies": {
         "@clack/prompts": "^0.7.0",
-        "create-svelte": "^5.3.4",
+        "create-svelte": "^6.0.8",
         "fs-extra": "^11.2.0"
     }
 }

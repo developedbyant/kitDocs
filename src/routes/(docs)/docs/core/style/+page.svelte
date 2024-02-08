@@ -15,12 +15,12 @@
     }
 </script>
 
-<h1 data-section data-sb="header" id="style">
+<h1 data-section data-kb="header" id="style">
     Style
 </h1>
-<p data-sb="p">The style.css file found at <code data-sb="inline-code">/kitDocs/style.css</code> contains all css style for your app, it can be edited and
+<p data-kb="p">The style.css file found at <code data-kb="inline-code">/kitDocs/style.css</code> contains all css style for your app, it can be edited and
 this file will stay like that even after running the update command.</p>
-<div data-sb="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-comment)">/* GLOBAL CSS ====================== */</span></span>
+<div data-kb="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-comment)">/* GLOBAL CSS ====================== */</span></span>
 <span class="line"><span style="color: var(--shiki-token-keyword)">@import</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">url</span><span style="color: var(--shiki-color-text)">(</span><span style="color: var(--shiki-token-string-expression)">&#39;https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap&#39;</span><span style="color: var(--shiki-color-text)">);</span></span>
 <span class="line"><span style="color: var(--shiki-token-string-expression)">*</span><span style="color: var(--shiki-color-text)">&#123;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-constant)">margin</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">0</span><span style="color: var(--shiki-color-text)">;</span></span>

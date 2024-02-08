@@ -42,10 +42,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        & svg{
-            stroke: var(--nav-icon-color,red);
-        }
     }
+    .btn svg{ stroke: var(--nav-icon-color,red); }
     .btn:hover{
         opacity: 80%;
     }

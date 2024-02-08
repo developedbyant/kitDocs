@@ -24,8 +24,8 @@
         min-height: 30px;
         min-width: 30px;
         transition: transform 0.3s ease-in-out;
-        & svg{ stroke: var(--nav-icon-color); }
     }
+    .btn svg{ stroke: var(--nav-icon-color); }
     /* on hover */
     .btn:hover{ opacity: 80%; }
     /* when nav is open */

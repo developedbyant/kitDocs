@@ -15,13 +15,13 @@
     }
 </script>
 
-<h1 data-section data-sb="header" id="warning">
+<h1 data-section data-kb="header" id="warning">
     Warning
 </h1>
-<p data-sb="p">To display a warning message, just add the <code data-sb="inline-code">[WARNING]</code> code tag to your md file.</p>
-<div data-sb="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-string)">    ```[WARNING]</span></span>
+<p data-kb="p">To display a warning message, just add the <code data-kb="inline-code">[WARNING]</code> code tag to your md file.</p>
+<div data-kb="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-string)">    ```[WARNING]</span></span>
 <span class="line"><span style="color: var(--shiki-token-string)">    This is a warning message</span></span>
 <span class="line"><span style="color: var(--shiki-token-string)">    ```</span></span></code></pre></div>
-<div data-sb="space"></div>
-<p data-sb="p">Preview</p>
-<div data-sb="warning">This is a warning message</div>
+<div data-kb="space"></div>
+<p data-kb="p">Preview</p>
+<div data-kb="warning">This is a warning message</div>

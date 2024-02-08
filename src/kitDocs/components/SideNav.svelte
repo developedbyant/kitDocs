@@ -9,6 +9,10 @@
         // close nav
         appStore.update(data=>{ data['sideNavIsOpen']=false ; return data })
     }
+    function scrollToTop() {
+        document.documentElement.scrollTop = 0; // For modern browsers
+        document.body.scrollTop = 0; // For old IE browsers
+    }
 </script>
 
 <aside class="sideNav" class:open>
@@ -23,7 +27,7 @@
             <ul class="sideNavLinks">
                 {#each links as link}
                 {@const active = link.href===$page.url.pathname}
-                    <li class="sideNavLink" on:click={handleLinkClick} on:click role="none">
+                    <li class="sideNavLink" on:click={handleLinkClick} on:click on:click={scrollToTop} role="none">
                         <a class:active href={link.href}>{ link.title }</a>
                         {#if link.new}
                             <div class="badge">New</div>
@@ -70,12 +74,12 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        & svg{
-            width: 25px;
-            height: 25px;
-            stroke-width: 1.5px;
-            stroke: var(--nav-icon-color);
-        }
+    }
+    .sideNavLinkTitle svg{
+        width: 25px;
+        height: 25px;
+        stroke-width: 1.5px;
+        stroke: var(--nav-icon-color);
     }
     .sideNavLink{
         font-size: 15px;
@@ -83,10 +87,10 @@
         display: flex;
         align-items: center;
         gap: 2px;
-        & a{
-            text-decoration: none;
-            color: var(--nav-link-color)
-        }
+    }
+    .sideNavLink a{
+        text-decoration: none;
+        color: var(--nav-link-color)
     }
     .sideNavLink .badge{
         padding: 4px 7px;

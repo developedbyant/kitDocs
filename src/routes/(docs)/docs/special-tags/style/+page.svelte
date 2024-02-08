@@ -15,12 +15,12 @@
     }
 </script>
 
-<h1 data-section data-sb="header" id="adding-style">
+<h1 data-section data-kb="header" id="adding-style">
     Adding style
 </h1>
-<p data-sb="p">To add style to the style tag, use the <code data-sb="inline-code">css [CODE]</code> tag after metadata code on top of your .md file.<br>
+<p data-kb="p">To add style to the style tag, use the <code data-kb="inline-code">css [CODE]</code> tag after metadata code on top of your .md file.<br>
 Markdown code</p>
-<div data-sb="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-string)">    ```css [CODE]</span></span>
+<div data-kb="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-string)">    ```css [CODE]</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">        </span><span style="color: var(--shiki-token-function)">.card</span><span style="color: var(--shiki-color-text)">&#123;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">            </span><span style="color: var(--shiki-token-constant)">display</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-constant)">flex</span><span style="color: var(--shiki-color-text)">;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">            </span><span style="color: var(--shiki-token-constant)">padding</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-constant)">10</span><span style="color: var(--shiki-token-keyword)">px</span><span style="color: var(--shiki-color-text)">;</span></span>
@@ -35,8 +35,8 @@ Markdown code</p>
 <span class="line"><span style="color: var(--shiki-token-string)">        Custom css</span></span>
 <span class="line"><span style="color: var(--shiki-token-string)">    &lt;/div&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-token-string)">    ```</span></span></code></pre></div>
-<div data-sb="space"></div>
-<p data-sb="p">Preview</p>
+<div data-kb="space"></div>
+<p data-kb="p">Preview</p>
 <div class="card">
     Custom css
 </div>

@@ -15,12 +15,12 @@
     }
 </script>
 
-<h1 data-section data-sb="header" id="logo">
+<h1 data-section data-kb="header" id="logo">
     Logo
 </h1>
-<p data-sb="p">A svelte component that render your logo into the top navigation, it can be found and edit at <code data-sb="inline-code">src/kitDocs/app/Logo.svelte</code>, 
+<p data-kb="p">A svelte component that render your logo into the top navigation, it can be found and edit at <code data-kb="inline-code">src/kitDocs/app/Logo.svelte</code>, 
 any changes made to this component will stay like that even after running the update command.</p>
-<div data-sb="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">a</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">href</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;/&quot;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">class</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;logo&quot;</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<div data-kb="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">a</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">href</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;/&quot;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">class</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;logo&quot;</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    Logo</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">a</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"></span>

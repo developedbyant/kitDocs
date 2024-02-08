@@ -1,27 +1,27 @@
 /* headers */
-[data-sb="header"]{
+[data-kb="header"]{
     color: var(--header-color);
     margin-bottom: 5px;
 }
-h1[data-sb="header"]{
+h1[data-kb="header"]{
     font-size: 35px;
     font-weight: 900;
 }
-h2[data-sb="header"]{
+h2[data-kb="header"]{
     font-size: 25px;
     font-weight: 800;
 }
-h3[data-sb="header"]{
+h3[data-kb="header"]{
     font-size: 20px;
     font-weight: 400;
 }
-h4[data-sb="header"],h5[data-sb="header"]{
+h4[data-kb="header"],h5[data-kb="header"]{
     font-size: 20px;
     font-weight: 400;
 }
 
 /* paragraph */
-[data-sb="p"]{
+[data-kb="p"]{
     font-size: 15px;
     font-weight: 400;
     color: var(--text-color);
@@ -30,19 +30,19 @@ h4[data-sb="header"],h5[data-sb="header"]{
 }
 
 /* anchor (link) */
-[data-sb="a"]{
+[data-kb="a"]{
     text-decoration: none;
     font-size: 15px;
     font-weight: 600;
 }
 
 /* space */
-[data-sb="space"]{
+[data-kb="space"]{
     margin-bottom: 20px;
 }
 
 /* list */
-[data-sb="list"],[data-sb="list-ordered"]{
+[data-kb="list"],[data-kb="list-ordered"]{
     margin-left: 20px;
     display: flex;
     flex-direction: column;
@@ -55,7 +55,7 @@ h4[data-sb="header"],h5[data-sb="header"]{
 }
 
 /* inline code */
-[data-sb="inline-code"]{
+[data-kb="inline-code"]{
     display: inline-flex;
     align-items: center;
     width: fit-content;
@@ -69,7 +69,7 @@ h4[data-sb="header"],h5[data-sb="header"]{
 }
 
 /* code */
-[data-sb="code"]{
+[data-kb="code"]{
     position: relative;
     margin: 5px 0;
     background: var(--code-bg);
@@ -114,7 +114,7 @@ h4[data-sb="header"],h5[data-sb="header"]{
 }
 
 /* warning */
-[data-sb="warning"]{
+[data-kb="warning"]{
     padding: 10px;
     border-radius: 10px;
     font-size: 16px;
@@ -137,19 +137,19 @@ h4[data-sb="header"],h5[data-sb="header"]{
 /* on mobile */
 @media (max-width: 768px) {
     /* paragraph */
-    [data-sb="p"]{
+    [data-kb="p"]{
         font-size: 13px;
     }
     /* headers */
-    h1[data-sb="header"]{ font-size: 30px; }
-    h2[data-sb="header"]{ font-size: 25px; }
-    h3[data-sb="header"]{ font-size: 20px; }
+    h1[data-kb="header"]{ font-size: 30px; }
+    h2[data-kb="header"]{ font-size: 25px; }
+    h3[data-kb="header"]{ font-size: 20px; }
     /* anchor (link) */
-    [data-sb="a"]{
+    [data-kb="a"]{
         font-size: 13px;
     }
     /* warning */
-    [data-sb="warning"]{
+    [data-kb="warning"]{
         font-size: 13px;
     }
 }

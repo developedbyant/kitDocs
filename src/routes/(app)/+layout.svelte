@@ -1,6 +1,5 @@
 <script lang="ts">
-    import "src/kitDocs/app/variables.css"
-    import "src/kitDocs/app/global.css"
+    import "src/kitDocs/app/styles.css"
     import "src/kitDocs/app/tags.css"
     import { page } from "$app/stores";
     import { metaTagsStore } from "src/kitDocs/lib/stores";
@@ -15,6 +14,7 @@
     // variables ===============
     let theme:string = ""
     const hide = true // set to true to hide side nav
+    let appElement:HTMLDivElement
     // get theme mode
     onMount(()=>{
         const localTheme = localStorage.getItem("theme")
@@ -35,10 +35,14 @@
         theme = newTheme
     }
     // Track scrollY position
-    let appElement:HTMLDivElement
 	function handleScroll() {
         appStore.update(data=>{ data.scrollY=appElement.scrollTop ; return data }) 
 	}
+
+    /** Scroll up when click on a link */
+    function scrollUp(){
+        appElement.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
     // set mete tags ==========
     $: url = $page.url.href
@@ -79,7 +83,7 @@
         </main>
     {:else}
         <div class="content">
-            <SideNav on:click={handleScroll}/>
+            <SideNav on:click={scrollUp}/>
             <main data-sb="main">
                 <slot />
                 <PageNav />

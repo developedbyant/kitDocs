@@ -7,7 +7,7 @@ description: Add custom js code to script tag.
     let isDarkMode:boolean = false
 ```
 ```css [CODE]
-    button{
+    .btnTest{
         all:unset;
         cursor:pointer;
         width:fit-content;
@@ -29,11 +29,11 @@ To add custom code to a route, use the `js [CODE]` or `ts [CODE]` tag after meta
 ```
 Code example
 ```svelte
-<button on:click={()=>isDarkMode=!isDarkMode}>SetTheme</button>
+<button class="btnTest" on:click={()=>isDarkMode=!isDarkMode}>SetTheme</button>
 <h2>Current theme is:{isDarkMode?"dark":"light"} mode</h2>
 ```
 Code example preview
 ```svelte [add]
-<button on:click={()=>isDarkMode=!isDarkMode}>SetTheme</button>
+<button class="btnTest" on:click={()=>isDarkMode=!isDarkMode}>SetTheme</button>
 <h2>Current theme is:{isDarkMode?"dark":"light"} mode</h2>
 ```

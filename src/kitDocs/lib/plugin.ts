@@ -115,12 +115,12 @@ class Markdown{
             const id = this.slug(token.text)
             if(!this.pageLinks.find(data=>data.id===id)) this.pageLinks.push({ id,text:token.text })
             // add code
-            this.pageCode+= `<h${token.depth} data-section data-sb="header" id="${id}">\n    ${token.text}\n</h${token.depth}>\n`
+            this.pageCode+= `<h${token.depth} data-section data-kb="header" id="${id}">\n    ${token.text}\n</h${token.depth}>\n`
         }
         // add spaces
         // else if(token.type==="code" && token.lang==="space"){
         //     console.log(token)
-        //     // this.pageCode+= `<div data-sb="added-space"></div>\n`
+        //     // this.pageCode+= `<div data-kb="added-space"></div>\n`
         // }
         // text
         else if(token.type==="paragraph"){
@@ -130,30 +130,30 @@ class Markdown{
                     // handle link in text
                     if(inToken.type==="link"){
                         // add code
-                        code = code.replace(inToken.raw,`<a data-sb="a" href="${inToken.href}">\n    ${inToken.text}\n</a>`)
+                        code = code.replace(inToken.raw,`<a data-kb="a" href="${inToken.href}">\n    ${inToken.text}\n</a>`)
                     }
                     // handle code in text
                     else if(inToken.type==="codespan"){
                         // add copy text function to script tag
                         if(!this.pageJsCode.includes('copyText(e:MouseEvent)')) this.pageJsCode+=this.copyTextFunc()
                         // add code
-                        code = code.replaceAll(inToken.raw,`<code data-sb="inline-code">${inToken.text}</code>`)
+                        code = code.replaceAll(inToken.raw,`<code data-kb="inline-code">${inToken.text}</code>`)
                     }
                 }
             }
             // add code
-            this.pageCode+= `<p data-sb="p">${code}</p>\n`
+            this.pageCode+= `<p data-kb="p">${code}</p>\n`
         }
         // space
         else if(token.type==="space"){     
-            this.pageCode+= `<div data-sb="space"></div>\n`
+            this.pageCode+= `<div data-kb="space"></div>\n`
         }
         // handle code
         else if(token.type==="code"){
             const lang = token.lang.toLowerCase().trim()
             // warning
             if(lang==="[warning]"){      
-                this.pageCode+= `<div data-sb="warning">${token.text}</div>\n`
+                this.pageCode+= `<div data-kb="warning">${token.text}</div>\n`
             }
             // add js and ts code to script tag
             else if((lang==="js [code]"||lang==="ts [code]"||lang==="javascript [code]"||lang==="typescript [code]")){
@@ -179,7 +179,7 @@ class Markdown{
                 // add copy text function to script tag
                 if(!this.pageJsCode.includes('copyText(e:MouseEvent)')) this.pageJsCode+=this.copyTextFunc()
                 // add page code
-                this.pageCode+= `<div data-sb="code"><button on:click={copyText}>Copy</button>${this.codeHighLighter(token.text,lang)}</div>\n`
+                this.pageCode+= `<div data-kb="code"><button on:click={copyText}>Copy</button>${this.codeHighLighter(token.text,lang)}</div>\n`
             }
         }
         // list items
@@ -196,7 +196,7 @@ class Markdown{
                             // handle code in item
                             if(textToken.type==="codespan"){
                                 // add code
-                                itemText = itemText.replaceAll(textToken.raw,`<code data-sb="inline-code">${textToken.text}</code>`)
+                                itemText = itemText.replaceAll(textToken.raw,`<code data-kb="inline-code">${textToken.text}</code>`)
                             }
                         }
                     }
@@ -205,7 +205,7 @@ class Markdown{
                 code+= item.type==="list_item" ? `    <li>${itemText}</li>\n` : `    <li>${itemText}</li>\n`
             }
             // add code to page code
-            code = !token.ordered ? `<ul data-sb="list">\n${code}</ul>\n` : `<ol data-sb="list-ordered">\n${code}</ol>\n`
+            code = !token.ordered ? `<ul data-kb="list">\n${code}</ul>\n` : `<ol data-kb="list-ordered">\n${code}</ol>\n`
             this.pageCode+= code
         }
         // convert md code to html and add to page

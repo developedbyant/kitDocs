@@ -44,7 +44,8 @@ if(actionToDo==="create"){
         prettier: false,
         eslint: false,
         playwright: false,
-        vitest: false
+        vitest: false,
+        svelte5: true,
     });
     fs.copySync(`${SCRIPT.packageAssetsDir}/kitDocs`,`${SCRIPT.projectDir}/${projectDir}/src/kitDocs`)
     // remove routes folder and copy the one from assets
@@ -52,7 +53,7 @@ if(actionToDo==="create"){
     fs.copySync(`${SCRIPT.packageAssetsDir}/routes`,`${SCRIPT.projectDir}/${projectDir}/src/routes`)
     clack.log.info(`cd ${projectDir} && pnpm add globby shiki@0.14.7 marked`)
     clack.log.info(`cd ${projectDir} && npm i globby shiki@0.14.7 marked`)
-    clack.log.success("Learn more at: https://kitdocs.dev/docs/guide")
+    clack.log.success("Follow the guide at: https://kitdocs.dev/docs/getting-started")
 }
 else if (actionToDo==="update"){
     /** @type { any } */

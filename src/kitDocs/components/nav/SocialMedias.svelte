@@ -36,9 +36,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        & svg{
-            stroke: var(--nav-icon-color);
-        }
+    }
+    .link svg{
+        stroke: var(--nav-icon-color);
     }
     .link:hover{
         opacity: 80%;
