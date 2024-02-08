@@ -1,22 +1,27 @@
 <script lang="ts">
     import { metaTagsStore } from "kitDocs/lib/stores";
-    // set meta data
+    // set meta data ===================
     metaTagsStore.update(data=>{ data.title="WARNING";data.description="Display a warning message."; return data })
-    import Header from 'kitDocs/components/Header.svelte';
-    import InlineCode from 'kitDocs/components/InlineCode.svelte';
-    import Text from 'kitDocs/components/Text.svelte';
-    import Code from 'kitDocs/components/Code.svelte';
-    import Space from 'kitDocs/components/Space.svelte';
-    import Warning from 'kitDocs/components/Warning.svelte';
+    // custom code ===================
+
+    /** Copy text to clipboard (Added by kitdocs) */
+    async function copyText(e:MouseEvent){
+        const copyButton = e.target as HTMLButtonElement
+        const code = copyButton.parentElement?.querySelector("code")?.innerText as string
+        await navigator.clipboard.writeText(code)
+        copyButton.innerText = "Copied"
+        // Set button text back to copy after 5 milliseconds
+        setTimeout(()=>copyButton.innerText = "Copy",1000)
+    }
 </script>
 
-<Header type="h1" id="warning">
+<h1 data-sb="header" id="warning">
     Warning
-</Header>
-<Text>To display a warning message, just add the <InlineCode code="[WARNING]" /> code tag to your md file.</Text>
-<Code><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-string)">    ```[WARNING]</span></span>
+</h1>
+<p data-sb="p">To display a warning message, just add the <code data-sb="inline-code">[WARNING]</code> code tag to your md file.</p>
+<div data-sb="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-string)">    ```[WARNING]</span></span>
 <span class="line"><span style="color: var(--shiki-token-string)">    This is a warning message</span></span>
-<span class="line"><span style="color: var(--shiki-token-string)">    ```</span></span></code></pre></Code>
-<Space />
-<Text>Preview</Text>
-<Warning>This is a warning message</Warning>
+<span class="line"><span style="color: var(--shiki-token-string)">    ```</span></span></code></pre></div>
+<div data-sb="space"></div>
+<p data-sb="p">Preview</p>
+<div data-sb="warning">This is a warning message</div>

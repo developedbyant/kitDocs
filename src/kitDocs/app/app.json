@@ -251,7 +251,7 @@
                 "title": "//H",
                 "href": "/docs/special-tags/h",
                 "description": "Highlight code sections.",
-                "new": false,
+                "new": true,
                 "pageLinks": [
                     {
                         "id": "highlight-code",

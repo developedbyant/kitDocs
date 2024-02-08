@@ -1,20 +1,26 @@
 <script lang="ts">
     import { metaTagsStore } from "kitDocs/lib/stores";
-    // set meta data
+    // set meta data ===================
     metaTagsStore.update(data=>{ data.title="CSS";data.description="Adding custom style to page."; return data })
-    import Header from 'kitDocs/components/Header.svelte';
-    import InlineCode from 'kitDocs/components/InlineCode.svelte';
-    import Text from 'kitDocs/components/Text.svelte';
-    import Code from 'kitDocs/components/Code.svelte';
-    import Space from 'kitDocs/components/Space.svelte';
+    // custom code ===================
+
+    /** Copy text to clipboard (Added by kitdocs) */
+    async function copyText(e:MouseEvent){
+        const copyButton = e.target as HTMLButtonElement
+        const code = copyButton.parentElement?.querySelector("code")?.innerText as string
+        await navigator.clipboard.writeText(code)
+        copyButton.innerText = "Copied"
+        // Set button text back to copy after 5 milliseconds
+        setTimeout(()=>copyButton.innerText = "Copy",1000)
+    }
 </script>
 
-<Header type="h1" id="adding-style">
+<h1 data-sb="header" id="adding-style">
     Adding style
-</Header>
-<Text>To add style to the style tag, use the <InlineCode code="css [CODE]" /> tag after metadata code on top of your .md file.<br>
-Markdown code</Text>
-<Code><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-string)">    ```css [CODE]</span></span>
+</h1>
+<p data-sb="p">To add style to the style tag, use the <code data-sb="inline-code">css [CODE]</code> tag after metadata code on top of your .md file.<br>
+Markdown code</p>
+<div data-sb="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-string)">    ```css [CODE]</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">        </span><span style="color: var(--shiki-token-function)">.card</span><span style="color: var(--shiki-color-text)">&#123;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">            </span><span style="color: var(--shiki-token-constant)">display</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-constant)">flex</span><span style="color: var(--shiki-color-text)">;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">            </span><span style="color: var(--shiki-token-constant)">padding</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-constant)">10</span><span style="color: var(--shiki-token-keyword)">px</span><span style="color: var(--shiki-color-text)">;</span></span>
@@ -28,9 +34,9 @@ Markdown code</Text>
 <span class="line"><span style="color: var(--shiki-token-string)">    &lt;div class=&quot;card&quot;&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-token-string)">        Custom css</span></span>
 <span class="line"><span style="color: var(--shiki-token-string)">    &lt;/div&gt;</span></span>
-<span class="line"><span style="color: var(--shiki-token-string)">    ```</span></span></code></pre></Code>
-<Space />
-<Text>Preview</Text>
+<span class="line"><span style="color: var(--shiki-token-string)">    ```</span></span></code></pre></div>
+<div data-sb="space"></div>
+<p data-sb="p">Preview</p>
 <div class="card">
     Custom css
 </div>

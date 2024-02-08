@@ -1,4 +1,3 @@
-/* GLOBAL CSS ====================== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 *{
     margin: 0;
@@ -8,34 +7,6 @@
 }
 .app{
     scroll-behavior: smooth
-}
-.shiki{
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: 300;
-    overflow-x: auto;
-    & code{
-        display: flex;
-        flex-direction: column;
-        padding: 10px 0;
-    }
-}
-.shiki::-webkit-scrollbar {
-    height: 10px;
-}
-.shiki::-webkit-scrollbar-thumb {
-    background: var(--border-color); 
-    border: 1.5px solid var(--background);
-    border-radius: 10px;
-}
-.shiki .line{
-    padding: 1px 10px;
-}
-.shiki .line.added{
-    background-color: var(--code-line-added-bg);
-}
-.shiki .line.removed{
-    background-color: var(--code-line-removed-bg);
 }
 
 :root{
@@ -57,7 +28,7 @@
     /* app */
     --background:#f9fafb;
     --foreground:#ffffff;
-    --blur-bg: rgba(0,0,0,3%);
+    --blur-bg: rgb(244 244 244 / 67%);
     --header-color:#444444;
     --text-color:#6B7280;
     --border-color:#eeeeee;
@@ -115,6 +86,7 @@
     /* app */
     --background: radial-gradient(circle at 24.1% 68.8%, rgb(30 23 37) 0%, rgb(0, 0, 0) 99.4%);
     --foreground: rgb(39, 40, 45);
+    --blur-bg: rgba(0,0,0,3%);
     --border-color:rgb(46, 48, 53);
     --header-color:#e9e9e9;
     --text-color:#a4a6a9;

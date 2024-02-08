@@ -1,19 +1,26 @@
 <script lang="ts">
     import { metaTagsStore } from "kitDocs/lib/stores";
-    // set meta data
+    // set meta data ===================
     metaTagsStore.update(data=>{ data.title="Style";data.description="KitDocs style file."; return data })
-    import Header from 'kitDocs/components/Header.svelte';
-    import InlineCode from 'kitDocs/components/InlineCode.svelte';
-    import Text from 'kitDocs/components/Text.svelte';
-    import Code from 'kitDocs/components/Code.svelte';
+    // custom code ===================
+
+    /** Copy text to clipboard (Added by kitdocs) */
+    async function copyText(e:MouseEvent){
+        const copyButton = e.target as HTMLButtonElement
+        const code = copyButton.parentElement?.querySelector("code")?.innerText as string
+        await navigator.clipboard.writeText(code)
+        copyButton.innerText = "Copied"
+        // Set button text back to copy after 5 milliseconds
+        setTimeout(()=>copyButton.innerText = "Copy",1000)
+    }
 </script>
 
-<Header type="h1" id="style">
+<h1 data-sb="header" id="style">
     Style
-</Header>
-<Text>The style.css file found at <InlineCode code="/kitDocs/style.css" /> contains all css style for your app, it can be edited and
-this file will stay like that even after running the update command.</Text>
-<Code><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-comment)">/* GLOBAL CSS ====================== */</span></span>
+</h1>
+<p data-sb="p">The style.css file found at <code data-sb="inline-code">/kitDocs/style.css</code> contains all css style for your app, it can be edited and
+this file will stay like that even after running the update command.</p>
+<div data-sb="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-comment)">/* GLOBAL CSS ====================== */</span></span>
 <span class="line"><span style="color: var(--shiki-token-keyword)">@import</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">url</span><span style="color: var(--shiki-color-text)">(</span><span style="color: var(--shiki-token-string-expression)">&#39;https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap&#39;</span><span style="color: var(--shiki-color-text)">);</span></span>
 <span class="line"><span style="color: var(--shiki-token-string-expression)">*</span><span style="color: var(--shiki-color-text)">&#123;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-constant)">margin</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">0</span><span style="color: var(--shiki-color-text)">;</span></span>
@@ -149,4 +156,4 @@ this file will stay like that even after running the update command.</Text>
 <span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-comment)">/* footer */</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    --footer-bg</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-constant)">#27282D</span><span style="color: var(--shiki-color-text)">;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    --footer-text-color</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-constant)">#ededed</span><span style="color: var(--shiki-color-text)">;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">}</span></span></code></pre></Code>
+<span class="line"><span style="color: var(--shiki-color-text)">}</span></span></code></pre></div>

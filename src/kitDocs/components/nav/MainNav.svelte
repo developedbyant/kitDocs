@@ -1,15 +1,13 @@
 <script lang="ts">
-    /** remove all layout only keeping the top nav */
-    export let hide:boolean = false
     import { page } from "$app/stores";
     import { appStore } from "kitDocs/lib/stores";
-    import kitDocsData from "kitDocs/app.json"
-    import SearchBtn from "kitDocs/comps/nav/SearchBtn.svelte";
+    import kitDocsData from "kitDocs/app/app.json"
+    import SearchBtn from "kitDocs/components/nav/SearchBtn.svelte";
     import SocialMedias from "./SocialMedias.svelte";
     import LinksToggle from "./LinksToggle.svelte";
-    import ThemeToggle from "kitDocs/comps/nav/ThemeToggle.svelte";
+    import ThemeToggle from "kitDocs/components/nav/ThemeToggle.svelte";
     import BurgerBtn from "./BurgerBtn.svelte";
-    import Logo from "kitDocs/Logo.svelte";
+    import Logo from "kitDocs/app/Logo.svelte";
     const navLinks = kitDocsData.navLinks
 
     /** close nav when user click link */
@@ -33,9 +31,7 @@
         <SearchBtn />
         <SocialMedias />
         <ThemeToggle on:changeTheme/>
-        {#if !hide}
-            <BurgerBtn /> <!--mobileOnly-->
-        {/if}
+        <BurgerBtn /> <!--mobileOnly-->
     </nav>
 </header>
 

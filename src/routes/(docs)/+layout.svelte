@@ -1,12 +1,45 @@
 <script lang="ts">
-    export let data
-    import "kitDocs/style.css"
+    import "kitDocs/app/style.css"
+    import "kitDocs/app/style.tags.css"
     import { page } from "$app/stores";
     import { metaTagsStore } from "kitDocs/lib/stores";
-    import Layout from "kitDocs/Layout.svelte";
-    $: hide = $page.url.pathname === "/"
-    $: theme = data.theme
-    // set mete tags
+    import { appStore } from "kitDocs/lib/stores";
+    import SearchDocs from "kitDocs/components/SearchDocs.svelte";
+    import MainNav from "kitDocs/components/nav/MainNav.svelte";
+    import SideNav from "kitDocs/components/SideNav.svelte";
+    import OnPageLinks from "kitDocs/components/OnPageLinks.svelte";
+    import PageNav from "kitDocs/components/PageNav.svelte";
+    import Footer from "kitDocs/components/Footer.svelte";
+    import { onMount } from "svelte";
+    // variables ===============
+    let theme:string = ""
+    const hide = false // set to true to hide side nav
+    // get theme mode
+    onMount(()=>{
+        const localTheme = localStorage.getItem("theme")
+        theme = localTheme || "dark"
+        // update app store
+        appStore.update(data=>{ data['theme']=theme ; return data }) 
+    })
+
+    /** Change current theme color */
+    async function changeTheme() {
+        const localTheme = localStorage.getItem("theme")
+        const newTheme = ( localTheme && localTheme==="dark" ) ? "light" : "dark"
+        // update local storage theme
+        localStorage.setItem("theme",newTheme)
+        // update app store
+        appStore.update(data=>{ data['theme']=newTheme ; return data }) 
+        // update theme
+        theme = newTheme
+    }
+    // Track scrollY position
+    let appElement:HTMLDivElement
+	function handleScroll() {
+        appStore.update(data=>{ data.scrollY=appElement.scrollTop ; return data }) 
+	}
+
+    // set mete tags ==========
     $: url = $page.url.href
     $: appName = $metaTagsStore.appName
     $: favicon = $metaTagsStore.favicon ? $metaTagsStore.favicon : "/favicon.png"
@@ -36,6 +69,52 @@
     <meta property="twitter:image" content={image} />
 </svelte:head>
 
-<Layout {hide} {theme}>
-    <slot />
-</Layout>
+<div class="app" class:dark={theme==="dark"} bind:this={appElement} on:scroll={handleScroll}>
+<SearchDocs />
+    <MainNav on:changeTheme={changeTheme}/>
+    {#if hide}
+        <main data-sb="main">
+            <slot />
+        </main>
+    {:else}
+        <div class="content">
+            <SideNav on:click={handleScroll}/>
+            <main data-sb="main">
+                <slot />
+                <PageNav />
+                <Footer />
+            </main>
+            <OnPageLinks />
+        </div>
+    {/if}
+</div>
+
+<style>
+    .app{
+        display: flex;
+        flex-direction: column;
+        background: var(--background);
+        color: var(--text-color);
+        height: 100vh;
+        overflow-y: auto;
+    }
+    .content{
+        max-width: var(--max-width);
+        width: 95%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+    }
+    main{
+        flex: 1;
+        padding: 20px 0;
+    }
+    /* on mobile */
+    @media(max-width:700px){
+        .content{
+            flex-direction: column-reverse;
+            gap: 10px;
+        }
+    }
+</style>

@@ -2,6 +2,7 @@
 layout: Special tags
 title: //H
 description: Highlight code sections.
+new: true
 ---
 
 # Highlight code

@@ -1,6 +1,5 @@
 <script lang="ts">
     import { appStore } from "kitDocs/lib/stores";
-    import ArrowRightIcon from "kitDocs/icons/ArrowRight.svelte";
     /** Open or close nav links */
     const openNave = ()=> appStore.update(data=>{
         data['navIsOpen'] = !data['navIsOpen'] ; return data
@@ -8,7 +7,9 @@
 </script>
 
 <button class="btn" class:open={$appStore.navIsOpen} on:click={openNave}>
-    <ArrowRightIcon />
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right">
+        <path d="m9 18 6-6-6-6"/>
+    </svg>
 </button>
 
 <style>

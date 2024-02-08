@@ -1,9 +1,7 @@
 <script lang="ts">
     import { appStore } from "kitDocs/lib/stores";
     import Modal from "./Modal.svelte";
-    import appData from "../app.json"
-    import SearchIcon from "kitDocs/icons/Search.svelte";
-    import WarningIcon from "kitDocs/icons/Warning.svelte";
+    import appData from "kitDocs/app/app.json"
     let modalDiv:HTMLDivElement
     let value:string = ""
     let result:{title:string,href:string,description:string}[] = []
@@ -29,6 +27,10 @@
         result = []
         // click modal container to close it with animation
         if(modalDiv) modalDiv.click()
+        // close side nav
+        appStore.update(data=>{
+            data['sideNavIsOpen'] = false ; return data
+        })
     }
 </script>
 
@@ -36,7 +38,9 @@
     <div class="searchWrap">
         <div class="search">
             <div class="icon">
-                <SearchIcon />
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.3-4.3" />
+                </svg>
             </div>
             <!-- svelte-ignore a11y-autofocus -->
             <input bind:value type="text" autofocus placeholder="search..." on:keyup={search}>
@@ -60,7 +64,10 @@
             {:else}
                 <div class="noResult">
                     <div class="icon">
-                        <WarningIcon />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m7 15 5 5 5-5" />
+                            <path d="m7 9 5-5 5 5" />
+                        </svg>
                     </div>
                     <p>No results found, try another input</p>
                 </div>

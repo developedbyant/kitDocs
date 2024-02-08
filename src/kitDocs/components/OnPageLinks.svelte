@@ -2,8 +2,7 @@
     export let activeID:string = ""
     import { page } from "$app/stores";
     import { appStore } from "kitDocs/lib/stores";
-    import appData from "kitDocs/app.json"
-    import Icon from "kitDocs/icons/UpDown.svelte";
+    import appData from "kitDocs/app/app.json"
     let linksOpen:boolean = false
     $: links = Object.values(appData.kitDocs).flatMap(data => data.map(item => item))
     $: currentData = links.find(data=>data.href===$page.url.pathname)
@@ -24,7 +23,9 @@
     <span class="title" on:click={openLinks} role="none">
         On this page
         <div class="icon">
-            <Icon />
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevrons-up-down">
+                <path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/>
+            </svg>
         </div>
     </span>
     <ul class="links" class:linksOpen>

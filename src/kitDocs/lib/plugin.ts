@@ -25,7 +25,6 @@ class Markdown{
     private resetDocs:boolean
     private markdownsDir:string
     private outPutDir:string
-    private pageComponents:string[]
     private pageCss:string
     private pageJsCode:string
     private pageCode:string
@@ -36,7 +35,6 @@ class Markdown{
         this.resetDocs = resetDocs
         this.markdownsDir = `${process.cwd()}/pages`
         this.outPutDir = `${process.cwd()}/src/routes/(docs)/docs`
-        this.pageComponents = []
         this.pageCss = ""
         this.pageJsCode = ""
         this.pageCode = ""
@@ -89,7 +87,6 @@ class Markdown{
             fs.writeFileSync(sveltePagePath,pageCode)
 
             // reset all page data
-            this.pageComponents = []
             this.pageCss = ""
             this.pageJsCode = ""
             this.pageCode = ""
@@ -98,7 +95,7 @@ class Markdown{
         }
 
         // update app.json
-        const appDataPath = "src/kitDocs/app.json"
+        const appDataPath = "src/kitDocs/app/app.json"
         const currentAppData = JSON.parse(fs.readFileSync(appDataPath).toString())
         currentAppData['kitDocs'] = appData.kitDocs
         fs.writeFileSync(appDataPath,JSON.stringify(currentAppData,null,4))
@@ -113,6 +110,13 @@ class Markdown{
                 this.pageMetadata[key.trim()] = value.trim()
             }
         }
+        // header
+        else if(token.type==="heading"){
+            const id = this.slug(token.text)
+            if(!this.pageLinks.find(data=>data.id===id)) this.pageLinks.push({ id,text:token.text })
+            // add code
+            this.pageCode+= `<h${token.depth} data-sb="header" id="${id}">\n    ${token.text}\n</h${token.depth}>\n`
+        }
         // text
         else if(token.type==="paragraph"){
             let code = token.text
@@ -120,46 +124,31 @@ class Markdown{
                 for(const inToken of token.tokens){
                     // handle link in text
                     if(inToken.type==="link"){
-                        // add needed comp
-                        if(!this.pageComponents.includes("Link")) this.pageComponents.push("Link")
                         // add code
-                        code = code.replace(inToken.raw,`<Link href="${inToken.href}">\n    ${inToken.text}\n</Link>`)
+                        code = code.replace(inToken.raw,`<a data-sb="a" href="${inToken.href}">\n    ${inToken.text}\n</a>`)
                     }
                     // handle code in text
                     else if(inToken.type==="codespan"){
-                        // add needed comp
-                        if(!this.pageComponents.includes("InlineCode")) this.pageComponents.push("InlineCode")
+                        // add copy text function to script tag
+                        if(!this.pageJsCode.includes('copyText(e:MouseEvent)')) this.pageJsCode+=this.copyTextFunc()
                         // add code
-                        code = code.replaceAll(inToken.raw,`<InlineCode code="${inToken.text}" />`)
+                        code = code.replaceAll(inToken.raw,`<code data-sb="inline-code">${inToken.text}</code>`)
                     }
                 }
             }
-            // add needed comp
-            if(!this.pageComponents.includes("Text")) this.pageComponents.push("Text")
             // add code
-            this.pageCode+= `<Text>${code}</Text>\n`
+            this.pageCode+= `<p data-sb="p">${code}</p>\n`
         }
         // space
         else if(token.type==="space"){     
-            if(!this.pageComponents.includes("Space")) this.pageComponents.push("Space") // add Comp needed
-            this.pageCode+= `<Space />\n`
-        }
-        // header
-        else if(token.type==="heading"){
-            const id = this.slug(token.text)
-            if(!this.pageLinks.find(data=>data.id===id)) this.pageLinks.push({ id,text:token.text })
-            // add Comp needed
-            if(!this.pageComponents.includes("Header")) this.pageComponents.push("Header")
-            // add code
-            this.pageCode+= `<Header type="h${token.depth}" id="${id}">\n    ${token.text}\n</Header>\n`
+            this.pageCode+= `<div data-sb="space"></div>\n`
         }
         // handle code
         else if(token.type==="code"){
             const lang = token.lang.toLowerCase().trim()
             // warning
             if(lang==="[warning]"){      
-                if(!this.pageComponents.includes("Warning")) this.pageComponents.push("Warning") // add Comp needed
-                this.pageCode+= `<Warning>${token.text}</Warning>\n`
+                this.pageCode+= `<div data-sb="warning">${token.text}</div>\n`
             }
             // add js and ts code to script tag
             else if((lang==="js [code]"||lang==="ts [code]"||lang==="javascript [code]"||lang==="typescript [code]")){
@@ -175,14 +164,17 @@ class Markdown{
             }
             // add svelte code to page and show code
             else if(lang==="svelte [all]"){
-                if(!this.pageComponents.includes("Code")) this.pageComponents.push("Code") // add Comp needed
-                this.pageCode+= `<Code>${this.codeHighLighter(token.text,"svelte")}</Code>\n`
+                // add copy text function to script tag
+                if(!this.pageJsCode.includes('copyText(e:MouseEvent)')) this.pageJsCode+=this.copyTextFunc()
+                // add code to page
                 this.pageCode+= `${token.text}\n`
             }
             // show code
             else{
-                if(!this.pageComponents.includes("Code")) this.pageComponents.push("Code") // add Comp needed
-                this.pageCode+= `<Code>${this.codeHighLighter(token.text,lang)}</Code>\n`
+                // add copy text function to script tag
+                if(!this.pageJsCode.includes('copyText(e:MouseEvent)')) this.pageJsCode+=this.copyTextFunc()
+                // add page code
+                this.pageCode+= `<div data-sb="code"><button on:click={copyText}>Copy</button>${this.codeHighLighter(token.text,lang)}</div>\n`
             }
         }
         // convert md code to html and add to page
@@ -194,16 +186,14 @@ class Markdown{
     /** Create page tags */
     private createPage(){
         // set page metaData
-        let meta = '    import { metaTagsStore } from "kitDocs/lib/stores";\n    // set meta data\n'
+        let meta = '    import { metaTagsStore } from "kitDocs/lib/stores";\n    // set meta data ===================\n'
         meta+=`    metaTagsStore.update(data=>{ data.title="${this.pageMetadata.title}";data.description="${this.pageMetadata.description}"; return data })\n`
-        // create page components imports
-        const comps = this.pageComponents.map(component=>`    import ${component} from 'kitDocs/components/${component}.svelte';`).join("\n")
         // add code to script tag
-        if(this.pageJsCode.trim()!=="") this.pageJsCode = `\n    // custom code\n${this.pageJsCode}`
+        if(this.pageJsCode.trim()!=="") this.pageJsCode = `    // custom code ===================\n${this.pageJsCode}`
         // add css to page
         if(this.pageCss.trim()!=="") this.pageCss = `<style>\n${this.pageCss}</style>`
         // return page data
-        return`<script lang="ts">\n${meta}${comps}${this.pageJsCode}\n</script>\n\n${this.pageCode}\n${this.pageCss}`.trimEnd()
+        return`<script lang="ts">\n${meta}${this.pageJsCode}\n</script>\n\n${this.pageCode}\n${this.pageCss}`.trimEnd()
     }
 
     /** reverse string */
@@ -250,6 +240,19 @@ class Markdown{
 
     /** Capitalize string */
     private capitalize = (data:string) => data.charAt(0).toUpperCase()+data.slice(1)
+
+    /** Return copy text function */
+    private copyTextFunc(){
+    return `\n    /** Copy text to clipboard (Added by kitdocs) */
+    async function copyText(e:MouseEvent){
+        const copyButton = e.target as HTMLButtonElement
+        const code = copyButton.parentElement?.querySelector("code")?.innerText as string
+        await navigator.clipboard.writeText(code)
+        copyButton.innerText = "Copied"
+        // Set button text back to copy after 5 milliseconds
+        setTimeout(()=>copyButton.innerText = "Copy",1000)
+    }`
+    }
 }
 
 export default async function() {

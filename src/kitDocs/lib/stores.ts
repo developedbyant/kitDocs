@@ -2,7 +2,7 @@ import { writable } from "svelte/store";
 import type { Writable } from "svelte/store";
 
 export const appStore = writable({
-    theme:"dark",
+    theme:"light",
     navIsOpen:false,
     sideNavIsOpen:false,
     searchIsOpen:false,
