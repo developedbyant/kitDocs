@@ -15,7 +15,7 @@
     }
 </script>
 
-<h1 data-sb="header" id="highlight-and-show-code">
+<h1 data-section data-sb="header" id="highlight-and-show-code">
     Highlight and show code
 </h1>
 <p data-sb="p">The <code data-sb="inline-code">svelte [ALL]</code> tag let you highlight code and add code to the page at the same time.</p>

@@ -15,7 +15,7 @@
     }
 </script>
 
-<h1 data-sb="header" id="highlight-code">
+<h1 data-section data-sb="header" id="highlight-code">
     Highlight code
 </h1>
 <p data-sb="p">To highlight a code block you can use the tag <code data-sb="inline-code">//[H]</code> after the code you want to highlight.</p>

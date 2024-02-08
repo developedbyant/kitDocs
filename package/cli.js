@@ -50,7 +50,8 @@ if(actionToDo==="create"){
     // remove routes folder and copy the one from assets
     fs.rmSync(`${SCRIPT.projectDir}/${projectDir}/src/routes`,{ recursive:true })
     fs.copySync(`${SCRIPT.packageAssetsDir}/routes`,`${SCRIPT.projectDir}/${projectDir}/src/routes`)
-    clack.log.info(`cd to ${projectDir} and install dependencies using > npm i globby shiki marked`)
+    clack.log.info(`cd ${projectDir} && pnpm add globby shiki@0.14.7 marked`)
+    clack.log.info(`cd ${projectDir} && npm i globby shiki@0.14.7 marked`)
     clack.log.success("Learn more at: https://kitdocs.dev/docs/guide")
 }
 else if (actionToDo==="update"){

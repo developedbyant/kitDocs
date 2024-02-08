@@ -15,7 +15,7 @@
     }
 </script>
 
-<h1 data-sb="header" id="warning">
+<h1 data-section data-sb="header" id="warning">
     Warning
 </h1>
 <p data-sb="p">To display a warning message, just add the <code data-sb="inline-code">[WARNING]</code> code tag to your md file.</p>

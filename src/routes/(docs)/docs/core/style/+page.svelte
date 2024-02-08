@@ -15,7 +15,7 @@
     }
 </script>
 
-<h1 data-sb="header" id="style">
+<h1 data-section data-sb="header" id="style">
     Style
 </h1>
 <p data-sb="p">The style.css file found at <code data-sb="inline-code">/kitDocs/style.css</code> contains all css style for your app, it can be edited and

@@ -11,7 +11,6 @@ find information like page links,generated docs links,footer info and more.
 ## Default data
 ```json
 {
-    "packageManager": "pnpm",
     "projectName": "kitDocs",
     "navLinks": [
         {
@@ -52,10 +51,6 @@ find information like page links,generated docs links,footer info and more.
 }
 ```
 
-## PackageManager
-The packageManager key let us know what node js package manager you are using, so when it's time to install any 
-dependencies we know what to run.
-
 ## ProjectName
 Just let use know your project name just incase we need it in the future.
 
@@ -93,7 +88,6 @@ The socialMedias key it's use to display your social media link on the top navig
 Footer key it's use to show things like footer links,footer text and other thing in the future.
 
 ## KitDocs
-
 ```[WARNING]
     Do not edit kitDocs key
 ```

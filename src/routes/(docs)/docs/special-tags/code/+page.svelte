@@ -15,7 +15,7 @@
     }
 </script>
 
-<h1 data-sb="header" id="adding-style">
+<h1 data-section data-sb="header" id="adding-style">
     Adding style
 </h1>
 <p data-sb="p">To add custom code to a route, use the <code data-sb="inline-code">js [CODE]</code> or <code data-sb="inline-code">ts [CODE]</code> tag after metadata code on top of your .md file.</p>

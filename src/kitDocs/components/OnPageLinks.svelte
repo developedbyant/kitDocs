@@ -49,6 +49,7 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+        min-width: fit-content;
     }
     .title{
         cursor: pointer;

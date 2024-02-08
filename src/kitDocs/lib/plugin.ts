@@ -115,8 +115,13 @@ class Markdown{
             const id = this.slug(token.text)
             if(!this.pageLinks.find(data=>data.id===id)) this.pageLinks.push({ id,text:token.text })
             // add code
-            this.pageCode+= `<h${token.depth} data-sb="header" id="${id}">\n    ${token.text}\n</h${token.depth}>\n`
+            this.pageCode+= `<h${token.depth} data-section data-sb="header" id="${id}">\n    ${token.text}\n</h${token.depth}>\n`
         }
+        // add spaces
+        // else if(token.type==="code" && token.lang==="space"){
+        //     console.log(token)
+        //     // this.pageCode+= `<div data-sb="added-space"></div>\n`
+        // }
         // text
         else if(token.type==="paragraph"){
             let code = token.text
@@ -176,6 +181,32 @@ class Markdown{
                 // add page code
                 this.pageCode+= `<div data-sb="code"><button on:click={copyText}>Copy</button>${this.codeHighLighter(token.text,lang)}</div>\n`
             }
+        }
+        // list items
+        else if(token.type==="list"){
+            let code = ""
+            for(const item of token.items){
+                let itemText = item.text
+                // TODO: handle sub list
+                // loop all list items
+                for(const itemToken of item.tokens){
+                    // handle token in text
+                    if(itemToken.type==="text"){
+                        for(const textToken of itemToken.tokens){
+                            // handle code in item
+                            if(textToken.type==="codespan"){
+                                // add code
+                                itemText = itemText.replaceAll(textToken.raw,`<code data-sb="inline-code">${textToken.text}</code>`)
+                            }
+                        }
+                    }
+                }
+                // create list
+                code+= item.type==="list_item" ? `    <li>${itemText}</li>\n` : `    <li>${itemText}</li>\n`
+            }
+            // add code to page code
+            code = !token.ordered ? `<ul data-sb="list">\n${code}</ul>\n` : `<ol data-sb="list-ordered">\n${code}</ol>\n`
+            this.pageCode+= code
         }
         // convert md code to html and add to page
         else if(token.type!=="hr"){
@@ -259,7 +290,7 @@ export default async function() {
 	return {
 		name: 'markdown2svelte',
 		handleHotUpdate(data:{ file:string,server:any }) {
-            const run = ( data.file.endsWith(".md") || data.file.endsWith(".mjs") ) && data.server.config.mode==="development"
+            const run = ( data.file.endsWith("plugin.ts") || data.file.endsWith(".md") || data.file.endsWith(".mjs") ) && data.server.config.mode==="development"
 			if(run) new Markdown().run()
 		},
 	}

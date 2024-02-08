@@ -38,7 +38,20 @@ h4[data-sb="header"],h5[data-sb="header"]{
 
 /* space */
 [data-sb="space"]{
-    margin-bottom: 35px;
+    margin-bottom: 20px;
+}
+
+/* list */
+[data-sb="list"],[data-sb="list-ordered"]{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    & li{
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--text-color);
+    }
 }
 
 /* inline code */
@@ -107,8 +120,8 @@ h4[data-sb="header"],h5[data-sb="header"]{
     font-size: 16px;
     font-weight: 300;
     border: 1.5px solid var(--border-color);
-    color: var(--card-color);
-    background-color: var(--card-bg);
+    color: white;
+    background-color: #be7575;
     display: flex;
     align-items: center;
     gap: 10px;

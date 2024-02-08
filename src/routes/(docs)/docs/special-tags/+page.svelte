@@ -5,7 +5,7 @@
 
 </script>
 
-<h1 data-sb="header" id="special-tags">
+<h1 data-section data-sb="header" id="special-tags">
     Special tags
 </h1>
 <p data-sb="p">KitDocs has a list of super key you can use inside your markdowns to 

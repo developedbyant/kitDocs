@@ -15,17 +15,16 @@
     }
 </script>
 
-<h1 data-sb="header" id="what-is-the-appjson">
+<h1 data-section data-sb="header" id="what-is-the-appjson">
     What is the appJson?
 </h1>
 <p data-sb="p">The appJson file that keeps track of important information about your app, it can be found at <code data-sb="inline-code">src/kitDocs/app.json</code>, there you will
 find information like page links,generated docs links,footer info and more.</p>
 <div data-sb="space"></div>
-<h2 data-sb="header" id="default-data">
+<h2 data-section data-sb="header" id="default-data">
     Default data
 </h2>
 <div data-sb="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-color-text)">&#123;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-keyword)">&quot;packageManager&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&quot;pnpm&quot;</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-keyword)">&quot;projectName&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&quot;kitDocs&quot;</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-keyword)">&quot;navLinks&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> [</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">        &#123;</span></span>
@@ -65,18 +64,12 @@ find information like page links,generated docs links,footer info and more.</p>
 <span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-keyword)">&quot;kitDocs&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> &#123;}</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">}</span></span></code></pre></div>
 <div data-sb="space"></div>
-<h2 data-sb="header" id="packagemanager">
-    PackageManager
-</h2>
-<p data-sb="p">The packageManager key let us know what node js package manager you are using, so when it's time to install any 
-dependencies we know what to run.</p>
-<div data-sb="space"></div>
-<h2 data-sb="header" id="projectname">
+<h2 data-section data-sb="header" id="projectname">
     ProjectName
 </h2>
 <p data-sb="p">Just let use know your project name just incase we need it in the future.</p>
 <div data-sb="space"></div>
-<h2 data-sb="header" id="navlinks">
+<h2 data-section data-sb="header" id="navlinks">
     NavLinks
 </h2>
 <p data-sb="p">Add your any link to be displayed on your top navigation, by default we display Home and Documentation.</p>
@@ -95,7 +88,7 @@ dependencies we know what to run.</p>
 <span class="line"><span style="color: var(--shiki-color-text)">    ]</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">}</span></span></code></pre></div>
 <div data-sb="space"></div>
-<h2 data-sb="header" id="socialmedias">
+<h2 data-section data-sb="header" id="socialmedias">
     SocialMedias
 </h2>
 <p data-sb="p">The socialMedias key it's use to display your social media link on the top navigation next to the search bar.</p>
@@ -106,12 +99,12 @@ dependencies we know what to run.</p>
 <span class="line"><span style="color: var(--shiki-color-text)">    }</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">}</span></span></code></pre></div>
 <div data-sb="space"></div>
-<h2 data-sb="header" id="footer">
+<h2 data-section data-sb="header" id="footer">
     Footer
 </h2>
 <p data-sb="p">Footer key it's use to show things like footer links,footer text and other thing in the future.</p>
 <div data-sb="space"></div>
-<h2 data-sb="header" id="kitdocs">
+<h2 data-section data-sb="header" id="kitdocs">
     KitDocs
 </h2>
 <div data-sb="warning">    Do not edit kitDocs key</div>

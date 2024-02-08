@@ -15,53 +15,55 @@
     }
 </script>
 
-<h1 data-sb="header" id="what-is-kitdocs">
+<h1 data-section data-sb="header" id="what-is-kitdocs">
     What is kitDocs?
 </h1>
-<p data-sb="p">KitDocs is a powerful tool that enables you to create documentation websites rapidly using SvelteKit.</p>
+<p data-sb="p">KitDocs is a powerful tool that enables you to create documentation websites rapidly using SvelteKit and markdown.</p>
 <div data-sb="space"></div>
-<h2 data-sb="header" id="getting-started">
+<h2 data-section data-sb="header" id="getting-started">
     Getting Started
 </h2>
-<p data-sb="p">To install,update or add kitDocs, simply run the following command in your terminal and follow the prompts:</p>
+<p data-sb="p">To get started using kitDocs it's super simple, just run <code data-sb="inline-code">npx kitdocs@latest</code> from your terminal 
+and follow the prompts.</p>
 <div data-sb="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-function)">npx</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">kitdocs@latest</span></span></code></pre></div>
 <p data-sb="p">You will see something like this from your terminal</p>
 <div data-sb="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-function)">┌</span><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-string)">Welcome</span></span>
 <span class="line"><span style="color: var(--shiki-token-function)">│</span></span>
 <span class="line"><span style="color: var(--shiki-token-function)">◆</span><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-string)">What</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">would</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">you</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">like</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">to</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">do</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">?</span></span>
 <span class="line"><span style="color: var(--shiki-token-function)">│</span><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-string)">●</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">Create</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">new</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">project</span></span>
-<span class="line"><span style="color: var(--shiki-token-function)">│</span><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-string)">○</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">Add</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">to</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">project</span></span>
 <span class="line"><span style="color: var(--shiki-token-function)">│</span><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-string)">○</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">Update</span></span>
 <span class="line"><span style="color: var(--shiki-token-function)">└</span></span></code></pre></div>
-<p data-sb="p">For a more detailed installation guide, refer to the <a data-sb="a" href="/docs/installation">
-    installation
-</a> guide.</p>
 <div data-sb="space"></div>
-<h2 data-sb="header" id="updating-kitdocs">
+<h2 data-section data-sb="header" id="updating-kitdocs">
     Updating kitDocs
 </h2>
-<p data-sb="p">Updating kitDocs is as easy as installing it. Run the following command to ensure you have the latest version:</p>
+<p data-sb="p">Just like the installing run <code data-sb="inline-code">npx kitdocs@latest</code> and select option update when prompt with the selection, 
+it will add the latest changes to kitDocs and will not update anything inside <code data-sb="inline-code">src/kitDocs/app</code>.</p>
 <div data-sb="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-function)">npx</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">kitdocs@latest</span></span></code></pre></div>
-<p data-sb="p">And Select update</p>
+<p data-sb="p">Select update</p>
 <div data-sb="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-function)">┌</span><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-string)">Welcome</span></span>
 <span class="line"><span style="color: var(--shiki-token-function)">│</span></span>
 <span class="line"><span style="color: var(--shiki-token-function)">◆</span><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-string)">What</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">would</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">you</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">like</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">to</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">do</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">?</span></span>
 <span class="line"><span style="color: var(--shiki-token-function)">│</span><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-string)">○</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">Create</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">new</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">project</span></span>
-<span class="line"><span style="color: var(--shiki-token-function)">│</span><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-string)">○</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">Add</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">to</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">project</span></span>
 <span class="line"><span style="color: var(--shiki-token-function)">│</span><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-string)">●</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">Update</span></span>
 <span class="line"><span style="color: var(--shiki-token-function)">└</span></span></code></pre></div>
 <div data-sb="space"></div>
-<h2 data-sb="header" id="add-to-project">
-    Add to project
+<h2 data-section data-sb="header" id="project-structure">
+    Project structure
 </h2>
-<p data-sb="p">To add kitDocs to a current project run <code data-sb="inline-code">npx kitdocs@latest</code> from your project root and select the option Add to project.</p>
-<div data-sb="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-token-function)">┌</span><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-string)">Welcome</span></span>
-<span class="line"><span style="color: var(--shiki-token-function)">│</span></span>
-<span class="line"><span style="color: var(--shiki-token-function)">◆</span><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-string)">What</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">would</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">you</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">like</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">to</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">do</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">?</span></span>
-<span class="line"><span style="color: var(--shiki-token-function)">│</span><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-string)">○</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">Create</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">new</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">project</span></span>
-<span class="line"><span style="color: var(--shiki-token-function)">│</span><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-string)">●</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">Add</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">to</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">project</span></span>
-<span class="line"><span style="color: var(--shiki-token-function)">│</span><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-string)">○</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string)">Update</span></span>
-<span class="line"><span style="color: var(--shiki-token-function)">└</span></span></code></pre></div>
-<p data-sb="p">You can find a full guide of what to do after adding kitDocs to a project <a data-sb="a" href="/docs/add">
-    Adding to project
-</a>.</p>
+<div data-sb="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-color-text)">┌ project/</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">├ src/</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">│ ├ kitDocs/</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">│ │ └ Logo.svelte</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">│ │ └ style.css</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">│ │ └ app.json</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">│ │ └ and more..</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">│ │</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">│ ├ routes/</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">│ │ └ (app) # all your app routes here</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">│ │ └ (docs) # this should not be touched</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">└ └   └ kitDocs/</span></span></code></pre></div>
+<div data-sb="space"></div>
+<p data-sb="p">After the installation you can follow the <a data-sb="a" href="/docs/getting-started">
+    Getting started
+</a> guide to complete installation.</p>

@@ -15,7 +15,7 @@
     }
 </script>
 
-<h1 data-sb="header" id="adding-style">
+<h1 data-section data-sb="header" id="adding-style">
     Adding style
 </h1>
 <p data-sb="p">To add style to the style tag, use the <code data-sb="inline-code">css [CODE]</code> tag after metadata code on top of your .md file.<br>

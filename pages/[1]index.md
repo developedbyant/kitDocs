@@ -5,11 +5,11 @@ description: Build documentation site using SvelteKit and kitDocs.
 ---
 
 # What is kitDocs?
-KitDocs is a powerful tool that enables you to create documentation websites rapidly using SvelteKit.
-
+KitDocs is a powerful tool that enables you to create documentation websites rapidly using SvelteKit and markdown.
 
 ## Getting Started
-To install,update or add kitDocs, simply run the following command in your terminal and follow the prompts:
+To get started using kitDocs it's super simple, just run `npx kitdocs@latest` from your terminal 
+and follow the prompts.
 ```bash
 npx kitdocs@latest
 ```
@@ -19,38 +19,40 @@ You will see something like this from your terminal
 │
 ◆  What would you like to do ?
 │  ● Create new project
-│  ○ Add to project
 │  ○ Update
 └
 ```
-For a more detailed installation guide, refer to the [installation](/docs/installation) guide.
-
 
 ## Updating kitDocs
-Updating kitDocs is as easy as installing it. Run the following command to ensure you have the latest version:
+Just like the installing run `npx kitdocs@latest` and select option update when prompt with the selection, 
+it will add the latest changes to kitDocs and will not update anything inside `src/kitDocs/app`.
 ```bash
 npx kitdocs@latest
 ```
-And Select update
+Select update
 ```bash
 ┌  Welcome
 │
 ◆  What would you like to do ?
 │  ○ Create new project
-│  ○ Add to project
 │  ● Update
 └
 ```
 
-## Add to project
-To add kitDocs to a current project run `npx kitdocs@latest` from your project root and select the option Add to project.
-```bash
-┌  Welcome
-│
-◆  What would you like to do ?
-│  ○ Create new project
-│  ● Add to project
-│  ○ Update
-└
+## Project structure
+```text
+┌ project/
+├ src/
+│ ├ kitDocs/
+│ │ └ Logo.svelte
+│ │ └ style.css
+│ │ └ app.json
+│ │ └ and more..
+│ │
+│ ├ routes/
+│ │ └ (app) # all your app routes here
+│ │ └ (docs) # this should not be touched
+└ └   └ kitDocs/
 ```
-You can find a full guide of what to do after adding kitDocs to a project [Adding to project](/docs/add).
+
+After the installation you can follow the [Getting started](/docs/getting-started) guide to complete installation.

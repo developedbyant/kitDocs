@@ -1,5 +1,5 @@
 {
-    "version": "0.0.19",
+    "version": "0.0.20",
     "projectName": "kitDocs",
     "navLinks": [
         {
@@ -57,55 +57,15 @@
                         "text": "Updating kitDocs"
                     },
                     {
-                        "id": "add-to-project",
-                        "text": "Add to project"
+                        "id": "project-structure",
+                        "text": "Project structure"
                     }
                 ]
             },
             {
-                "title": "Installation",
-                "href": "/docs/installation",
-                "description": "How to install kitDocs.",
-                "new": false,
-                "pageLinks": [
-                    {
-                        "id": "installation",
-                        "text": "Installation"
-                    },
-                    {
-                        "id": "updating-kitdocs",
-                        "text": "Updating kitDocs"
-                    },
-                    {
-                        "id": "add-to-project",
-                        "text": "Add to project"
-                    }
-                ]
-            },
-            {
-                "title": "Add to project",
-                "href": "/docs/add",
-                "description": "How to install kitDocs.",
-                "new": false,
-                "pageLinks": [
-                    {
-                        "id": "installation",
-                        "text": "Installation"
-                    },
-                    {
-                        "id": "updating-kitdocs",
-                        "text": "Updating kitDocs"
-                    },
-                    {
-                        "id": "add-to-project",
-                        "text": "Add to project"
-                    }
-                ]
-            },
-            {
-                "title": "Getting start",
-                "href": "/docs/get-started",
-                "description": "Getting started after creating kitDocs project.",
+                "title": "Getting started",
+                "href": "/docs/getting-started",
+                "description": "What to do after installing kitDocs, A step by step guide.",
                 "new": false,
                 "pageLinks": [
                     {
@@ -113,27 +73,23 @@
                         "text": "Getting started"
                     },
                     {
-                        "id": "key-notes",
-                        "text": "Key notes"
+                        "id": "adding-alias",
+                        "text": "Adding alias"
                     },
                     {
-                        "id": "project-structure",
-                        "text": "Project structure"
+                        "id": "add-plugin",
+                        "text": "Add plugin"
                     },
                     {
-                        "id": "create-route",
-                        "text": "Create route"
-                    },
-                    {
-                        "id": "first-page",
-                        "text": "First page"
+                        "id": "create-pages-folder",
+                        "text": "Create pages folder"
                     }
                 ]
             }
         ],
         "Core files": [
             {
-                "title": "Files",
+                "title": "CoreFiles",
                 "href": "/docs/core",
                 "description": "The most important files that makes kitDocs function.",
                 "new": false,
@@ -141,6 +97,22 @@
                     {
                         "id": "core-files",
                         "text": "Core files"
+                    },
+                    {
+                        "id": "added-folders",
+                        "text": "Added folders"
+                    },
+                    {
+                        "id": "kitdocs",
+                        "text": "KitDocs"
+                    },
+                    {
+                        "id": "app-folder",
+                        "text": "App folder"
+                    },
+                    {
+                        "id": "docs",
+                        "text": "Docs"
                     }
                 ]
             },
@@ -157,10 +129,6 @@
                     {
                         "id": "default-data",
                         "text": "Default data"
-                    },
-                    {
-                        "id": "packagemanager",
-                        "text": "PackageManager"
                     },
                     {
                         "id": "projectname",

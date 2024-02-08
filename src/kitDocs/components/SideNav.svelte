@@ -47,6 +47,7 @@
         flex-direction: column;
         gap: 20px;
         overflow-y: auto;
+        min-width: fit-content;
     }
     .sideNavBlock{
         display: flex;
