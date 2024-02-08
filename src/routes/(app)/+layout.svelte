@@ -1,6 +1,7 @@
 <script lang="ts">
-    import "kitDocs/app/style.css"
-    import "kitDocs/app/style.tags.css"
+    import "kitDocs/app/variables.css"
+    import "kitDocs/app/global.css"
+    import "kitDocs/app/tags.css"
     import { page } from "$app/stores";
     import { metaTagsStore } from "kitDocs/lib/stores";
     import { appStore } from "kitDocs/lib/stores";
@@ -101,7 +102,7 @@
     .content{
         max-width: var(--max-width);
         width: 95%;
-        margin: auto;
+        margin: 0 auto;
         display: flex;
         justify-content: space-between;
         gap: 30px;

@@ -1,15 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-}
-.app{
-    scroll-behavior: smooth
-}
-
-:root{
+/* VARIABLES ====================== */
+:root{ 
     --shiki-color-text: #b8cdd9;
     --shiki-color-background: var(--code-bg);
     --shiki-token-constant: #4EC9B0;
@@ -21,10 +11,6 @@
     --shiki-token-string-expression: #CC9077;
     --shiki-token-punctuation: #b8cdd9;
     --shiki-token-link: #b8cdd9;
-}
-
-/* VARIABLES ====================== */
-:root{
     /* app */
     --background:#f9fafb;
     --foreground:#ffffff;
@@ -32,20 +18,10 @@
     --header-color:#444444;
     --text-color:#6B7280;
     --border-color:#eeeeee;
-    --second-border-color:#3a72a31c;
     --icon-color: #aeaeae;
     --max-width:1400px;
-    --shadow:rgba(0,0,0,5%);
     --main-color:#8e5bbf;
     --second-color:#7eb2df;
-    --error-bg: #cc7d7d;
-    --error-color: #fff;
-    /* form */
-    --form-bg:transparent;
-    --form-fb:var(--app-bg);
-    --form-text-color: #767676;
-    --form-placeholder-color:#6b728079;
-    --form-header-color:var(--header-color);
     /* footer */
     --footer-bg:#f0f0f0;
     --footer-text-color:#444444;
@@ -82,7 +58,7 @@
     --code-line-removed-bg:#917a7a52;
 }
 
-.dark{
+.app.dark{
     /* app */
     --background: radial-gradient(circle at 24.1% 68.8%, rgb(30 23 37) 0%, rgb(0, 0, 0) 99.4%);
     --foreground: rgb(39, 40, 45);
