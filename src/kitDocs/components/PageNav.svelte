@@ -1,6 +1,6 @@
 <script lang="ts">
     import { page } from "$app/stores";
-    import appData from "kitDocs/app/app.json"
+    import appData from "src/kitDocs/app/app.json"
     $: links = Object.values(appData.kitDocs).flatMap(data => data.map(item => ({ title: item.title, href: item.href })))
     $: currentRoute = links.find(link=>link.href===$page.url.pathname)
     $: currLinkIndex = currentRoute ? links.findIndex(data=>data.href===currentRoute?.href) : 0

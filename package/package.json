@@ -1,16 +1,12 @@
 {
     "name": "kitdocs",
-    "version": "0.0.18",
+    "version": "0.0.19",
     "type": "module",
     "main": "./cli.js",
     "bin": "./cli.js",
     "files": [
         "./assets",
-        "./cli.js",
-        "./core.js",
-        "./defaults.js",
-        "./runners.js",
-        "./types.d.ts"
+        "./cli.js"
     ],
     "repository": {
         "url": "https://github.com/developedbyant/kitdocs"

@@ -1,6 +1,6 @@
 <script>
-    import appData from "kitDocs/app/app.json"
-    import Logo from "kitDocs/app/Logo.svelte";
+    import appData from "src/kitDocs/app/app.json"
+    import Logo from "src/kitDocs/app/Logo.svelte";
 </script>
 
 <footer>

@@ -1,6 +1,6 @@
 <script lang="ts">
     import { createEventDispatcher } from "svelte";
-    import { appStore } from "kitDocs/lib/stores";
+    import { appStore } from "src/kitDocs/lib/stores";
     const dispatch = createEventDispatcher()
     $: theme = $appStore.theme
 </script>

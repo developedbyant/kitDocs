@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { metaTagsStore } from "kitDocs/lib/stores";
+    import { metaTagsStore } from "src/kitDocs/lib/stores";
     // set meta data ===================
     metaTagsStore.update(data=>{ data.title="Style";data.description="KitDocs style file."; return data })
     // custom code ===================

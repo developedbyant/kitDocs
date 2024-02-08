@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { metaTagsStore } from "kitDocs/lib/stores";
+    import { metaTagsStore } from "src/kitDocs/lib/stores";
     // set meta data ===================
     metaTagsStore.update(data=>{ data.title="ALL";data.description="Show highlighted code and add code to the page."; return data })
     // custom code ===================

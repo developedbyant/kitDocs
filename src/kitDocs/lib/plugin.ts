@@ -186,7 +186,7 @@ class Markdown{
     /** Create page tags */
     private createPage(){
         // set page metaData
-        let meta = '    import { metaTagsStore } from "kitDocs/lib/stores";\n    // set meta data ===================\n'
+        let meta = '    import { metaTagsStore } from "src/kitDocs/lib/stores";\n    // set meta data ===================\n'
         meta+=`    metaTagsStore.update(data=>{ data.title="${this.pageMetadata.title}";data.description="${this.pageMetadata.description}"; return data })\n`
         // add code to script tag
         if(this.pageJsCode.trim()!=="") this.pageJsCode = `    // custom code ===================\n${this.pageJsCode}`

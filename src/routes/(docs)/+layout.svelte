@@ -1,16 +1,16 @@
 <script lang="ts">
-    import "kitDocs/app/variables.css"
-    import "kitDocs/app/global.css"
-    import "kitDocs/app/tags.css"
+    import "src/kitDocs/app/variables.css"
+    import "src/kitDocs/app/global.css"
+    import "src/kitDocs/app/tags.css"
     import { page } from "$app/stores";
-    import { metaTagsStore } from "kitDocs/lib/stores";
-    import { appStore } from "kitDocs/lib/stores";
-    import SearchDocs from "kitDocs/components/SearchDocs.svelte";
-    import MainNav from "kitDocs/components/nav/MainNav.svelte";
-    import SideNav from "kitDocs/components/SideNav.svelte";
-    import OnPageLinks from "kitDocs/components/OnPageLinks.svelte";
-    import PageNav from "kitDocs/components/PageNav.svelte";
-    import Footer from "kitDocs/components/Footer.svelte";
+    import { metaTagsStore } from "src/kitDocs/lib/stores";
+    import { appStore } from "src/kitDocs/lib/stores";
+    import SearchDocs from "src/kitDocs/components/SearchDocs.svelte";
+    import MainNav from "src/kitDocs/components/nav/MainNav.svelte";
+    import SideNav from "src/kitDocs/components/SideNav.svelte";
+    import OnPageLinks from "src/kitDocs/components/OnPageLinks.svelte";
+    import PageNav from "src/kitDocs/components/PageNav.svelte";
+    import Footer from "src/kitDocs/components/Footer.svelte";
     import { onMount } from "svelte";
     // variables ===============
     let theme:string = ""

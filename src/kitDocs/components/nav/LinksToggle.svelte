@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { appStore } from "kitDocs/lib/stores";
+    import { appStore } from "src/kitDocs/lib/stores";
     /** Open or close nav links */
     const openNave = ()=> appStore.update(data=>{
         data['navIsOpen'] = !data['navIsOpen'] ; return data

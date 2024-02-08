@@ -1,5 +1,5 @@
 <script lang="ts">
-    import kitDocsData from "kitDocs/app/app.json"
+    import kitDocsData from "src/kitDocs/app/app.json"
     const medias = Object.entries(kitDocsData.socialMedias)
 </script>
 

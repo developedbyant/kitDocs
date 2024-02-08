@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { appStore } from "kitDocs/lib/stores";
+    import { appStore } from "src/kitDocs/lib/stores";
 </script>
 
 <button class="btn" on:click={()=>appStore.update(data=>{ data['searchIsOpen']=true ; return data})}>

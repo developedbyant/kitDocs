@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { metaTagsStore } from "kitDocs/lib/stores";
+    import { metaTagsStore } from "src/kitDocs/lib/stores";
     // set meta data ===================
     metaTagsStore.update(data=>{ data.title="AppJson";data.description="A json file that keeps track of important information about your app."; return data })
     // custom code ===================

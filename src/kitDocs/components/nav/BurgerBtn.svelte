@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { appStore } from "kitDocs/lib/stores";
+    import { appStore } from "src/kitDocs/lib/stores";
     $: open = $appStore.sideNavIsOpen
     /** Open or close nav on click */
     function toggleNav(){

@@ -1,7 +1,6 @@
 {
-    "version": "0.0.18",
+    "version": "0.0.19",
     "projectName": "kitDocs",
-    "packageManager": "pnpm",
     "navLinks": [
         {
             "text": "Home",

@@ -1,9 +1,38 @@
 /** Build npm package */
+// @ts-check
 import fs from "fs-extra"
-import defaults from "./defaults.js"
 const CWD = process.cwd()
 const PACKAGE_PATH = `${CWD}/package`
-const APP_DATA = fs.readJsonSync(`${CWD}/src/kitDocs/app.json`)
+const APP_DATA = fs.readJsonSync(`${CWD}/src/kitDocs/app/app.json`)
+
+const defaultAppData = {
+    "projectName":"kitDocs",
+    "navLinks": [ { "text": "Home", "href": "/", "external": false },{ "text": "Documentation", "href": "/docs", "external": false } ],
+    "socialMedias": {
+        "twitter": "https://twitter.com/developedbyant",
+        "github": "https://github.com/developedbyant/kitdocs"
+    },
+    "footer":{
+        "links":[
+            {
+                "title":"Resources",
+                "links":[
+                    {
+                        "text": "Home",
+                        "href": "/",
+                        "external": false
+                    },
+                    {
+                        "text": "Svelte",
+                        "href": "https://svelte.dev/",
+                        "external": true
+                    }
+                ]
+            }
+        ]
+    },
+    "kitDocs": {}
+}
 
 /** Copy src/kitDocs folder */
 function copyKitDocs(){
@@ -20,8 +49,8 @@ function copyRoutes(){
     const routesFolders = fs.readdirSync(docsPath)
     for(let path of routesFolders){
         path = `${PACKAGE_PATH}/assets/routes/(docs)/docs/${path}`
-        // delete all folders, only keep api folder
-        if(!path.endsWith("/api")) fs.rmSync(path,{ recursive:true })
+        // delete all folders
+        fs.rmSync(path,{ recursive:true })
     }
     // remove +page.server.ts
     fs.removeSync(`${PACKAGE_PATH}/assets/routes/(app)/+page.server.ts`)
@@ -37,7 +66,7 @@ function updatePackageJson(){
 
 /** Create default app.json file */
 function createAppJson(){
-    fs.writeFile(`${PACKAGE_PATH}/assets/kitDocs/app.json`,JSON.stringify(defaults.appData,null,4))
+    fs.writeFile(`${PACKAGE_PATH}/assets/kitDocs/app/app.json`,JSON.stringify(defaultAppData,null,4))
 }
 
 copyKitDocs()

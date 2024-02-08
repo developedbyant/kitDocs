@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { metaTagsStore } from "kitDocs/lib/stores";
+    import { metaTagsStore } from "src/kitDocs/lib/stores";
     // set meta data ===================
     metaTagsStore.update(data=>{ data.title="KitDocs";data.description="Build documentation site using SvelteKit and kitDocs."; return data })
     // custom code ===================

@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { appStore } from "kitDocs/lib/stores";
+    import { appStore } from "src/kitDocs/lib/stores";
     import Modal from "./Modal.svelte";
-    import appData from "kitDocs/app/app.json"
+    import appData from "src/kitDocs/app/app.json"
     let modalDiv:HTMLDivElement
     let value:string = ""
     let result:{title:string,href:string,description:string}[] = []

@@ -1,13 +1,13 @@
 <script lang="ts">
     import { page } from "$app/stores";
-    import { appStore } from "kitDocs/lib/stores";
-    import kitDocsData from "kitDocs/app/app.json"
-    import SearchBtn from "kitDocs/components/nav/SearchBtn.svelte";
+    import { appStore } from "src/kitDocs/lib/stores";
+    import kitDocsData from "src/kitDocs/app/app.json"
+    import SearchBtn from "src/kitDocs/components/nav/SearchBtn.svelte";
     import SocialMedias from "./SocialMedias.svelte";
     import LinksToggle from "./LinksToggle.svelte";
-    import ThemeToggle from "kitDocs/components/nav/ThemeToggle.svelte";
+    import ThemeToggle from "src/kitDocs/components/nav/ThemeToggle.svelte";
     import BurgerBtn from "./BurgerBtn.svelte";
-    import Logo from "kitDocs/app/Logo.svelte";
+    import Logo from "src/kitDocs/app/Logo.svelte";
     const navLinks = kitDocsData.navLinks
 
     /** close nav when user click link */

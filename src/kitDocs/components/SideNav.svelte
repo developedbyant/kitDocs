@@ -1,7 +1,7 @@
 <script lang="ts">
     import { page } from "$app/stores";
-    import { appStore } from "kitDocs/lib/stores";
-    import docs from "kitDocs/app/app.json"
+    import { appStore } from "src/kitDocs/lib/stores";
+    import docs from "src/kitDocs/app/app.json"
     const sideNavLinks = Object.entries(docs.kitDocs)
     $: open = $appStore.sideNavIsOpen
     /** Close side nav when click link */
