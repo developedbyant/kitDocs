@@ -151,6 +151,8 @@ class Markdown{
         // handle code
         else if(token.type==="code"){
             const lang = token.lang.toLowerCase().trim()
+            // add copy text function to script tag
+            if(!this.pageJsCode.includes('copyText(e:MouseEvent)')) this.pageJsCode+=this.copyTextFunc()
             // warning
             if(lang==="[warning]"){      
                 this.pageCode+= `<div data-kb="warning">${token.text}</div>\n`
@@ -169,15 +171,13 @@ class Markdown{
             }
             // add svelte code to page and show code
             else if(lang==="svelte [all]"){
-                // add copy text function to script tag
-                if(!this.pageJsCode.includes('copyText(e:MouseEvent)')) this.pageJsCode+=this.copyTextFunc()
+                // add page code
+                this.pageCode+= `<div data-kb="code"><button on:click={copyText}>Copy</button>${this.codeHighLighter(token.text,"svelte")}</div>\n`
                 // add code to page
                 this.pageCode+= `${token.text}\n`
             }
             // show code
             else{
-                // add copy text function to script tag
-                if(!this.pageJsCode.includes('copyText(e:MouseEvent)')) this.pageJsCode+=this.copyTextFunc()
                 // add page code
                 this.pageCode+= `<div data-kb="code"><button on:click={copyText}>Copy</button>${this.codeHighLighter(token.text,lang)}</div>\n`
             }
