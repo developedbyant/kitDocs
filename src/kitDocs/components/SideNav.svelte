@@ -9,10 +9,6 @@
         // close nav
         appStore.update(data=>{ data['sideNavIsOpen']=false ; return data })
     }
-    function scrollToTop() {
-        document.documentElement.scrollTop = 0; // For modern browsers
-        document.body.scrollTop = 0; // For old IE browsers
-    }
 </script>
 
 <aside class="sideNav" class:open>
@@ -27,7 +23,7 @@
             <ul class="sideNavLinks">
                 {#each links as link}
                 {@const active = link.href===$page.url.pathname}
-                    <li class="sideNavLink" on:click={handleLinkClick} on:click on:click={scrollToTop} role="none">
+                    <li class="sideNavLink" on:click={handleLinkClick} role="none">
                         <a class:active href={link.href}>{ link.title }</a>
                         {#if link.new}
                             <div class="badge">New</div>

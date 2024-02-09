@@ -11,6 +11,7 @@
     import PageNav from "src/kitDocs/components/PageNav.svelte";
     import Footer from "src/kitDocs/components/Footer.svelte";
     import { onMount } from "svelte";
+    import { onNavigate } from "$app/navigation";
     // variables ===============
     let theme:string = ""
     const hide = false // set to true to hide side nav
@@ -40,10 +41,11 @@
 	}
 
     /** Scroll up when click on a link */
-    function scrollUp(){
+    onNavigate(data=>{
+        if(data.from?.url=== data.to?.url) return
+        // scroll up
         appElement.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
+    })
     // set mete tags ==========
     $: url = $page.url.href
     $: appName = $metaTagsStore.appName
@@ -83,7 +85,7 @@
         </main>
     {:else}
         <div class="content">
-            <SideNav on:click={scrollUp}/>
+            <SideNav />
             <main data-sb="main">
                 <slot />
                 <PageNav />
