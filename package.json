@@ -11,7 +11,7 @@
 		"testApp": "vite build && vite preview",
 		"package": "node package/build.js && cd ./package && npm publish && cd ..",
 		"buildApp": "vite build",
-		"startApp": "PORT=3002 pm2 start ./build/index.js --name=kitdocs.com"
+		"startApp": "PORT=3002 pm2 start ./build/index.js --name=kitdocs.dev --watch"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",
