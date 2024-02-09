@@ -52,23 +52,25 @@ if(actionToDo==="create"){
     fs.rmSync(`${SCRIPT.projectDir}/${projectDir}/src/routes`,{ recursive:true })
     fs.copySync(`${SCRIPT.packageAssetsDir}/routes`,`${SCRIPT.projectDir}/${projectDir}/src/routes`)
     clack.log.info(`cd ${projectDir} && pnpm add globby shiki@0.14.7 marked`)
+    clack.log.info(`or`)
     clack.log.info(`cd ${projectDir} && npm i globby shiki@0.14.7 marked`)
     clack.log.success("Follow the guide at: https://kitdocs.dev/docs/getting-started")
 }
 else if (actionToDo==="update"){
+    const rmKitDocsFolder = await clack.confirm({ message:"Would you like to update src/kitDocs/ folder ?" })
     /** @type { any } */
     const projectKitDocsDir = `${SCRIPT.projectDir}/src/kitDocs`
     // make a copy of kitDocs/app,delete kitDocs folder, move copy back to kitDocs and delete temp folder
     if(fs.existsSync(projectKitDocsDir)){
         const tempFolderDir = `${SCRIPT.projectDir}/src/.appTemp`
         // make a temp copy of app folder
-        fs.copySync(`${projectKitDocsDir}/app`,tempFolderDir)
+        if(!rmKitDocsFolder) fs.copySync(`${projectKitDocsDir}/app`,tempFolderDir)
         // remove kitDocs folder
         fs.rmSync(projectKitDocsDir,{ recursive:true })
         // copy a fresh copy
         fs.copySync(`${SCRIPT.packageAssetsDir}/kitDocs`,projectKitDocsDir)
         // move temp app folder back and delete temp folder
-        fs.copySync(tempFolderDir,`${projectKitDocsDir}/app`)
-        fs.rmSync(tempFolderDir,{ recursive:true })
+        if(!rmKitDocsFolder) fs.copySync(tempFolderDir,`${projectKitDocsDir}/app`)
+        if(fs.existsSync(tempFolderDir)) fs.rmSync(tempFolderDir,{ recursive:true })
     }
 }

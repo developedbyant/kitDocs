@@ -1,3 +1,90 @@
+/* variables =========================================== */
+:root{ 
+    --shiki-color-text: #b8cdd9;
+    --shiki-color-background: var(--code-bg);
+    --shiki-token-constant: #4EC9B0;
+    --shiki-token-string: #B58672;
+    --shiki-token-comment: #538b46;
+    --shiki-token-keyword: #B97FB4;
+    --shiki-token-parameter: #38bdf8;
+    --shiki-token-function: #dbdba6;
+    --shiki-token-string-expression: #CC9077;
+    --shiki-token-punctuation: #b8cdd9;
+    --shiki-token-link: #b8cdd9;
+    /* app */
+    --background:#f9fafb;
+    --foreground:#ffffff;
+    --blur-bg: rgb(244 244 244 / 67%);
+    --header-color:#444444;
+    --text-color:#6B7280;
+    --border-color:#eeeeee;
+    --icon-color: #aeaeae;
+    --max-width:1400px;
+    --main-color:#8e5bbf;
+    --second-color:#7eb2df;
+    /* footer */
+    --footer-bg:#f0f0f0;
+    --footer-text-color:#444444;
+    /* search */
+    --search-bg:var(--foreground);
+    --search-icon-color:#888888;
+    --search-text-color:#767676;
+    --search-placeholder-color:#6b728079;
+    /* nav */
+    --nav-height:60px;
+    --nav-bg:#ffffffab;
+    --nav-header-color:#6b7280;
+    --nav-icon-color:#6d6d6d;
+    --nav-link-color:#7a7a7a;
+    --nav-active-link-color:#272728;
+    --nav-active-link-bg:#0000000f;
+    --nav-active-icon-color:#7a7a7a;
+    /* card */
+    --card-bg: #ffffff;
+    --card-fg: #f9fafb;
+    --card-header-color: #444444;
+    --card-text-color: #6B7280;
+    /* data label */
+    --data-label-bg:#383838;
+    --data-label-color:#cfcfcf;
+    /* button */
+    --button-bg: #3a72a3;
+    --button-color:#fff;
+    /* code */
+    --code-bg: rgb(39, 40, 45);
+    --code-fg: rgb(79 79 90);
+    --code-text-color: #dbdbdb;
+    --code-line-added-bg:#4d8aac40;
+    --code-line-removed-bg:#917a7a52;
+}
+/* on dark mode */
+.app.dark{
+    /* app */
+    --background: radial-gradient(circle at 24.1% 68.8%, rgb(30 23 37) 0%, rgb(0, 0, 0) 99.4%);
+    --foreground: rgb(39, 40, 45);
+    --blur-bg: rgba(0,0,0,3%);
+    --border-color:rgb(46, 48, 53);
+    --header-color:#e9e9e9;
+    --text-color:#a4a6a9;
+    /* nav */
+    --nav-bg: rgb(39 40 45 / 30%);
+    --nav-link-color: #ffff;
+    --nav-icon-color:#dadada;
+    --nav-header-color:#d5d5d5;
+    --nav-active-link-color:#7d6793;
+    /* search */
+    --search-bg: #27282D;
+    --search-color: #b3b3b3;
+    /* card */
+    --card-bg: rgb(39, 40, 45);
+    /* code */
+    --code-text-color:var(--text-color);
+    /* footer */
+    --footer-bg:#27282D;
+    --footer-text-color:#ededed;
+}
+
+/* page element tags =========================================== */
 /* headers */
 [data-kb="header"]{
     color: var(--header-color);
@@ -134,7 +221,7 @@ h4[data-kb="header"],h5[data-kb="header"]{
     }
 }
 
-/* on mobile */
+/* mobile =========================================== */
 @media (max-width: 768px) {
     /* paragraph */
     [data-kb="p"]{
