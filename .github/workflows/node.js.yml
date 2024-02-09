@@ -22,4 +22,4 @@ jobs:
       with:
           version: 8.14.2
     - run: pnpm install
-    - run: pnpm build --if-present
+    - run: pnpm build
