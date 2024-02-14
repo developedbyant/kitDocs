@@ -1,5 +1,5 @@
 {
-    "version": "0.0.22",
+    "version": "0.0.24",
     "projectName": "kitDocs",
     "navLinks": [
         {
@@ -40,7 +40,7 @@
         "Introduction": [
             {
                 "title": "KitDocs",
-                "href": "/docs/",
+                "href": "/docs",
                 "description": "Build documentation site using SvelteKit and kitDocs.",
                 "new": false,
                 "headers": [
@@ -71,6 +71,10 @@
                     {
                         "id": "getting-started",
                         "text": "Getting started"
+                    },
+                    {
+                        "id": "new-project",
+                        "text": "New project"
                     },
                     {
                         "id": "adding-alias",

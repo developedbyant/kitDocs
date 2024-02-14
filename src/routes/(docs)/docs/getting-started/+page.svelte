@@ -32,11 +32,25 @@
 <h1 data-section data-md="header" id="getting-started">
     Getting started
 </h1>
-<p data-md="p">After installing kitDocs you will need to do the following:</p>
+<p data-md="p">To get started with KitDocs run the following command from your terminal.</p>
+<div data-md="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color:var(--shiki-background);color:var(--shiki-foreground)" tabindex="-1"><code><span class="line"><span style="color:var(--shiki-token-function)">npx</span><span style="color:var(--shiki-token-string)"> kitdocs@latest</span></span></code></pre></div>
+<p data-md="p">It will prompts you the following prompts.</p>
+<div data-md="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color:var(--shiki-background);color:var(--shiki-foreground)" tabindex="-1"><code><span class="line"><span style="color:var(--shiki-token-function)">┌</span><span style="color:var(--shiki-token-string)">  Welcome</span></span>
+<span class="line"><span style="color:var(--shiki-token-function)">│</span></span>
+<span class="line"><span style="color:var(--shiki-token-function)">◆</span><span style="color:var(--shiki-token-string)">  What would you like to do ?</span></span>
+<span class="line"><span style="color:var(--shiki-token-function)">│</span><span style="color:var(--shiki-token-string)">  ● Create new project</span></span>
+<span class="line"><span style="color:var(--shiki-token-function)">│</span><span style="color:var(--shiki-token-string)">  ○ Update</span></span>
+<span class="line"><span style="color:var(--shiki-token-function)">└</span></span></code></pre></div>
+<p data-md="p">Select the one for you, <code data-md="inline-code">Create new project</code> if creating a new project or <code data-md="inline-code">Update</code> if you are updating KitDocs.</p>
+<div data-md="warning">To update run npx kitdocs@latest from current project directory</div>
+<div data-md="space"></div>
+<h2 data-section data-md="header" id="new-project">
+    New project
+</h2>
+<p data-md="p">If you just created a new project, the following folders will be created to your directory.</p>
 <ul data-md="list">
-    <li>Add <code data-md="inline-code">src</code> alias to svelte.config.js</li>
-    <li>Add the markdown to svelte plugin</li>
-    <li>create pages (routes)</li>
+    <li><code data-md="inline-code">pages</code> the folder that contains all markdowns files.</li>
+    <li><code data-md="inline-code">src/kitDocs</code> All files that makes kitDocs works.</li>
 </ul>
 <div data-md="space"></div>
 <h2 data-section data-md="header" id="adding-alias">
@@ -64,10 +78,11 @@
 <code data-md="inline-code">src/kitDocs/lib/plugin</code> to the <code data-md="inline-code">vite.config.ts</code> file.</p>
 <div data-md="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color:var(--shiki-background);color:var(--shiki-foreground)" tabindex="-1"><code><span class="line"><span style="color:var(--shiki-token-keyword)">import</span><span style="color:var(--shiki-foreground)"> &#123; sveltekit } </span><span style="color:var(--shiki-token-keyword)">from</span><span style="color:var(--shiki-token-string-expression)"> '@sveltejs/kit/vite'</span><span style="color:var(--shiki-foreground)">;</span></span>
 <span class="line"><span style="color:var(--shiki-token-keyword)">import</span><span style="color:var(--shiki-foreground)"> &#123; defineConfig } </span><span style="color:var(--shiki-token-keyword)">from</span><span style="color:var(--shiki-token-string-expression)"> 'vite'</span><span style="color:var(--shiki-foreground)">;</span></span>
-<span class="line added"><span style="color:var(--shiki-token-keyword)">import</span><span style="color:var(--shiki-foreground)"> kitDocsPlugin </span><span style="color:var(--shiki-token-keyword)">from</span><span style="color:var(--shiki-token-string-expression)"> "./src/kitDocs/lib/plugin"</span><span style="color:var(--shiki-foreground)">;</span><span style="color:var(--shiki-token-comment)"></span></span>
+<span class="line added"><span style="color:var(--shiki-token-keyword)">import</span><span style="color:var(--shiki-foreground)"> viteMdToSvelte </span><span style="color:var(--shiki-token-keyword)">from</span><span style="color:var(--shiki-token-string-expression)"> "./src/kitDocs/lib/plugin"</span><span style="color:var(--shiki-foreground)">;</span><span style="color:var(--shiki-token-comment)"></span></span>
+<span class="line"></span>
 <span class="line"><span style="color:var(--shiki-token-keyword)">export</span><span style="color:var(--shiki-token-keyword)"> default</span><span style="color:var(--shiki-token-function)"> defineConfig</span><span style="color:var(--shiki-foreground)">(&#123;</span></span>
 <span class="line"><span style="color:var(--shiki-foreground)">    plugins</span><span style="color:var(--shiki-token-keyword)">:</span><span style="color:var(--shiki-foreground)"> [</span></span>
-<span class="line added"><span style="color:var(--shiki-token-function)">        kitDocsPlugin</span><span style="color:var(--shiki-foreground)">()</span><span style="color:var(--shiki-token-punctuation)">,</span><span style="color:var(--shiki-token-comment)"></span></span>
+<span class="line added"><span style="color:var(--shiki-token-function)">        viteMdToSvelte</span><span style="color:var(--shiki-foreground)">(</span><span style="color:var(--shiki-token-string-expression)">"src/routes/(docs)/docs"</span><span style="color:var(--shiki-token-punctuation)">,</span><span style="color:var(--shiki-token-string-expression)">"KitDocs"</span><span style="color:var(--shiki-foreground)">)</span><span style="color:var(--shiki-token-punctuation)">,</span><span style="color:var(--shiki-token-comment)"></span></span>
 <span class="line"><span style="color:var(--shiki-token-function)">        sveltekit</span><span style="color:var(--shiki-foreground)">()</span></span>
 <span class="line"><span style="color:var(--shiki-foreground)">    ]</span></span>
 <span class="line"><span style="color:var(--shiki-foreground)">});</span></span></code></pre></div>

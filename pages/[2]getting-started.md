@@ -5,10 +5,28 @@ description: What to do after installing kitDocs, A step by step guide.
 ---
 
 # Getting started
-After installing kitDocs you will need to do the following:
-- Add `src` alias to svelte.config.js
-- Add the markdown to svelte plugin
-- create pages (routes)
+To get started with KitDocs run the following command from your terminal.
+```bash
+npx kitdocs@latest
+```
+It will prompts you the following prompts.
+```bash
+┌  Welcome
+│
+◆  What would you like to do ?
+│  ● Create new project
+│  ○ Update
+└
+```
+Select the one for you, `Create new project` if creating a new project or `Update` if you are updating KitDocs.
+```[WARNING]
+To update run npx kitdocs@latest from current project directory
+```
+
+## New project
+If you just created a new project, the following folders will be created to your directory.
+- `pages` the folder that contains all markdowns files.
+- `src/kitDocs` All files that makes kitDocs works.
 
 ## Adding alias
 Inside `svelte.config.js` add the src alias needed for kitDocs to work.
@@ -34,10 +52,11 @@ In order to convert your markdown files to svelte pages, you needed to add kitDo
 ```ts
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
-import kitDocsPlugin from "./src/kitDocs/lib/plugin";//[H]
+import viteMdToSvelte from "./src/kitDocs/lib/plugin";//[H]
+
 export default defineConfig({
 	plugins: [
-        kitDocsPlugin(),//[H]
+        viteMdToSvelte("src/routes/(docs)/docs","KitDocs"),//[H]
         sveltekit()
     ]
 });

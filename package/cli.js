@@ -4,8 +4,8 @@ import * as clack from "@clack/prompts"
 import { create as createSvelte } from 'create-svelte';
 import fs from "fs-extra"
 import path from "path";
-const SCRIPT = { projectDir:`${process.cwd()}/test`,packageAssetsDir:`${process.cwd()}/package/assets` }
-// const SCRIPT = { projectDir:`${process.cwd()}`,packageAssetsDir: `${path.dirname(new URL(import.meta.url).pathname)}/assets` }
+// const SCRIPT = { projectDir:`${process.cwd()}/test`,packageAssetsDir:`${process.cwd()}/package/assets` }
+const SCRIPT = { projectDir:`${process.cwd()}`,packageAssetsDir: `${path.dirname(new URL(import.meta.url).pathname)}/assets` }
 
 // show package path
 if(process.argv.find(data=>data.includes("--dev"))) clack.log.info(path.dirname(new URL(import.meta.url).pathname))
