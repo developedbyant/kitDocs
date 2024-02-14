@@ -1,6 +1,7 @@
 <script lang="ts">
-    import "src/kitDocs/app/styles.app.css"
-    import "src/kitDocs/app/styles.kitdocs.css"
+    import "src/kitDocs/app/styles/app.css"
+    import "src/kitDocs/app/styles/docs.css"
+    import "src/kitDocs/app/styles/md.css"
     import { page } from "$app/stores";
     import { metaTagsStore } from "src/kitDocs/lib/stores";
     import { appStore } from "src/kitDocs/lib/stores";

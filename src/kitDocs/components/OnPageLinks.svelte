@@ -6,7 +6,7 @@
     let linksOpen:boolean = false
     $: links = Object.values(appData.kitDocs).flatMap(data => data.map(item => item))
     $: currentData = links.find(data=>data.href===$page.url.pathname)
-    $: pageLinks = currentData ? currentData.pageLinks : []
+    $: pageLinks = currentData ? currentData.headers : []
     $: scrollY = $appStore.scrollY
 
     // Run this code when scrollY have been set

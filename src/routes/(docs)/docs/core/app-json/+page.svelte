@@ -1,8 +1,4 @@
 <script lang="ts">
-    import { metaTagsStore } from "src/kitDocs/lib/stores";
-    // set meta data ===================
-    metaTagsStore.update(data=>{ data.title="AppJson";data.description="A json file that keeps track of important information about your app."; return data })
-    // custom code ===================
 
     /** Copy text to clipboard (Added by kitdocs) */
     async function copyText(e:MouseEvent){
@@ -15,100 +11,118 @@
     }
 </script>
 
-<h1 data-section data-kb="header" id="what-is-the-appjson">
+<svelte:head>
+    <!-- Primary Meta Tags -->
+    <title>AppJson | KitDocs</title>
+    <meta name="title" content="AppJson | KitDocs" />
+    <meta name="description" content="A json file that keeps track of important information about your app." />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="/(docs)/docs/core/app-json" />
+    <meta property="og:title" content="AppJson | KitDocs" />
+    <meta property="og:description" content="A json file that keeps track of important information about your app." />
+    <meta property="og:image" content="https://developedbyant.com/images/backdrop.png" />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="/(docs)/docs/core/app-json" />
+    <meta property="twitter:title" content="AppJson | KitDocs" />
+    <meta property="twitter:description" content="A json file that keeps track of important information about your app." />
+    <meta property="twitter:image" content="https://developedbyant.com/images/backdrop.png" />
+</svelte:head>
+<h1 data-section data-md="header" id="what-is-the-appjson">
     What is the appJson?
 </h1>
-<p data-kb="p">The appJson file that keeps track of important information about your app, it can be found at <code data-kb="inline-code">src/kitDocs/app.json</code>, there you will
+<p data-md="p">The appJson file that keeps track of important information about your app, it can be found at <code data-md="inline-code">src/kitDocs/app.json</code>, there you will
 find information like page links,generated docs links,footer info and more.</p>
-<div data-kb="space"></div>
-<h2 data-section data-kb="header" id="default-data">
+<div data-md="space"></div>
+<h2 data-section data-md="header" id="default-data">
     Default data
 </h2>
-<div data-kb="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-color-text)">&#123;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-keyword)">&quot;projectName&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&quot;kitDocs&quot;</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-keyword)">&quot;navLinks&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> [</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">        &#123;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">            </span><span style="color: var(--shiki-token-keyword)">&quot;text&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&quot;Home&quot;</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">            </span><span style="color: var(--shiki-token-keyword)">&quot;href&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&quot;/&quot;</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">            </span><span style="color: var(--shiki-token-keyword)">&quot;external&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">false</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">        }</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">        &#123;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">            </span><span style="color: var(--shiki-token-keyword)">&quot;text&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&quot;Documentation&quot;</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">            </span><span style="color: var(--shiki-token-keyword)">&quot;href&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&quot;/docs&quot;</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">            </span><span style="color: var(--shiki-token-keyword)">&quot;external&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">false</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">        }</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">    ]</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-keyword)">&quot;socialMedias&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> &#123;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">        </span><span style="color: var(--shiki-token-keyword)">&quot;twitter&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&quot;https://twitter.com/developedbyant&quot;</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">        </span><span style="color: var(--shiki-token-keyword)">&quot;github&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&quot;https://github.com/developedbyant/kitdocs&quot;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">    }</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-keyword)">&quot;footer&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> &#123;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">        </span><span style="color: var(--shiki-token-keyword)">&quot;links&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> [</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">            &#123;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">                </span><span style="color: var(--shiki-token-keyword)">&quot;title&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&quot;Resources&quot;</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">                </span><span style="color: var(--shiki-token-keyword)">&quot;links&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> [</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">                    &#123;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">                        </span><span style="color: var(--shiki-token-keyword)">&quot;text&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&quot;Home&quot;</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">                        </span><span style="color: var(--shiki-token-keyword)">&quot;href&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&quot;/&quot;</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">                        </span><span style="color: var(--shiki-token-keyword)">&quot;external&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">false</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">                    }</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">                    &#123;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">                        </span><span style="color: var(--shiki-token-keyword)">&quot;text&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&quot;Svelte&quot;</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">                        </span><span style="color: var(--shiki-token-keyword)">&quot;href&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&quot;https://svelte.dev/&quot;</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">                        </span><span style="color: var(--shiki-token-keyword)">&quot;external&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">true</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">                    }</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">                ]</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">            }</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">        ]</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">    }</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-keyword)">&quot;kitDocs&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> &#123;}</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">}</span></span></code></pre></div>
-<div data-kb="space"></div>
-<h2 data-section data-kb="header" id="projectname">
+<div data-md="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color:var(--shiki-background);color:var(--shiki-foreground)" tabindex="-1"><code><span class="line"><span style="color:var(--shiki-foreground)">&#123;</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">    "projectName"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-token-string-expression)"> "kitDocs"</span><span style="color:var(--shiki-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">    "navLinks"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-foreground)"> [</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">        &#123;</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">            "text"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-token-string-expression)"> "Home"</span><span style="color:var(--shiki-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">            "href"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-token-string-expression)"> "/"</span><span style="color:var(--shiki-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">            "external"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-token-constant)"> false</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">        }</span><span style="color:var(--shiki-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">        &#123;</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">            "text"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-token-string-expression)"> "Documentation"</span><span style="color:var(--shiki-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">            "href"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-token-string-expression)"> "/docs"</span><span style="color:var(--shiki-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">            "external"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-token-constant)"> false</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">        }</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">    ]</span><span style="color:var(--shiki-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">    "socialMedias"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-foreground)"> &#123;</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">        "twitter"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-token-string-expression)"> "https://twitter.com/developedbyant"</span><span style="color:var(--shiki-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">        "github"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-token-string-expression)"> "https://github.com/developedbyant/kitdocs"</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">    }</span><span style="color:var(--shiki-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">    "footer"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-foreground)"> &#123;</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">        "links"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-foreground)"> [</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">            &#123;</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">                "title"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-token-string-expression)"> "Resources"</span><span style="color:var(--shiki-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">                "links"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-foreground)"> [</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">                    &#123;</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">                        "text"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-token-string-expression)"> "Home"</span><span style="color:var(--shiki-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">                        "href"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-token-string-expression)"> "/"</span><span style="color:var(--shiki-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">                        "external"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-token-constant)"> false</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">                    }</span><span style="color:var(--shiki-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">                    &#123;</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">                        "text"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-token-string-expression)"> "Svelte"</span><span style="color:var(--shiki-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">                        "href"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-token-string-expression)"> "https://svelte.dev/"</span><span style="color:var(--shiki-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">                        "external"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-token-constant)"> true</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">                    }</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">                ]</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">            }</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">        ]</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">    }</span><span style="color:var(--shiki-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">    "kitDocs"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-foreground)"> &#123;}</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">}</span></span></code></pre></div>
+<div data-md="space"></div>
+<h2 data-section data-md="header" id="projectname">
     ProjectName
 </h2>
-<p data-kb="p">Just let use know your project name just incase we need it in the future.</p>
-<div data-kb="space"></div>
-<h2 data-section data-kb="header" id="navlinks">
+<p data-md="p">Just let use know your project name just incase we need it in the future.</p>
+<div data-md="space"></div>
+<h2 data-section data-md="header" id="navlinks">
     NavLinks
 </h2>
-<p data-kb="p">Add your any link to be displayed on your top navigation, by default we display Home and Documentation.</p>
-<div data-kb="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-color-text)">&#123;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-keyword)">&quot;navLinks&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> [</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">        &#123;</span></span>
-<span class="line added"><span style="color: var(--shiki-color-text)">            </span><span style="color: var(--shiki-token-keyword)">&quot;text&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&quot;Home&quot;</span><span style="color: var(--shiki-token-punctuation)">,</span><span style="color: var(--shiki-token-comment)"></span></span>
-<span class="line added"><span style="color: var(--shiki-color-text)">            </span><span style="color: var(--shiki-token-keyword)">&quot;href&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&quot;/&quot;</span><span style="color: var(--shiki-token-punctuation)">,</span><span style="color: var(--shiki-token-comment)"></span></span>
-<span class="line added"><span style="color: var(--shiki-color-text)">            </span><span style="color: var(--shiki-token-keyword)">&quot;external&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">false</span><span style="color: var(--shiki-token-comment)"></span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">        }</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">        &#123;</span></span>
-<span class="line added"><span style="color: var(--shiki-color-text)">            </span><span style="color: var(--shiki-token-keyword)">&quot;text&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&quot;Documentation&quot;</span><span style="color: var(--shiki-token-punctuation)">,</span><span style="color: var(--shiki-token-comment)"></span></span>
-<span class="line added"><span style="color: var(--shiki-color-text)">            </span><span style="color: var(--shiki-token-keyword)">&quot;href&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&quot;/docs&quot;</span><span style="color: var(--shiki-token-punctuation)">,</span><span style="color: var(--shiki-token-comment)"></span></span>
-<span class="line added"><span style="color: var(--shiki-color-text)">            </span><span style="color: var(--shiki-token-keyword)">&quot;external&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">false</span><span style="color: var(--shiki-token-comment)"></span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">        }</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">    ]</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">}</span></span></code></pre></div>
-<div data-kb="space"></div>
-<h2 data-section data-kb="header" id="socialmedias">
+<p data-md="p">Add your any link to be displayed on your top navigation, by default we display Home and Documentation.</p>
+<div data-md="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color:var(--shiki-background);color:var(--shiki-foreground)" tabindex="-1"><code><span class="line"><span style="color:var(--shiki-foreground)">&#123;</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">    "navLinks"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-foreground)"> [</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">        &#123;</span></span>
+<span class="line added"><span style="color:var(--shiki-token-keyword)">            "text"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-token-string-expression)"> "Home"</span><span style="color:var(--shiki-token-punctuation)">,</span><span style="color:var(--shiki-token-comment)"></span></span>
+<span class="line added"><span style="color:var(--shiki-token-keyword)">            "href"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-token-string-expression)"> "/"</span><span style="color:var(--shiki-token-punctuation)">,</span><span style="color:var(--shiki-token-comment)"></span></span>
+<span class="line added"><span style="color:var(--shiki-token-keyword)">            "external"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-token-constant)"> false</span><span style="color:var(--shiki-token-comment)"></span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">        }</span><span style="color:var(--shiki-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">        &#123;</span></span>
+<span class="line added"><span style="color:var(--shiki-token-keyword)">            "text"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-token-string-expression)"> "Documentation"</span><span style="color:var(--shiki-token-punctuation)">,</span><span style="color:var(--shiki-token-comment)"></span></span>
+<span class="line added"><span style="color:var(--shiki-token-keyword)">            "href"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-token-string-expression)"> "/docs"</span><span style="color:var(--shiki-token-punctuation)">,</span><span style="color:var(--shiki-token-comment)"></span></span>
+<span class="line added"><span style="color:var(--shiki-token-keyword)">            "external"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-token-constant)"> false</span><span style="color:var(--shiki-token-comment)"></span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">        }</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">    ]</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">}</span></span></code></pre></div>
+<div data-md="space"></div>
+<h2 data-section data-md="header" id="socialmedias">
     SocialMedias
 </h2>
-<p data-kb="p">The socialMedias key it's use to display your social media link on the top navigation next to the search bar.</p>
-<div data-kb="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-color-text)">&#123;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-keyword)">&quot;socialMedias&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> &#123;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">        </span><span style="color: var(--shiki-token-keyword)">&quot;twitter&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&quot;https://twitter.com/developedbyant&quot;</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">        </span><span style="color: var(--shiki-token-keyword)">&quot;github&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&quot;https://github.com/developedbyant/kitdocs&quot;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">    }</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">}</span></span></code></pre></div>
-<div data-kb="space"></div>
-<h2 data-section data-kb="header" id="footer">
+<p data-md="p">The socialMedias key it's use to display your social media link on the top navigation next to the search bar.</p>
+<div data-md="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color:var(--shiki-background);color:var(--shiki-foreground)" tabindex="-1"><code><span class="line"><span style="color:var(--shiki-foreground)">&#123;</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">    "socialMedias"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-foreground)"> &#123;</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">        "twitter"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-token-string-expression)"> "https://twitter.com/developedbyant"</span><span style="color:var(--shiki-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">        "github"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-token-string-expression)"> "https://github.com/developedbyant/kitdocs"</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">    }</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">}</span></span></code></pre></div>
+<div data-md="space"></div>
+<h2 data-section data-md="header" id="footer">
     Footer
 </h2>
-<p data-kb="p">Footer key it's use to show things like footer links,footer text and other thing in the future.</p>
-<div data-kb="space"></div>
-<h2 data-section data-kb="header" id="kitdocs">
+<p data-md="p">Footer key it's use to show things like footer links,footer text and other thing in the future.</p>
+<div data-md="space"></div>
+<h2 data-section data-md="header" id="kitdocs">
     KitDocs
 </h2>
-<div data-kb="warning">    Do not edit kitDocs key</div>
-<p data-kb="p">The kitDocs key should not be touch by you, it will be auto generated when any change to the <code data-kb="inline-code">pages</code> markdown are made.</p>
-<div data-kb="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color: var(--shiki-color-background)" tabindex="-1"><code><span class="line"><span style="color: var(--shiki-color-text)">&#123;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-keyword)">&quot;kitDocs&quot;</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> &#123;}</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">}</span></span></code></pre></div>
+<div data-md="warning">    Do not edit kitDocs key</div>
+<p data-md="p">The kitDocs key should not be touch by you, it will be auto generated when any change to the <code data-md="inline-code">pages</code> markdown are made.</p>
+<div data-md="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color:var(--shiki-background);color:var(--shiki-foreground)" tabindex="-1"><code><span class="line"><span style="color:var(--shiki-foreground)">&#123;</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">    "kitDocs"</span><span style="color:var(--shiki-token-punctuation)">:</span><span style="color:var(--shiki-foreground)"> &#123;}</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">}</span></span></code></pre></div>

@@ -40,10 +40,10 @@
         "Introduction": [
             {
                 "title": "KitDocs",
-                "href": "/docs",
+                "href": "/docs/",
                 "description": "Build documentation site using SvelteKit and kitDocs.",
                 "new": false,
-                "pageLinks": [
+                "headers": [
                     {
                         "id": "what-is-kitdocs",
                         "text": "What is kitDocs?"
@@ -67,7 +67,7 @@
                 "href": "/docs/getting-started",
                 "description": "What to do after installing kitDocs, A step by step guide.",
                 "new": false,
-                "pageLinks": [
+                "headers": [
                     {
                         "id": "getting-started",
                         "text": "Getting started"
@@ -90,10 +90,10 @@
         "Core files": [
             {
                 "title": "CoreFiles",
-                "href": "/docs/core",
+                "href": "/docs/core/",
                 "description": "The most important files that makes kitDocs function.",
                 "new": false,
-                "pageLinks": [
+                "headers": [
                     {
                         "id": "core-files",
                         "text": "Core files"
@@ -121,7 +121,7 @@
                 "href": "/docs/core/app-json",
                 "description": "A json file that keeps track of important information about your app.",
                 "new": false,
-                "pageLinks": [
+                "headers": [
                     {
                         "id": "what-is-the-appjson",
                         "text": "What is the appJson?"
@@ -157,7 +157,7 @@
                 "href": "/docs/core/logo",
                 "description": "A svelte component that render your logo into the top navigation.",
                 "new": false,
-                "pageLinks": [
+                "headers": [
                     {
                         "id": "logo",
                         "text": "Logo"
@@ -169,7 +169,7 @@
                 "href": "/docs/core/style",
                 "description": "KitDocs style file.",
                 "new": false,
-                "pageLinks": [
+                "headers": [
                     {
                         "id": "style",
                         "text": "Style"
@@ -180,10 +180,10 @@
         "Special tags": [
             {
                 "title": "Tags",
-                "href": "/docs/special-tags",
+                "href": "/docs/special-tags/",
                 "description": "A list of super key you can use inside your markdowns.",
                 "new": false,
-                "pageLinks": [
+                "headers": [
                     {
                         "id": "special-tags",
                         "text": "Special tags"
@@ -195,7 +195,7 @@
                 "href": "/docs/special-tags/all",
                 "description": "Show highlighted code and add code to the page.",
                 "new": false,
-                "pageLinks": [
+                "headers": [
                     {
                         "id": "highlight-and-show-code",
                         "text": "Highlight and show code"
@@ -207,7 +207,7 @@
                 "href": "/docs/special-tags/code",
                 "description": "Add custom js code to script tag.",
                 "new": false,
-                "pageLinks": [
+                "headers": [
                     {
                         "id": "adding-style",
                         "text": "Adding style"
@@ -219,7 +219,7 @@
                 "href": "/docs/special-tags/h",
                 "description": "Highlight code sections.",
                 "new": true,
-                "pageLinks": [
+                "headers": [
                     {
                         "id": "highlight-code",
                         "text": "Highlight code"
@@ -231,7 +231,7 @@
                 "href": "/docs/special-tags/style",
                 "description": "Adding custom style to page.",
                 "new": false,
-                "pageLinks": [
+                "headers": [
                     {
                         "id": "adding-style",
                         "text": "Adding style"
@@ -243,7 +243,7 @@
                 "href": "/docs/special-tags/warning",
                 "description": "Display a warning message.",
                 "new": false,
-                "pageLinks": [
+                "headers": [
                     {
                         "id": "warning",
                         "text": "Warning"

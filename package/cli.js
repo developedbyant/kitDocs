@@ -4,8 +4,8 @@ import * as clack from "@clack/prompts"
 import { create as createSvelte } from 'create-svelte';
 import fs from "fs-extra"
 import path from "path";
-// const SCRIPT = { projectDir:`${process.cwd()}/test`,packageAssetsDir:`${process.cwd()}/package/assets` }
-const SCRIPT = { projectDir:`${process.cwd()}`,packageAssetsDir: `${path.dirname(new URL(import.meta.url).pathname)}/assets` }
+const SCRIPT = { projectDir:`${process.cwd()}/test`,packageAssetsDir:`${process.cwd()}/package/assets` }
+// const SCRIPT = { projectDir:`${process.cwd()}`,packageAssetsDir: `${path.dirname(new URL(import.meta.url).pathname)}/assets` }
 
 // show package path
 if(process.argv.find(data=>data.includes("--dev"))) clack.log.info(path.dirname(new URL(import.meta.url).pathname))
@@ -36,7 +36,6 @@ if(actionToDo==="create"){
     /** @type { any } */
     const projectDir = await clack.text({ message:"Where should we create your project?" })
     isCancel(projectDir)
-
     await createSvelte(`${SCRIPT.projectDir}/${projectDir}`, {
         name: projectDir,
         template: 'skeleton',
@@ -47,14 +46,16 @@ if(actionToDo==="create"){
         vitest: false,
         svelte5: true,
     });
+    // copy kitDocs folder
     fs.copySync(`${SCRIPT.packageAssetsDir}/kitDocs`,`${SCRIPT.projectDir}/${projectDir}/src/kitDocs`)
     // remove routes folder and copy the one from assets
     fs.rmSync(`${SCRIPT.projectDir}/${projectDir}/src/routes`,{ recursive:true })
     fs.copySync(`${SCRIPT.packageAssetsDir}/routes`,`${SCRIPT.projectDir}/${projectDir}/src/routes`)
-    clack.log.info(`cd ${projectDir} && pnpm add globby shiki@0.14.7 marked`)
-    clack.log.info(`or`)
-    clack.log.info(`cd ${projectDir} && npm i globby shiki@0.14.7 marked`)
-    clack.log.success("Follow the guide at: https://kitdocs.dev/docs/getting-started")
+    // copy default pages example
+    fs.copySync(`${SCRIPT.packageAssetsDir}/pages`,`${SCRIPT.projectDir}/${projectDir}/pages`)
+    clack.log.success("KitDocs was installed")
+    clack.log.warning(`Action required, cd to ${projectDir} and install dependencies by running:\n  pnpm add md-to-svelte\n  or\n  npm i md-to-svelte`)
+    clack.log.warning("Follow the get started guide at: https://kitdocs.dev/docs/getting-started")
 }
 else if (actionToDo==="update"){
     const rmKitDocsFolder = await clack.confirm({ message:"Would you like to update src/kitDocs/ folder ?" })

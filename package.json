@@ -27,10 +27,8 @@
 		"@clack/prompts": "^0.7.0",
 		"create-svelte": "^5.3.4",
 		"fs-extra": "^11.2.0",
-		"globby": "^13.2.2",
 		"inquirer": "^9.2.14",
-		"marked": "^12.0.0",
-		"shiki": "^0.14.7"
+		"md-to-svelte": "^0.0.5"
 	},
 	"type": "module"
 }
