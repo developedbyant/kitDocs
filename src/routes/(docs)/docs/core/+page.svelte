@@ -18,13 +18,13 @@
     <meta name="description" content="The most important files that makes kitDocs function." />
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://localhost:5173/docs/core/" />
+    <meta property="og:url" content="https://kitdocs.dev/docs/core/" />
     <meta property="og:title" content="CoreFiles | KitDocs" />
     <meta property="og:description" content="The most important files that makes kitDocs function." />
     <meta property="og:image" content="https://kitdocs.dev/images/backdrop.png" />
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="http://localhost:5173/docs/core/" />
+    <meta property="twitter:url" content="https://kitdocs.dev/docs/core/" />
     <meta property="twitter:title" content="CoreFiles | KitDocs" />
     <meta property="twitter:description" content="The most important files that makes kitDocs function." />
     <meta property="twitter:image" content="https://kitdocs.dev/images/backdrop.png" />

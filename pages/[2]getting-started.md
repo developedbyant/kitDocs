@@ -52,13 +52,18 @@ In order to convert your markdown files to svelte pages, you needed to add kitDo
 ```ts
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
-import viteMdToSvelte from "./src/kitDocs/lib/plugin";//[H]
+import viteMdToSvelte from "./src/kitDocs/lib/plugin"//[H]
+
+const kitDocsOptions = {//[H]
+	appName:"KitDocs",domainUrl:"https://kitdocs.dev",//[H]
+	defaultImage:"https://kitdocs.dev/images/backdrop.png", devMode:true//[H]
+}//[H]
 
 export default defineConfig({
 	plugins: [
-        viteMdToSvelte("src/routes/(docs)/docs","KitDocs"),//[H]
-        sveltekit()
-    ]
+		viteMdToSvelte("src/routes/(docs)/docs",kitDocsOptions),//[H]
+		sveltekit()
+	]
 });
 ```
 

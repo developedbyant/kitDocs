@@ -18,13 +18,13 @@
     <meta name="description" content="A svelte component that render your logo into the top navigation." />
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://localhost:5173/docs/core/logo" />
+    <meta property="og:url" content="https://kitdocs.dev/docs/core/logo" />
     <meta property="og:title" content="Logo | KitDocs" />
     <meta property="og:description" content="A svelte component that render your logo into the top navigation." />
     <meta property="og:image" content="https://kitdocs.dev/images/backdrop.png" />
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="http://localhost:5173/docs/core/logo" />
+    <meta property="twitter:url" content="https://kitdocs.dev/docs/core/logo" />
     <meta property="twitter:title" content="Logo | KitDocs" />
     <meta property="twitter:description" content="A svelte component that render your logo into the top navigation." />
     <meta property="twitter:image" content="https://kitdocs.dev/images/backdrop.png" />

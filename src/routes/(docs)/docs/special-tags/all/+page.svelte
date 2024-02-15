@@ -18,13 +18,13 @@
     <meta name="description" content="Show highlighted code and add code to the page." />
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://localhost:5173/docs/special-tags/all" />
+    <meta property="og:url" content="https://kitdocs.dev/docs/special-tags/all" />
     <meta property="og:title" content="ALL | KitDocs" />
     <meta property="og:description" content="Show highlighted code and add code to the page." />
     <meta property="og:image" content="https://kitdocs.dev/images/backdrop.png" />
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="http://localhost:5173/docs/special-tags/all" />
+    <meta property="twitter:url" content="https://kitdocs.dev/docs/special-tags/all" />
     <meta property="twitter:title" content="ALL | KitDocs" />
     <meta property="twitter:description" content="Show highlighted code and add code to the page." />
     <meta property="twitter:image" content="https://kitdocs.dev/images/backdrop.png" />

@@ -18,13 +18,13 @@
     <meta name="description" content="KitDocs style file." />
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://localhost:5173/docs/core/style" />
+    <meta property="og:url" content="https://kitdocs.dev/docs/core/style" />
     <meta property="og:title" content="Style | KitDocs" />
     <meta property="og:description" content="KitDocs style file." />
     <meta property="og:image" content="https://kitdocs.dev/images/backdrop.png" />
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="http://localhost:5173/docs/core/style" />
+    <meta property="twitter:url" content="https://kitdocs.dev/docs/core/style" />
     <meta property="twitter:title" content="Style | KitDocs" />
     <meta property="twitter:description" content="KitDocs style file." />
     <meta property="twitter:image" content="https://kitdocs.dev/images/backdrop.png" />

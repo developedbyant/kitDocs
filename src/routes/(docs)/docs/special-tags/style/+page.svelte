@@ -18,13 +18,13 @@
     <meta name="description" content="Adding custom style to page." />
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://localhost:5173/docs/special-tags/style" />
+    <meta property="og:url" content="https://kitdocs.dev/docs/special-tags/style" />
     <meta property="og:title" content="CSS | KitDocs" />
     <meta property="og:description" content="Adding custom style to page." />
     <meta property="og:image" content="https://kitdocs.dev/images/backdrop.png" />
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="http://localhost:5173/docs/special-tags/style" />
+    <meta property="twitter:url" content="https://kitdocs.dev/docs/special-tags/style" />
     <meta property="twitter:title" content="CSS | KitDocs" />
     <meta property="twitter:description" content="Adding custom style to page." />
     <meta property="twitter:image" content="https://kitdocs.dev/images/backdrop.png" />

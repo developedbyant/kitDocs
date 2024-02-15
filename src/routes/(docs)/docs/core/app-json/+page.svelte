@@ -18,13 +18,13 @@
     <meta name="description" content="A json file that keeps track of important information about your app." />
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://localhost:5173/docs/core/app-json" />
+    <meta property="og:url" content="https://kitdocs.dev/docs/core/app-json" />
     <meta property="og:title" content="AppJson | KitDocs" />
     <meta property="og:description" content="A json file that keeps track of important information about your app." />
     <meta property="og:image" content="https://kitdocs.dev/images/backdrop.png" />
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="http://localhost:5173/docs/core/app-json" />
+    <meta property="twitter:url" content="https://kitdocs.dev/docs/core/app-json" />
     <meta property="twitter:title" content="AppJson | KitDocs" />
     <meta property="twitter:description" content="A json file that keeps track of important information about your app." />
     <meta property="twitter:image" content="https://kitdocs.dev/images/backdrop.png" />

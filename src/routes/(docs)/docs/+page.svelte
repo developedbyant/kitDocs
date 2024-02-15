@@ -18,13 +18,13 @@
     <meta name="description" content="Build documentation site using SvelteKit and kitDocs." />
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://localhost:5173/docs/" />
+    <meta property="og:url" content="https://kitdocs.dev/docs/" />
     <meta property="og:title" content="KitDocs | KitDocs" />
     <meta property="og:description" content="Build documentation site using SvelteKit and kitDocs." />
     <meta property="og:image" content="https://kitdocs.dev/images/backdrop.png" />
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="http://localhost:5173/docs/" />
+    <meta property="twitter:url" content="https://kitdocs.dev/docs/" />
     <meta property="twitter:title" content="KitDocs | KitDocs" />
     <meta property="twitter:description" content="Build documentation site using SvelteKit and kitDocs." />
     <meta property="twitter:image" content="https://kitdocs.dev/images/backdrop.png" />

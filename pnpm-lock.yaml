@@ -18,8 +18,8 @@ dependencies:
     specifier: ^9.2.14
     version: 9.2.14
   md-to-svelte:
-    specifier: ^0.0.9
-    version: 0.0.9
+    specifier: ^0.0.10
+    version: 0.0.10
 
 devDependencies:
   '@sveltejs/adapter-node':
@@ -1250,8 +1250,8 @@ packages:
     hasBin: true
     dev: false
 
-  /md-to-svelte@0.0.9:
-    resolution: {integrity: sha512-HwkznvfjT9H+Q+jDrP51S7Nrgkj2sCornOMeoFaLAQi2+2Gb1l0ZNaIKwLi+oBwuFS58yAXbrG1AwWC0YIw7SA==}
+  /md-to-svelte@0.0.10:
+    resolution: {integrity: sha512-8uge2BVBuWgx03JCTYwd5kMqSQUYVQb2Gu1P7BT6CBj9602AnEy/CzXOKXcCAN6SeghglRwaXpQ5A4a9DSVCXQ==}
     dependencies:
       globby: 14.0.1
       marked: 12.0.0

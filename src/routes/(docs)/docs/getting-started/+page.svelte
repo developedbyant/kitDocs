@@ -18,13 +18,13 @@
     <meta name="description" content="What to do after installing kitDocs, A step by step guide." />
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://localhost:5173/docs/getting-started" />
+    <meta property="og:url" content="https://kitdocs.dev/docs/getting-started" />
     <meta property="og:title" content="Getting started | KitDocs" />
     <meta property="og:description" content="What to do after installing kitDocs, A step by step guide." />
     <meta property="og:image" content="https://kitdocs.dev/images/backdrop.png" />
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="http://localhost:5173/docs/getting-started" />
+    <meta property="twitter:url" content="https://kitdocs.dev/docs/getting-started" />
     <meta property="twitter:title" content="Getting started | KitDocs" />
     <meta property="twitter:description" content="What to do after installing kitDocs, A step by step guide." />
     <meta property="twitter:image" content="https://kitdocs.dev/images/backdrop.png" />
@@ -78,11 +78,16 @@
 <code data-md="inline-code">src/kitDocs/lib/plugin</code> to the <code data-md="inline-code">vite.config.ts</code> file.</p>
 <div data-md="code"><button on:click={copyText}>Copy</button><pre class="shiki css-variables" style="background-color:var(--shiki-background);color:var(--shiki-foreground)" tabindex="-1"><code><span class="line"><span style="color:var(--shiki-token-keyword)">import</span><span style="color:var(--shiki-foreground)"> &#123; sveltekit } </span><span style="color:var(--shiki-token-keyword)">from</span><span style="color:var(--shiki-token-string-expression)"> '@sveltejs/kit/vite'</span><span style="color:var(--shiki-foreground)">;</span></span>
 <span class="line"><span style="color:var(--shiki-token-keyword)">import</span><span style="color:var(--shiki-foreground)"> &#123; defineConfig } </span><span style="color:var(--shiki-token-keyword)">from</span><span style="color:var(--shiki-token-string-expression)"> 'vite'</span><span style="color:var(--shiki-foreground)">;</span></span>
-<span class="line added"><span style="color:var(--shiki-token-keyword)">import</span><span style="color:var(--shiki-foreground)"> viteMdToSvelte </span><span style="color:var(--shiki-token-keyword)">from</span><span style="color:var(--shiki-token-string-expression)"> "./src/kitDocs/lib/plugin"</span><span style="color:var(--shiki-foreground)">;</span><span style="color:var(--shiki-token-comment)"></span></span>
+<span class="line added"><span style="color:var(--shiki-token-keyword)">import</span><span style="color:var(--shiki-foreground)"> viteMdToSvelte </span><span style="color:var(--shiki-token-keyword)">from</span><span style="color:var(--shiki-token-string-expression)"> "./src/kitDocs/lib/plugin"</span><span style="color:var(--shiki-token-comment)"></span></span>
+<span class="line"></span>
+<span class="line added"><span style="color:var(--shiki-token-keyword)">const</span><span style="color:var(--shiki-token-constant)"> kitDocsOptions</span><span style="color:var(--shiki-token-keyword)"> =</span><span style="color:var(--shiki-foreground)"> &#123;</span><span style="color:var(--shiki-token-comment)"></span></span>
+<span class="line added"><span style="color:var(--shiki-foreground)">    appName</span><span style="color:var(--shiki-token-keyword)">:</span><span style="color:var(--shiki-token-string-expression)">"KitDocs"</span><span style="color:var(--shiki-token-punctuation)">,</span><span style="color:var(--shiki-foreground)">domainUrl</span><span style="color:var(--shiki-token-keyword)">:</span><span style="color:var(--shiki-token-string-expression)">"https://kitdocs.dev"</span><span style="color:var(--shiki-token-punctuation)">,</span><span style="color:var(--shiki-token-comment)"></span></span>
+<span class="line added"><span style="color:var(--shiki-foreground)">    defaultImage</span><span style="color:var(--shiki-token-keyword)">:</span><span style="color:var(--shiki-token-string-expression)">"https://kitdocs.dev/images/backdrop.png"</span><span style="color:var(--shiki-token-punctuation)">,</span><span style="color:var(--shiki-foreground)"> devMode</span><span style="color:var(--shiki-token-keyword)">:</span><span style="color:var(--shiki-token-constant)">true</span><span style="color:var(--shiki-token-comment)"></span></span>
+<span class="line added"><span style="color:var(--shiki-foreground)">}</span><span style="color:var(--shiki-token-comment)"></span></span>
 <span class="line"></span>
 <span class="line"><span style="color:var(--shiki-token-keyword)">export</span><span style="color:var(--shiki-token-keyword)"> default</span><span style="color:var(--shiki-token-function)"> defineConfig</span><span style="color:var(--shiki-foreground)">(&#123;</span></span>
 <span class="line"><span style="color:var(--shiki-foreground)">    plugins</span><span style="color:var(--shiki-token-keyword)">:</span><span style="color:var(--shiki-foreground)"> [</span></span>
-<span class="line added"><span style="color:var(--shiki-token-function)">        viteMdToSvelte</span><span style="color:var(--shiki-foreground)">(</span><span style="color:var(--shiki-token-string-expression)">"src/routes/(docs)/docs"</span><span style="color:var(--shiki-token-punctuation)">,</span><span style="color:var(--shiki-token-string-expression)">"KitDocs"</span><span style="color:var(--shiki-foreground)">)</span><span style="color:var(--shiki-token-punctuation)">,</span><span style="color:var(--shiki-token-comment)"></span></span>
+<span class="line added"><span style="color:var(--shiki-token-function)">        viteMdToSvelte</span><span style="color:var(--shiki-foreground)">(</span><span style="color:var(--shiki-token-string-expression)">"src/routes/(docs)/docs"</span><span style="color:var(--shiki-token-punctuation)">,</span><span style="color:var(--shiki-foreground)">kitDocsOptions)</span><span style="color:var(--shiki-token-punctuation)">,</span><span style="color:var(--shiki-token-comment)"></span></span>
 <span class="line"><span style="color:var(--shiki-token-function)">        sveltekit</span><span style="color:var(--shiki-foreground)">()</span></span>
 <span class="line"><span style="color:var(--shiki-foreground)">    ]</span></span>
 <span class="line"><span style="color:var(--shiki-foreground)">});</span></span></code></pre></div>
