@@ -1,5 +1,5 @@
 {
-    "version": "0.0.24",
+    "version": "0.0.25",
     "projectName": "kitDocs",
     "navLinks": [
         {
@@ -39,9 +39,10 @@
     "kitDocs": {
         "Introduction": [
             {
+                "layout": "Introduction",
                 "title": "KitDocs",
-                "href": "/docs",
                 "description": "Build documentation site using SvelteKit and kitDocs.",
+                "href": "/docs",
                 "new": false,
                 "headers": [
                     {
@@ -63,9 +64,10 @@
                 ]
             },
             {
+                "layout": "Introduction",
                 "title": "Getting started",
-                "href": "/docs/getting-started",
                 "description": "What to do after installing kitDocs, A step by step guide.",
+                "href": "/docs/getting-started",
                 "new": false,
                 "headers": [
                     {
@@ -93,9 +95,10 @@
         ],
         "Core files": [
             {
+                "layout": "Core files",
                 "title": "CoreFiles",
-                "href": "/docs/core/",
                 "description": "The most important files that makes kitDocs function.",
+                "href": "/docs/core",
                 "new": false,
                 "headers": [
                     {
@@ -121,9 +124,10 @@
                 ]
             },
             {
+                "layout": "Core files",
                 "title": "AppJson",
-                "href": "/docs/core/app-json",
                 "description": "A json file that keeps track of important information about your app.",
+                "href": "/docs/core/app-json",
                 "new": false,
                 "headers": [
                     {
@@ -157,9 +161,10 @@
                 ]
             },
             {
+                "layout": "Core files",
                 "title": "Logo",
-                "href": "/docs/core/logo",
                 "description": "A svelte component that render your logo into the top navigation.",
+                "href": "/docs/core/logo",
                 "new": false,
                 "headers": [
                     {
@@ -169,9 +174,10 @@
                 ]
             },
             {
+                "layout": "Core files",
                 "title": "Style",
-                "href": "/docs/core/style",
                 "description": "KitDocs style file.",
+                "href": "/docs/core/style",
                 "new": false,
                 "headers": [
                     {
@@ -183,9 +189,10 @@
         ],
         "Special tags": [
             {
+                "layout": "Special tags",
                 "title": "Tags",
-                "href": "/docs/special-tags/",
                 "description": "A list of super key you can use inside your markdowns.",
+                "href": "/docs/special-tags",
                 "new": false,
                 "headers": [
                     {
@@ -195,9 +202,10 @@
                 ]
             },
             {
+                "layout": "Special tags",
                 "title": "ALL",
-                "href": "/docs/special-tags/all",
                 "description": "Show highlighted code and add code to the page.",
+                "href": "/docs/special-tags/all",
                 "new": false,
                 "headers": [
                     {
@@ -207,9 +215,10 @@
                 ]
             },
             {
+                "layout": "Special tags",
                 "title": "CODE",
-                "href": "/docs/special-tags/code",
                 "description": "Add custom js code to script tag.",
+                "href": "/docs/special-tags/code",
                 "new": false,
                 "headers": [
                     {
@@ -219,10 +228,11 @@
                 ]
             },
             {
+                "layout": "Special tags",
                 "title": "//H",
-                "href": "/docs/special-tags/h",
                 "description": "Highlight code sections.",
                 "new": true,
+                "href": "/docs/special-tags/h",
                 "headers": [
                     {
                         "id": "highlight-code",
@@ -231,9 +241,10 @@
                 ]
             },
             {
+                "layout": "Special tags",
                 "title": "CSS",
-                "href": "/docs/special-tags/style",
                 "description": "Adding custom style to page.",
+                "href": "/docs/special-tags/style",
                 "new": false,
                 "headers": [
                     {
@@ -243,9 +254,10 @@
                 ]
             },
             {
+                "layout": "Special tags",
                 "title": "WARNING",
-                "href": "/docs/special-tags/warning",
                 "description": "Display a warning message.",
+                "href": "/docs/special-tags/warning",
                 "new": false,
                 "headers": [
                     {

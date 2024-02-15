@@ -13,21 +13,21 @@
 
 <svelte:head>
     <!-- Primary Meta Tags -->
-    <title>WARNING | KitDocs</title>
-    <meta name="title" content="WARNING | KitDocs" />
+    <title>WARNING | TestApp</title>
+    <meta name="title" content="WARNING | TestApp" />
     <meta name="description" content="Display a warning message." />
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://localhost:5173/docs/special-tags/warning" />
-    <meta property="og:title" content="WARNING | KitDocs" />
+    <meta property="og:url" content="https://developedbyant.com/blog/special-tags/warning" />
+    <meta property="og:title" content="WARNING | TestApp" />
     <meta property="og:description" content="Display a warning message." />
-    <meta property="og:image" content="https://kitdocs.dev/images/backdrop.png" />
+    <meta property="og:image" content="https://developedbyant.com/images/backdrop.png" />
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="http://localhost:5173/docs/special-tags/warning" />
-    <meta property="twitter:title" content="WARNING | KitDocs" />
+    <meta property="twitter:url" content="https://developedbyant.com/blog/special-tags/warning" />
+    <meta property="twitter:title" content="WARNING | TestApp" />
     <meta property="twitter:description" content="Display a warning message." />
-    <meta property="twitter:image" content="https://kitdocs.dev/images/backdrop.png" />
+    <meta property="twitter:image" content="https://developedbyant.com/images/backdrop.png" />
 </svelte:head>
 <h1 data-section data-md="header" id="warning">
     Warning

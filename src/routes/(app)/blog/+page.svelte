@@ -13,21 +13,21 @@
 
 <svelte:head>
     <!-- Primary Meta Tags -->
-    <title>KitDocs | KitDocs</title>
-    <meta name="title" content="KitDocs | KitDocs" />
+    <title>KitDocs | TestApp</title>
+    <meta name="title" content="KitDocs | TestApp" />
     <meta name="description" content="Build documentation site using SvelteKit and kitDocs." />
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://localhost:5173/docs/" />
-    <meta property="og:title" content="KitDocs | KitDocs" />
+    <meta property="og:url" content="https://developedbyant.com/blog/" />
+    <meta property="og:title" content="KitDocs | TestApp" />
     <meta property="og:description" content="Build documentation site using SvelteKit and kitDocs." />
-    <meta property="og:image" content="https://kitdocs.dev/images/backdrop.png" />
+    <meta property="og:image" content="https://developedbyant.com/images/backdrop.png" />
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="http://localhost:5173/docs/" />
-    <meta property="twitter:title" content="KitDocs | KitDocs" />
+    <meta property="twitter:url" content="https://developedbyant.com/blog/" />
+    <meta property="twitter:title" content="KitDocs | TestApp" />
     <meta property="twitter:description" content="Build documentation site using SvelteKit and kitDocs." />
-    <meta property="twitter:image" content="https://kitdocs.dev/images/backdrop.png" />
+    <meta property="twitter:image" content="https://developedbyant.com/images/backdrop.png" />
 </svelte:head>
 <h1 data-section data-md="header" id="what-is-kitdocs">
     What is kitDocs?

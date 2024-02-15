@@ -13,21 +13,21 @@
 
 <svelte:head>
     <!-- Primary Meta Tags -->
-    <title>CoreFiles | KitDocs</title>
-    <meta name="title" content="CoreFiles | KitDocs" />
+    <title>CoreFiles | TestApp</title>
+    <meta name="title" content="CoreFiles | TestApp" />
     <meta name="description" content="The most important files that makes kitDocs function." />
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://localhost:5173/docs/core/" />
-    <meta property="og:title" content="CoreFiles | KitDocs" />
+    <meta property="og:url" content="https://developedbyant.com/blog/core/" />
+    <meta property="og:title" content="CoreFiles | TestApp" />
     <meta property="og:description" content="The most important files that makes kitDocs function." />
-    <meta property="og:image" content="https://kitdocs.dev/images/backdrop.png" />
+    <meta property="og:image" content="https://developedbyant.com/images/backdrop.png" />
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="http://localhost:5173/docs/core/" />
-    <meta property="twitter:title" content="CoreFiles | KitDocs" />
+    <meta property="twitter:url" content="https://developedbyant.com/blog/core/" />
+    <meta property="twitter:title" content="CoreFiles | TestApp" />
     <meta property="twitter:description" content="The most important files that makes kitDocs function." />
-    <meta property="twitter:image" content="https://kitdocs.dev/images/backdrop.png" />
+    <meta property="twitter:image" content="https://developedbyant.com/images/backdrop.png" />
 </svelte:head>
 <h1 data-section data-md="header" id="core-files">
     Core files

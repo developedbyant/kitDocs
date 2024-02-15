@@ -28,7 +28,7 @@
 		"create-svelte": "^5.3.4",
 		"fs-extra": "^11.2.0",
 		"inquirer": "^9.2.14",
-		"md-to-svelte": "^0.0.6"
+		"md-to-svelte": "^0.0.9"
 	},
 	"type": "module"
 }

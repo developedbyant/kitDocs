@@ -7,7 +7,7 @@
     $: currentData = links.find(data=>data.href===$page.url.pathname)
     $: pageLinks = currentData ? currentData.headers : []
     $: scrollY = $appStore.scrollY
-    $: activeID = pageLinks[0].id
+    $: activeID = pageLinks[0]?.id
 
     // Run this code when scrollY have been set
     $: if(scrollY!==0){

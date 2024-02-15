@@ -13,21 +13,21 @@
 
 <svelte:head>
     <!-- Primary Meta Tags -->
-    <title>CSS | KitDocs</title>
-    <meta name="title" content="CSS | KitDocs" />
+    <title>CSS | TestApp</title>
+    <meta name="title" content="CSS | TestApp" />
     <meta name="description" content="Adding custom style to page." />
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://localhost:5173/docs/special-tags/style" />
-    <meta property="og:title" content="CSS | KitDocs" />
+    <meta property="og:url" content="https://developedbyant.com/blog/special-tags/style" />
+    <meta property="og:title" content="CSS | TestApp" />
     <meta property="og:description" content="Adding custom style to page." />
-    <meta property="og:image" content="https://kitdocs.dev/images/backdrop.png" />
+    <meta property="og:image" content="https://developedbyant.com/images/backdrop.png" />
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="http://localhost:5173/docs/special-tags/style" />
-    <meta property="twitter:title" content="CSS | KitDocs" />
+    <meta property="twitter:url" content="https://developedbyant.com/blog/special-tags/style" />
+    <meta property="twitter:title" content="CSS | TestApp" />
     <meta property="twitter:description" content="Adding custom style to page." />
-    <meta property="twitter:image" content="https://kitdocs.dev/images/backdrop.png" />
+    <meta property="twitter:image" content="https://developedbyant.com/images/backdrop.png" />
 </svelte:head>
 <h1 data-section data-md="header" id="adding-style">
     Adding style
